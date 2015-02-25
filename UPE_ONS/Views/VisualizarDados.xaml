@@ -1,0 +1,178 @@
+﻿<UserControl x:Class="UPE_ONS.Views.VisualizarDados"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:c="clr-namespace:UPE_ONS.Views" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:my="clr-namespace:UPE_ONS.Util"
+             mc:Ignorable="d" 
+             d:DesignHeight="545" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <my:BoolToVisibilityConverter x:Key="BoolToVisConverter" />
+    </UserControl.Resources>
+
+    <xctk:BusyIndicator BusyContent="Carregando..." Name="BusyIndicatorCarregando" IsBusy="False">
+
+        <Grid>
+            <Grid.CommandBindings>
+                <CommandBinding Command="New" CanExecute="CanExecute" Executed="Executed" />
+            </Grid.CommandBindings>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="Informações Importadas" TextWrapping="NoWrap" FontSize="30"/>
+
+            <TextBlock HorizontalAlignment="Center" Margin="77,24,649,0" Grid.Row="1" TextWrapping="NoWrap" 
+                   Text="Parque Eólico:" VerticalAlignment="Top"/>
+
+            <ComboBox HorizontalAlignment="Center" Margin="-250 20 0 0" Grid.Row="1" VerticalAlignment="Top" Width="220"
+                  DisplayMemberPath="Nome" SelectedValue="Id" Name="cmbBoxParquesEolicos" SelectionChanged="cmbBoxParquesEolicos_SelectionChanged"/>
+
+            <ComboBox HorizontalAlignment="Center" Margin="-370 50 0 0" Grid.Row="1" VerticalAlignment="Top" Width="100"
+                  Name="cmbBoxIntervalo" SelectionChanged="cmbBoxIntervalo_SelectionChanged">
+                <ComboBoxItem IsSelected="True" Tag="10min">10 minutos</ComboBoxItem>
+                <ComboBoxItem Tag="30min">30 minutos</ComboBoxItem>
+            </ComboBox>
+
+            <DataGrid HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" 
+                      AutoGenerateColumns="False" Margin="0 80 0 0" Width="650" Height="340" 
+                      Name="dataGridVisualizarDados" RowHeaderWidth="0" Visibility="Hidden" 
+                      CanUserAddRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Ano" Binding="{Binding Ano}"  IsReadOnly="True"/>
+
+                    <DataGridTextColumn Header="Dia" Binding="{Binding Dia}"  IsReadOnly="True"/>
+
+                    <DataGridTextColumn Header="Mês" Binding="{Binding Mes}" IsReadOnly="True"/>
+
+                    <DataGridTextColumn Header="Hora" Binding="{Binding Hora}" IsReadOnly="True"/>
+
+                    <DataGridTextColumn Header="Minuto" Binding="{Binding Minuto}" IsReadOnly="True"/>
+
+                    <DataGridTextColumn Header="Segundo" Binding="{Binding Segundo}" IsReadOnly="True"/>
+
+                    <DataGridTextColumn Header="Núm. Maq. Médio" IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields}, 
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding NumMaquinaMed}"/>
+
+                    <DataGridTextColumn Header="Núm. Maq. Desv. Padrão" IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields}, 
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding NumMaquinaDesvP}"/>
+
+                    <DataGridTextColumn Header="Núm. Maq. Mín." IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields}, 
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding NumMaquinaMin}"/>
+
+                    <DataGridTextColumn Header="Núm. Maq. Máx." IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields}, 
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding NumMaquinaMax}"/>
+
+                    <DataGridTextColumn Header="Núm. Maq. Válidos" IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields}, 
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding NumMaquinaN_Validos}"/>
+
+                    <DataGridTextColumn Header="Potência Média" Binding="{Binding Potencia}" IsReadOnly="True"/>
+
+                    <DataGridTextColumn Header="Potência Desv. Padrão" IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields}, 
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding PotenciaDesvP}"/>
+
+                    <DataGridTextColumn Header="Potência Mín." IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields}, 
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding PotenciaMin}"/>
+
+                    <DataGridTextColumn Header="Potência Máx." IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields}, 
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding PotenciaMax}"/>
+
+                    <DataGridTextColumn Header="Velocidade Média" Binding="{Binding VelocidadeMedia}" IsReadOnly="True"/>
+
+                    <DataGridTextColumn Header="Velocidade Desv. Padrão" IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields}, 
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding VelocidadeDesvP}"/>
+
+                    <DataGridTextColumn Header="Velocidade Mín." IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields}, 
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding VelocidadeMin}"/>
+
+                    <DataGridTextColumn Header="Velocidade Máx." IsReadOnly="True" Binding="{Binding VelocidadeMax}"
+                        Visibility="{Binding Source={x:Reference chkBoxAllFields}, Path=IsChecked, Converter={StaticResource BoolToVisConverter}}"/>
+
+                    <DataGridTextColumn Header="Temperatura Média." IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields}, 
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding TemperaturaMedia}"/>
+
+                    <DataGridTextColumn Header="Temperatura Desv. Padrão" IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields}, 
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding TemperaturaDesvP}"/>
+
+                    <DataGridTextColumn Header="Temperatura Mín." IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields}, 
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding TemperaturaMin}"/>
+
+                    <DataGridTextColumn Header="Temperatura Máx." IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields}, 
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding TemperaturaMax}"/>
+
+                    <DataGridTextColumn Header="Pressão Média" IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields}, 
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding PressaoMedia}"/>
+
+                    <DataGridTextColumn Header="Pressão Desv. Padrão" IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields},  
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding PressaoDesvP}"/>
+
+                    <DataGridTextColumn Header="Pressão Mín." IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields}, 
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding PressaoMin}"/>
+
+                    <DataGridTextColumn Header="Pressão Máx." IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields},  
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding PressaoMax}"/>
+
+                    <DataGridTextColumn Header="Direção Média" Binding="{Binding DirecaoMedia}" IsReadOnly="True"/>
+
+                    <DataGridTextColumn Header="Direção Desv. Padrão" IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields}, 
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding DirecaoDesvP}"/>
+
+                    <DataGridTextColumn Header="Direção Mín." IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields}, 
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding DirecaoMin}"/>
+
+                    <DataGridTextColumn Header="Direção Máx." IsReadOnly="True" Visibility="{Binding Source={x:Reference chkBoxAllFields}, 
+                        Path=IsChecked, Converter={StaticResource BoolToVisConverter}}" Binding="{Binding DirecaoMax}"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <TreeView Name="TreeViewDadosCPTEC" Visibility="Hidden"
+                      HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top"
+                      Margin="0 80 0 0" Width="650" Height="350">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding}" DataType="System.Collections.Generic">
+                        <HierarchicalDataTemplate.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}"/>
+                            </DataTemplate>
+                        </HierarchicalDataTemplate.ItemTemplate>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+
+            </TreeView>
+
+            <TextBlock Name="txtMessage" Text="Por favor, selecione o parque eólico desejado." HorizontalAlignment="Center" 
+                       Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0 125 0 0"/>
+
+            <CheckBox Content="Ver todos os campos" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top"
+                      Margin="590,25,75,0" x:Name="chkBoxAllFields" Visibility="Hidden" Checked="chkBoxAllFields_Checked"/>
+
+            <Grid Name="gridFiltrar" Grid.Row="1" Visibility="Hidden">
+                <TextBox HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" 
+                     Name="txtLimit" VerticalAlignment="Top" Margin="0 435 0 0" Width="45" 
+                     TextAlignment="Center" Validation.Error="Validation_Error">
+                    <TextBox.Text>
+                        <Binding Path="Limit" UpdateSourceTrigger="PropertyChanged" 
+                             NotifyOnValidationError="True">
+                            <Binding.ValidationRules>
+                                <my:IntegerValidationRules ValidatesOnTargetUpdated="True"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <Button Content="Filtrar" HorizontalAlignment="Center" Margin="125 437 0 0" 
+                    VerticalAlignment="Top" Width="55" Command="New" Name="btnFiltrar" />
+            </Grid>
+            <RadioButton Content="CPTEC" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top"
+                         Margin="75 25 0 0" Name="radioCPTEC" GroupName="TipoImportacao" Checked="radioCPTEC_Checked"/>
+            <RadioButton Content="PrevEOL" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top"
+                         Margin="225 25 0 0" IsChecked="True" Name="radioPrevEOL" GroupName="TipoImportacao" Checked="radioPrevEOL_Checked"/>
+        </Grid>
+    </xctk:BusyIndicator>
+</UserControl>

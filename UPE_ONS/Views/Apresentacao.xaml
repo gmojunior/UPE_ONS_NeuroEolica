@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="UPE_ONS.Views.Apresentacao"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Width="500" Height="400">
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Name="txtBoasVindas"
+                   Text="Bem vindo ao Neuro Eólica" FontSize="40"/>
+
+    </Grid>
+</UserControl>

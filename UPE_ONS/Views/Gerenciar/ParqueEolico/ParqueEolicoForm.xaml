@@ -1,0 +1,132 @@
+﻿<UserControl x:Class="UPE_ONS.Views.ParqueEolicoForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:util="clr-namespace:UPE_ONS.Util">
+    <UserControl.Resources>
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip">
+                        <Setter.Value>
+                            <Binding Path="(Validation.Errors).CurrentItem.ErrorContent"
+                                            RelativeSource="{x:Static RelativeSource.Self}"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.CommandBindings>
+            <CommandBinding Command="New" CanExecute="CadastrarParqueEolico_CanExecute" Executed="CadastrarParqueEolico_Executed" />
+        </Grid.CommandBindings>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="450"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Text="Titulo" 
+                   FontSize="30" Grid.Row="0" Name="txtTitulo"/>
+        <Grid Grid.Row="1" Margin="0 40 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="1" Margin="10" Grid.Column="1" HorizontalAlignment="Center">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <TextBlock Text="Sigla (PrevEOL):" VerticalAlignment="Center" Width="125"/>
+                        <TextBox HorizontalAlignment="Right" Height="23" Name="txtSiglaPrevEOL" 
+                                 VerticalAlignment="Center" Width="200" MaxLength="50" Validation.Error="Validation_Error">
+                            <TextBox.Text>
+                                <Binding  Path="SiglaPrevEOL" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                                    <Binding.ValidationRules>
+                                        <util:StringValidationRules Max="50" ValidatesOnTargetUpdated="True"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <TextBlock Text="Sigla (CPTEC):" VerticalAlignment="Center" Width="125"/>
+                        <TextBox HorizontalAlignment="Right" Height="23" Name="txtSiglaCPTEC"
+                                 Validation.Error="Validation_Error"
+                                 VerticalAlignment="Center" Width="200" MaxLength="50">
+                            <TextBox.Text>
+                                <Binding  Path="SiglaCPTEC" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                                    <Binding.ValidationRules>
+                                        <util:StringValidationRules Max="50" ValidatesOnTargetUpdated="True"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <TextBlock Text="Sigla Geração Total:" VerticalAlignment="Center" Width="125"/>
+                        <TextBox HorizontalAlignment="Right" Height="23" Name="txtSiglaGETOT"
+                                 Validation.Error="Validation_Error"
+                                 VerticalAlignment="Center" Width="200" MaxLength="50">
+                            <TextBox.Text>
+                                <Binding  Path="SiglaGETOT" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                                    <Binding.ValidationRules>
+                                        <util:StringValidationRules Max="50" ValidatesOnTargetUpdated="True"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </StackPanel>
+                    
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <TextBlock VerticalAlignment="Center" Text="Nome do parque:" Width="125"/>
+                        <TextBox Height="23" Name="txtParqueEolico" TextWrapping="Wrap" Width="200" 
+                                 Validation.Error="Validation_Error"
+                                 VerticalAlignment="Center" HorizontalAlignment="Right" MaxLength="50">
+                            <TextBox.Text>
+                                <Binding  Path="Nome" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                                    <Binding.ValidationRules>
+                                        <util:StringValidationRules Max="50" ValidatesOnTargetUpdated="True"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <TextBlock Text="Número de máquinas:" VerticalAlignment="Center" Width="125"/>
+                        <TextBox HorizontalAlignment="Right" Height="23" Name="txtNumMaquinas" 
+                                 Validation.Error="Validation_Error"
+                                 VerticalAlignment="Center" Width="200">
+                            <TextBox.Text>
+                                <Binding Path="NumMaquinas" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                                    <Binding.ValidationRules>
+                                        <util:IntegerValidationRules ValidatesOnTargetUpdated="True"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <TextBlock Text="Potência máxima:" VerticalAlignment="Center" Width="125"/>
+                        <TextBox HorizontalAlignment="Right" Height="23" Name="txtPotenciaMaxima"
+                                 Validation.Error="Validation_Error"
+                                 VerticalAlignment="Center" Width="200">
+                            <TextBox.Text>
+                                <Binding Path="PotenciaMaxima" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                                    <Binding.ValidationRules>
+                                        <util:DoubleValidationRules ValidatesOnTargetUpdated="True"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 40 0 0" HorizontalAlignment="Right">
+                        <Button Name="btnAction" Content="Texto" Width="75" Margin="10" Command="New"/>
+                        <Button Name="btnVoltar" Content="Voltar" Width="75" Margin="10" Click="BtnVoltar_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

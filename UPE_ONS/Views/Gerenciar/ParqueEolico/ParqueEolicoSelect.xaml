@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="UPE_ONS.Views.ParqueEolicoSelect"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d">
+
+    <xctk:BusyIndicator BusyContent="Carregando..." IsBusy="True" Name="BusyIndicatorCarregando">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="350"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Text="Parques Eólicos" 
+                           FontSize="30" Grid.Row="0"/>
+
+            <TextBlock HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" 
+                        VerticalAlignment="Top" Margin="0 100 0 0" Name="txtMensagem"/>
+
+            <DataGrid Name="dataGridParqueEolico" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"
+                        Width="500" Height="200" Grid.Row="1" AutoGenerateColumns="False" RowHeaderWidth="0" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding SiglaCPTEC}" Width="120">
+                        <DataGridTextColumn.Header>
+                            <TextBlock  Text="Sigla CPTEC" HorizontalAlignment="Center"/>
+                        </DataGridTextColumn.Header>
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding SiglaPrevEOL}" Width="120">
+                        <DataGridTextColumn.Header>
+                            <TextBlock  Text="Sigla PrevEOL"/>
+                        </DataGridTextColumn.Header>
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+                <Button HorizontalAlignment="Left" Click="CadastrarParque_Click"
+                    VerticalAlignment="Top" Width="75" Content="Cadastrar" Margin="10" />
+
+                <Button Content="Alterar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" 
+                        Margin="10" Click="AlterarParque_Click" />
+
+                <Button Content="Excluir" Margin="10" Width="75" Click="ExcluirParque_Click"/>
+            </StackPanel>
+
+            <TextBlock HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Name="txtBoxException"
+                        VerticalAlignment="Top" Margin="0 20 0 0" Visibility="Hidden"/>
+        </Grid>
+    </xctk:BusyIndicator>
+</UserControl>
