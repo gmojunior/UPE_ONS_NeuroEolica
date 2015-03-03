@@ -211,6 +211,7 @@ namespace UPE_ONS.Controllers
 
                 //Abrir PI
                 MyPiController controller = new MyPiController(tag, time1, time2);
+                controller.run();
                 ArrayList integralizedPowerList = fileReader.readPotRequestFile(tag);
 
                 String path = PREVISOR_TR_DIRECTORY_NAME + "/" + parque.SiglaPrevEOL + PASTA_ENTRADAS;
