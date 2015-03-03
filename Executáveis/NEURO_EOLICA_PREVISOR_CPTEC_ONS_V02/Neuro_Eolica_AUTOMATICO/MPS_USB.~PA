@@ -1,0 +1,3235 @@
+unit Mps_usb;
+
+interface
+
+uses
+  SysUtils, WinTypes, WinProcs, Messages, Classes, Graphics, Controls,
+  Forms, Dialogs, StdCtrls, Buttons, ExtCtrls, Menus,printers,sobre,Math,
+  TeEngine, Series, TeeProcs, Chart, jpeg;
+
+type
+CrefType = Class of TControl;
+  TMainForm = class(TForm)
+    MainMenu: TMainMenu;
+    FileNewItem: TMenuItem;
+    FileOpenItem: TMenuItem;
+    FileSaveItem: TMenuItem;
+    FileSaveAsItem: TMenuItem;
+    FilePrintItem: TMenuItem;
+    FilePrintSetupItem: TMenuItem;
+    FileExitItem: TMenuItem;
+    EditUndoItem: TMenuItem;
+    EditCutItem: TMenuItem;
+    EditCopyItem: TMenuItem;
+    EditPasteItem: TMenuItem;
+    HelpContentsItem: TMenuItem;
+    HelpSearchItem: TMenuItem;
+    HelpHowToUseItem: TMenuItem;
+    HelpAboutItem: TMenuItem;
+    OpenDialog: TOpenDialog;
+    SaveDialog: TSaveDialog;
+    PrintDialog: TPrintDialog;
+    PrintSetupDialog: TPrinterSetupDialog;
+    SpeedBar: TPanel;
+    SpeedButton1: TSpeedButton;  { &New }
+    SpeedButton2: TSpeedButton;  { &Open... }
+    SpeedButton3: TSpeedButton;  { Save &As... }
+    SpeedButton5: TSpeedButton;  { &Print... }
+    SpeedButton7: TSpeedButton;  { P&rint Setup... }
+    SpeedButton8: TSpeedButton;  { E&xit }
+    SpeedButton9: TSpeedButton;  { &Undo }
+    SpeedButton10: TSpeedButton;  { &Copy }
+    SpeedButton11: TSpeedButton;  { &Paste }
+    SpeedButton12: TSpeedButton;  { &Contents }
+    SpeedButton13: TSpeedButton;
+    BitBtn1: TBitBtn;
+    Labelpreve: TLabel;
+    PrintDialog1: TPrintDialog;
+    Button53: TButton;
+    Edit8: TEdit;
+    Labelp1: TLabel;
+    Labelp2: TLabel;
+    Labelp3: TLabel;
+    Labelp4: TLabel;
+    Labelp5: TLabel;
+    Labelp6: TLabel;
+    Label1: TLabel;
+    mep195: TLabel;
+    mep295: TLabel;
+    mep395: TLabel;
+    mep495: TLabel;
+    mep595: TLabel;
+    mep695: TLabel;
+    Label25: TLabel;
+    Label26: TLabel;
+    Label27: TLabel;
+    Label28: TLabel;
+    Label29: TLabel;
+    Label30: TLabel;
+    Label34: TLabel;
+    mep795: TLabel;
+    mep895: TLabel;
+    mep995: TLabel;
+    mep1095: TLabel;
+    mep1195: TLabel;
+    mep1295: TLabel;
+    Chart1: TChart;
+    Series1: TLineSeries;
+    Label4: TLabel;
+    Chart2: TChart;
+    Series3: TLineSeries;
+    Label2: TLabel;
+    Edit1: TEdit;
+    Label3: TLabel;
+    Label5: TLabel;
+    Edit2: TEdit;
+    Label6: TLabel;
+    Series2: TLineSeries;
+    Edit3: TEdit;
+    Edit4: TEdit;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Edit5: TEdit;
+    Label11: TLabel;
+    Edit6: TEdit;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Mep150: TLabel;
+    Map195: TLabel;
+    Map150: TLabel;
+    Label18: TLabel;
+    Mip195: TLabel;
+    Mip150: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Mep250: TLabel;
+    Map295: TLabel;
+    Map250: TLabel;
+    Mip295: TLabel;
+    Mip250: TLabel;
+    Label17: TLabel;
+    Mep350: TLabel;
+    Map395: TLabel;
+    Map350: TLabel;
+    Mip395: TLabel;
+    Mip350: TLabel;
+    Label19: TLabel;
+    Label20: TLabel;
+    Mep450: TLabel;
+    Map495: TLabel;
+    Map450: TLabel;
+    Mip495: TLabel;
+    Mip450: TLabel;
+    Label22: TLabel;
+    Label23: TLabel;
+    Label21: TLabel;
+    Label24: TLabel;
+    Map695: TLabel;
+    Mep550: TLabel;
+    Map595: TLabel;
+    Map550: TLabel;
+    Mip595: TLabel;
+    Mip550: TLabel;
+    Mep650: TLabel;
+    Map650: TLabel;
+    Mip695: TLabel;
+    Mip650: TLabel;
+    Label31: TLabel;
+    Label32: TLabel;
+    Map795: TLabel;
+    Mep750: TLabel;
+    Map750: TLabel;
+    Mip795: TLabel;
+    Mip750: TLabel;
+    Label33: TLabel;
+    Label35: TLabel;
+    Mep850: TLabel;
+    Map895: TLabel;
+    Map850: TLabel;
+    Mip895: TLabel;
+    Mip850: TLabel;
+    Label36: TLabel;
+    Label37: TLabel;
+    Mep950: TLabel;
+    Map995: TLabel;
+    Map950: TLabel;
+    Mip995: TLabel;
+    Mip950: TLabel;
+    Label38: TLabel;
+    Label39: TLabel;
+    Mep1050: TLabel;
+    Map1095: TLabel;
+    Mip1050: TLabel;
+    Mip1095: TLabel;
+    Map1050: TLabel;
+    Mep1150: TLabel;
+    Label40: TLabel;
+    Label41: TLabel;
+    Map1195: TLabel;
+    Map1150: TLabel;
+    Mip1195: TLabel;
+    Mip1150: TLabel;
+    Label42: TLabel;
+    Label43: TLabel;
+    Mep1250: TLabel;
+    Map1295: TLabel;
+    Map1250: TLabel;
+    Mip1295: TLabel;
+    Label44: TLabel;
+    Label45: TLabel;
+    Label46: TLabel;
+    Label47: TLabel;
+    Mip1250: TLabel;
+    BitBtn2: TBitBtn;  { &About... }
+    procedure  Formrestaura(sender:tobject);
+    procedure  prever(sender:tobject);
+    procedure  prever1(sender:tobject);
+    procedure  Inicio(sender:tObject);
+    procedure  InicioPreve(sender:tObject);
+    procedure  GeraAleatorio;
+    procedure  AtualizaTaxa(sender:tObject);
+    procedure  AtualizaTaxa1(sender:tObject);
+    procedure  RotinaForward(sender:tObject);
+    procedure  RotinaCalculaErro(sender:tObject);
+    procedure  RotinaFacaTeste(sender:tObject);
+    procedure  RotinaForwardTeste(sender:tObject);
+    procedure  RotinaForwardSaidasBlocosPrevisao(sender:tObject);
+    procedure  RotinaForwardSaidasBlocos(sender:tObject);
+    procedure  RotinaGuardaPesosOtimos(sender:tObject);
+    procedure  RotinaSalvaPesos(sender:tObject);
+    procedure  RotinaSalvaPesos3(sender:tObject);
+    procedure  RotinaLerPesos(sender:tObject);
+    procedure  RotinaAntigosPesos(sender:tObject);
+    procedure  RotinaNormalizaPesos(sender:tObject);
+    procedure  RotinaSalvaDadosTreinamento(sender:tObject);
+    procedure  RotinaSalvaDadosPrevisao(sender:tObject);
+    procedure  RotinaExemplosAleatorios;
+    procedure FileOpen(Sender: TObject);
+    procedure FileSaveAs(Sender: TObject);
+    procedure FilePrint(Sender: TObject);
+    procedure FilePrintSetup(Sender: TObject);
+    procedure FileExit(Sender: TObject);
+    procedure EditUndo(Sender: TObject);
+    procedure EditCut(Sender: TObject);
+    procedure EditCopy(Sender: TObject);
+    procedure EditPaste(Sender: TObject);
+    procedure HelpContents(Sender: TObject);
+    procedure HelpSearch(Sender: TObject);
+    procedure HelpHowToUse(Sender: TObject);
+    procedure HelpAbout(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
+    procedure Button10Click(Sender: TObject);
+    procedure Button11Click(Sender: TObject);
+    procedure Button12Click(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject;
+    var CanClose:Boolean);
+    procedure Edit1KeyPress(Sender: TObject;var Key:char);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure Button53Click(Sender: TObject);
+    procedure Button13Click(Sender: TObject);
+    procedure SaidasDoGrafico(Sender: TObject);
+    procedure TracaGrafico(Sender: TObject);
+    procedure ErroGrafico(Sender: TObject);
+    procedure RotinaErroValidacao(Sender: TObject);
+    procedure RotinaMesInicial(Sender: TObject);
+    public
+    Arq:TextFile;
+    ArqSaida:TextFile;
+    ArqSaida1:TextFile;
+    ArqSaida2:TextFile;
+    ArqSaida3:TextFile;
+    ArqSaida4:TextFile;
+    private
+   // Classref : CReftype;
+    contador : integer;
+   end;
+  const
+  MaxNumInputs=50;
+  MaxNumHidden=100;
+  MaxNumOutputs=12;
+  MaxNumTraining=10000;
+  MaxNumeroPrevisao=10000;
+  MaxNumTeste   =10000;
+  MaxNumBlocos=50;
+  MaxNumeroAnos=10000;
+  MaxNumeroSazonal=52;
+  MaxNumeroTotal=50000;
+  var
+  MainForm: TMainForm;
+  cp11,cp12,cp13,cp14,ctp1:real;
+  cp21,cp22,cp23,cp24,ctp2:Real;
+  cp31,cp32,cp33,cp34,ctp3:real;
+  cp41,cp42,cp43,cp44,ctp4:real;
+  cp51,cp52,cp53,cp54,ctp5:real;
+  cp61,cp62,cp63,cp64,ctp6:real;
+  intc1,intc2:real;
+  vm13,vm14,dp13,dp14:real;
+  ep1,ep2,ep3,ep4,ep5,ep6,ep7,ep8,ep9,ep10,ep11,ep12 :real;
+  vm1,vm2,vm3,vm4,vm5,vm6,vm7,vm8,vm9,vm10,vm11,vm12 :real;
+  dp1,dp2,dp3,dp4,dp5,dp6,dp7,dp8,dp9,dp10,dp11,dp12  :real;
+
+  Dminimo,teste,TesteBloco:double;
+  Lcoef,motum,motum1,RMS,RMSValidacao, ErroMedioPercentual:double;
+  ReadLearn,State : boolean;
+  ncont,ncont1,ncont2, NumMes, NumAr
+  ,NumValidacao, NumPreve,NumBlocosF,Ktempo,ContRms,Ktempo1:integer;
+  ValorMaximo, ValorMinimo,ConstanteBoxCox,ValorMaximoPesos,lambda:double;
+  Intc90 , Intc50 , Intc80, Intc70: string;
+ldmda1,ldmda1S1,ldmda1I1:double;
+ldmda1S2,ldmda1I2:double;
+ldmda2,ldmda2S1,ldmda2I1:double;
+ldmda2S2,ldmda2I2:real;
+ldmda3,ldmda3S1,ldmda3I1:real;
+ldmda3S2,ldmda3I2:real;
+ldmda4,ldmda4S1,ldmda4I1:double;
+ldmda4S2,ldmda4I2:real;
+ldmda5,ldmda5S1,ldmda5I1:real;
+ldmda5S2,ldmda5I2:real;
+ldmda6,ldmda6S1,ldmda6I1:real;
+ldmda6S2,ldmda6I2:real;
+ldmda7,ldmda7S1,ldmda7I1:real;
+ldmda7S2,ldmda7I2:real;
+ldmda8,ldmda8S1,ldmda8I1:real;
+ldmda8S2,ldmda8I2:real;
+ldmda9,ldmda9S1,ldmda9I1:real;
+ldmda9S2,ldmda9I2:real;
+ldmda10,ldmda10S1,ldmda10I1:real;
+ldmda10S2,ldmda10I2:real;
+ldmda11,ldmda11S1,ldmda11I1:real;
+ldmda11S2,ldmda11I2:real;
+ldmda12,ldmda12S1,ldmda12I1:real;
+ldmda12S2,ldmda12I2:real;
+ 
+  type
+
+  NumInputs1  = 1..MaxNumInputs;
+  NumHidden1  = 1..MaxNumHidden;
+  NumOutputs1 = 1..MaxNumOutputs;
+  NumTraining1= 1..MaxNumTraining;
+  NumeroPrevisao1= 1..MaxNumeroPrevisao;
+  NumTeste1   = 1..MaxNumTeste;
+  NumBlocos1  = 0..MaxNumBlocos;
+  NumeroAnos = 1..MaxNumeroAnos;
+  NumeroSazonal = 1..MaxNumeroSazonal;
+  NumeroTotal1=1..MaxNumeroTotal;
+  var
+  NumeroAnos1:NumeroAnos;
+  NumeroSazonal1:NumeroSazonal;
+  NumeroTotal:NumeroTotal1;
+  NumInputs:NumInputs1;
+  NumHidden:NumHidden1;
+  NumTraining:NumTraining1;
+  NumeroPrevisao:NumeroPrevisao1;
+  NumOutputs:NumOutputs1;
+  NumBlocos:NumBlocos1;
+  NumTeste:NumTeste1;
+  Netin0 : array [NumInputs1] of double;
+  Netin1 : array [NumHidden1] of double;
+  Netin2 : array [NumTraining1,NumOutputs1] of double;
+  Dados: array [NumeroTotal1]of double;
+  DadosTransformados: array [NumeroTotal1] of double;
+  DadosPadronizados: array [NumeroTotal1]of double;
+  DadosNormalizados: array [NumeroTotal1]of double;
+  MediaExemplos: array [NumeroSazonal]of double;
+  DesvioExemplos: array [NumeroSazonal]of double;
+  Weight1 : array [NumHidden1,NumInputs1] of double;
+  Weight2 : array [NumOutputs1,NumHidden1]of double;
+  AntigoWeight1 : array [NumHidden1,NumInputs1] of double;
+  AntigoWeight2 : array [NumOutputs1,NumHidden1]of double;
+
+  SomaDelwt1 : array [NumHidden1,NumInputs1] of double;
+  SomaDelwt2 : array [NumOutputs1,NumHidden1]of double;
+
+  Delwt1  : array [NumHidden1,NumInputs1] of double;
+  Delwt2  : array [NumOutputs1,NumHidden1]of double;
+  Peso_Subida :array [NumOutputs1,NumInputs1]of double;
+  Peso_Descida :array [NumOutputs1,NumInputs1]of double;
+  Entradas : array [NumTraining1,NumInputs1] of double;
+  Saidas   : array [NumTraining1,NumOutputs1] of double;
+  SaidasGrafico   : array [NumTraining1,NumOutputs1] of double;
+
+  EntradasAleatorias : array [NumTraining1,NumInputs1] of double;
+  SaidasAleatorias   : array [NumTraining1,NumOutputs1] of double;
+
+
+  SaidasBlocos : array [NumBlocos1,NumTraining1,NumOutputs1] of double;
+  SaidasBlocosAleatorias : array [NumBlocos1,NumTraining1,NumOutputs1]of double;
+
+  ExemplosCalculados : array [NumBlocos1,NumTraining1,NumOutputs1] of double;
+ 
+  SaidasOriginais : array [NumTraining1,NumOutputs1] of double;
+
+  Prdlwt1 : array [NumHidden1,NumInputs1] of double;
+  Prdlwt2 : array [NumOutputs1,NumHidden1]of double;
+  AntigoPrdlwt1 : array [NumHidden1,NumInputs1] of double;
+  AntigoPrdlwt2 : array [NumOutputs1,NumHidden1]of double;
+
+  Bias1 : array [NumHidden1] of double;
+  AntigoBias1 : array [NumHidden1] of double;
+  Delbs1 : array [NumHidden1] of double;
+  SomaDelbs1 : array [NumHidden1] of double;
+
+  Prdlbs1 : array [NumHidden1] of double;
+  AntigoPrdlbs1 : array [NumHidden1] of double;
+  Bias2   : array [NumHidden1] of double;
+  AntigoBias2   : array [NumHidden1] of double;
+
+  Delbs2  : array [NumHidden1] of double;
+  SomaDelbs2 : array [NumHidden1] of double;
+
+  Prdlbs2 : array [NumHidden1] of double;
+  AntigoPrdlbs2 : array [NumHidden1] of double;
+
+  Weight1Otimo : array [NumBlocos1,NumHidden1,NumInputs1] of double;
+  Weight2Otimo : array [NumBlocos1,NumOutputs1,NumHidden1] of double;
+  Bias1Otimo : array [NumBlocos1,NumHidden1] of double;
+  Bias2Otimo : array [NumBlocos1,NumHidden1] of double;
+
+  Actv1 : array [NumHidden1] of double;
+  Actv2 : array [NumHidden1] of double;
+  Actv3 : array [NumOutputs1] of double;
+  Netout : array [NumTraining1,NumOutputs1] of double;
+  NetoutGrafico : array [NumTraining1,NumOutputs1] of double;
+  Error1 : array [NumTraining1,NumHidden1] of double;
+  Error2 : array [NumTraining1,NumOutputs1] of double;
+  Sum1  : array [NumHidden1] of double;
+  DminimoBloco : array [NumBlocos1] of double;
+  ErroMedio: array [1..160000] of double;
+
+  ValorAleatorio: array [NumTraining1] of integer;
+  Exemplos : array [NumeroAnos,NumeroSazonal] of double;
+  erroPadrao: array [1..12,1..12] of double;
+
+const
+c90=1.645;c50=0.68;c95=1.96;c70=1.04;
+c11=0.249454;c12=0.294498;c13=-0.561497;c14=1.09511;ct1=-0.45435;e1=0.000;
+c21=0.011200;c22=0.043068;c23=-0.383136;c24=0.89099;ct2=2.74455;e2=0.00000;
+c31=0.08957;c32=-0.28996;c33=0.13526;c34=0.74625;ct3=2.1727;e3=0.00000;
+c41=-0.13623;c42=0.23427;c43=-0.60449;c44=0.96165;ct4=3.47577;e4=0.00000;
+c51=-0.24863;c52=0.41479;c53=-0.09076;c54=0.83311;ct5=0.500;e5=0.000000;
+c61=0.026451;c62=0.34273;c63=-0.75011;c64=1.19476;ct6=1.31134;e6=0.000000;
+c71=0.097782;c72=-0.05541;c73=0.0002;c74=0.6873;ct7=1.795865;e7=0.0000000;
+c81=0.05406;c82=0.06655;c83=0.01265;c84=0.59196;ct8=1.76514;e8=0.0000000;
+c91=-0.05578;c92=0.021096;c93=-0.25015;c94=1.05063;ct9=1.80388;e9=0.000000;
+c101=0.22887;c102=-0.01418;c103=-0.58953;c104=1.14503;ct10=1.54481;e10=0.00000;
+c111=-0.13168;c112=0.20704;c113=-0.52768;c114=0.88525;ct11=3.71541;e11=0.00000;
+c121=0.13917;c122=-0.14296;c123=-0.18256;c124=0.80801;ct12=2.49819;e12=0.000000;
+c131=-0.27423;c132=0.32076;c133=-0.08338;c134=0.64638;ct13=2.50687;e13=0.2789;
+c141=-0.03092;c142=0.10787;c143=-0.17755;c144=0.89579;ct14=1.36434;e14=0.2034;
+c151=0.06899;c152=0.110078;c153=-0.11608;c154=0.638539;ct15=1.92437;e15=0.2498;
+c161=0.00078;c162=0.43918;c163=-0.32129;c164=0.85252;ct16=0.12334;e16=0.2215;
+c171=-0.05498;c172=0.49936;c173=-0.26496;c174=0.59868;ct17=1.34855;e17=0.2590;
+c181=0.00053;c182=0.48259;c183=-0.62933;c184=1.05779;ct18=0.45867;e18=0.21026;
+c191=0.132573;c192=0.13128;c193=-0.27073;c194=0.76407;ct19=1.37376;e19=0.17566;
+c201=0.01624;c202=0.10265;c203=-0.08003;c204=0.72983;ct20=1.2839;e20=0.12989;
+c211=-0.01073;c212=0.09782;c213=-0.16511;c214=0.95107;ct21=0.68778;e21=0.08457;
+c221=0.065317;c222=-0.06985;c223=0.29591;c224=0.52104;ct22=1.02289;e22=0.0940;
+c231=0.21055;c232=0.05155;c233=-0.37514;c234=0.97962;ct23=0.68704;e23=0.0910;
+c241=-0.10372;c242=0.45291;c243=-0.56624;c244=1.1061;ct24=0.6000;e24=0.05365;
+c251=0.167783;c252=-0.10801;c253=-0.16112;c254=0.95505;ct25=0.7868;e25=0.0554;
+c261=0.06525;c262=-0.13501;c263=0.09889;c264=0.90377;ct26=0.35338;e26=0.04531;
+c271=0.094059;c272=0.13709;c273=-0.592913;c274=1.21877;ct27=0.76623;e27=0.0796;
+c281=0.24275;c282=-0.05139;c283=-0.25629;c284=1.02667;ct28=0.1838;e28=0.0517;
+c291=0.22245;c292=-0.14395;c293=0.4794;c294=0.44153;ct29=-0.0573;e29=0.0472;
+c301=-0.04205;c302=-0.04529;c303=-0.2082;c304=1.2285;ct30=0.365;e30=0.05417;
+c311=0.064698;c312=0.2739;c313=-0.12564;c314=0.66665;ct31=0.63793;e31=0.04833;
+c321=-0.47367;c322=1.14594;c323=-0.80489;c324=1.06147;ct32=0.39196;e32=0.0393;
+c331=0.069647;c332=-0.14089;c333=0.38318;c334=0.69313;ct33=-0.062334;e33=0.035;
+c341=-0.03792;c342=0.1020;c343=-0.2766;c344=1.23572;ct34=-0.1440;e34=0.02269;
+c351=0.1146;c352=-0.1409;c353=0.3249;c354=0.5983;ct35=0.54434;e35=0.0459;
+c361=0.07991;c362=-0.3509;c363=-0.1778;c364=1.3758;ct36=0.4055;e36=0.058;
+c371=-0.1503;c372=-0.2494;c373=0.73496;c374=0.6638;ct37=0.01434;e37=0.0592;
+c381=0.2016;c382=0.05599;c383=-0.02473;c384=0.7919;ct38=-0.1451;e38=0.0658;
+c391=0.5542;c392=-0.4384;c393=-0.4175;c394=1.3452;ct39=-0.2091;e39=0.09823;
+c401=0.2633;c402=0.2366;c403=-0.9112;c404=1.1611;ct40=1.41865;e40=0.1775;
+c411=-0.1315;c412=0.2825;c413=0.0743;c414=0.7027;ct41=0.4644;e41=0.1241;
+c421=0.6331;c422=-0.2722;c423=-0.0012;c424=0.799;ct42=-0.7443;e42=0.1764;
+c431=0.1230;c432=0.3186;c433=-0.4587;c434=0.9226;ct43=0.5990;e43=0.1555;
+c441=0.1532;c442=-0.0492;c443=0.02212;c444=0.6995;ct44=1.0952;e44=0.1536;
+c451=0.1609;c452=-0.0154;c453=0.1390;c454=0.4161;ct45=1.82974;e45=0.1898;
+c461=0.0171;c462=0.3771;c463=-0.4097;c464=0.9893;ct46=0.2862;e46=0.1673;
+c471=0.02453;c472=0.05973;c473=-0.3005;c474=0.7162;ct47=2.9954;e47=0.1574;
+c481=0.2186;c482=0.5112;c483=-0.6923;c484=0.7851;ct48=1.2728;e48=0.1727;
+c491=0.7777;c492=-0.3466;c493=0.2740;c494=0.5478;ct49=-1.3744;e49=0.2409;
+c501=0.3856;c502=-0.6212;c503=0.2242;c504=0.8484;ct50=0.9621;e50=0.15508;
+c511=0.21406;c512=-0.2216;c513=0.3475;c514=0.39037;ct51=1.7627;e51=0.2326;
+c521=-0.1368;c522=-0.2095;c523=-0.2190;c524=1.0519;ct52=3.22830;e52=0.2587;
+
+
+
+implementation
+
+{$R *.DFM}
+
+procedure TMainForm.FileOpen(Sender: TObject);
+
+var
+  S: TFileStream;
+ // New: TComponent;
+  i:integer;
+begin
+  if OpenDialog.Execute then
+  begin
+    {remove controles existente}
+    {FileNew(self);}
+
+    S := TFileStream.Create (OpenDialog.FileName,
+      fmOpenRead);
+    try
+      while S.Position < S.Size do
+      begin
+      for I :=  0 to ControlCount - 1  do
+    if Controls[I].ClassName <> 'TPanel' then
+      if Controls[I].ClassName <> 'TButton' then
+          if Controls[I].ClassName <> 'TBitbtn' then
+            if Controls[I].ClassName <> 'TEDIT' then
+        {le um componente e o adiciona ao form}
+        {New := S.ReadComponent (nil); }
+          S.ReadComponent (controls[i]);
+      {  InsertControl (New as TControl);}
+      { InsertControl (TControl);}
+        Inc (Contador);
+      end;
+    finally
+      S.Free;
+    end;
+  end;
+end;
+
+procedure TMainform.FormRestaura (Sender:tObject);
+begin
+ WindowState := Wsmaximized;
+ end;
+procedure TMainForm.FileSaveAs(Sender: TObject);
+
+var
+  S: TFileStream;
+  I: Integer;
+begin
+  if SaveDialog.Execute then
+  begin
+    formrestaura(self);
+    S := TFileStream.Create (SaveDialog.FileName,
+      fmOpenWrite or fmCreate);
+    try
+      {salva cada componente exceto o painel}
+      for I := 0 to ControlCount - 1 do
+        if Controls[I].ClassName <> 'TPanel' then
+         if Controls[I].ClassName <> 'TButton' then
+          if Controls[I].ClassName <> 'TBitbtn' then
+            if Controls[I].ClassName <> 'TEDIT' then
+             {if Controls[I].ClassName <> 'TLabel' then }
+          S.WriteComponent (Controls[I]);
+    finally
+      S.Free;
+    end;
+  end;
+end;
+
+
+procedure TMainForm.FilePrint(Sender: TObject);
+  begin
+printer.begindoc;
+printer.canvas.font:=Font;
+printer.canvas.font.name:='times new roman';
+printer.canvas.font.size:=12;
+printer.canvas.textout(520,250,'Valença - DIVISÃO DE Softwares');
+printer.canvas.textout(500,420,'VAZÕES Mensais PREVISTAS ( m3/s )  -  ');
+printer.canvas.textout(1500,420,'USINAS');
+
+printer.canvas.textout(180,750,'MÉDIO      :');
+printer.enddoc;
+ end;
+ procedure TMainForm.FilePrintSetup(Sender: TObject);
+begin
+  PrintSetupDialog.Execute;
+end;
+
+procedure TMainForm.FormCloseQuery(Sender: TObject;
+var CanClose:Boolean);
+begin
+  if MessageDlg ('tem certeza que quer sair?',
+  mtinformation,[mbyes,mbno],0) = idno then
+  CanClose := false;
+  end;
+
+procedure TMainForm.EditUndo(Sender: TObject);
+begin
+  { Add code to perform Edit Undo }
+end;
+
+procedure TMainForm.EditCut(Sender: TObject);
+begin
+  { Add code to perform Edit Cut }
+end;
+
+procedure TMainForm.EditCopy(Sender: TObject);
+begin
+  { Add code to perform Edit Copy }
+end;
+
+procedure TMainForm.EditPaste(Sender: TObject);
+begin
+  { Add code to perform Edit Paste }
+end;
+
+procedure TMainForm.HelpContents(Sender: TObject);
+
+begin
+{  Application.HelpCommand(HELP_CONTENTS, 0);}
+ CaixaSobre.ShowModal;
+end;
+
+procedure TMainForm.HelpSearch(Sender: TObject);
+const
+  EmptyString: PChar = '';
+begin
+
+  Application.HelpCommand(HELP_PARTIALKEY, Longint(EmptyString));
+
+end;
+
+procedure TMainForm.HelpHowToUse(Sender: TObject);
+begin
+  Application.HelpCommand(HELP_HELPONHELP, 0);
+
+
+end;
+
+procedure TMainForm.HelpAbout(Sender: TObject);
+begin
+  { Add code to show program's About Box }
+  MessageDlg ('O programa NeuroInflow foi Criado por Meuser Valença com o '+
+   'Delphi para a  Demonstração  ' +
+  'de Previsão de Vazões ',mtInformation,[mbok],0);
+end;
+ procedure TMainForm.inicio(Sender: TObject);
+    var
+    j,i:integer;
+    begin
+    for j:=1 to NumHidden do
+    begin
+    Bias1Otimo[NumBlocos][j]:=0.0;
+    Bias2Otimo[NumBlocos][j]:=0.0;
+    for i:=1 to NumInputs do
+    begin
+    Weight1Otimo[NumBlocos][j][i]:=0.0;
+    end;
+    end;
+
+    for i:=1 to NumTraining do
+    begin
+    for j:= 1 to NumOutputs do
+    begin
+   SaidasOriginais[i,j]:= 0.0;
+   ExemplosCalculados[NumBlocos,i,j]:=0.0;
+    end;
+    end;
+   // begin
+    //var
+   // j,i:integer;
+    begin
+    for  j:=1 to NumOutputs do
+    begin
+    for i:=1 to NumHidden do
+    begin
+    Weight2Otimo[NumBlocos][j][i]:=0.0;
+    //end;
+    end;
+    end;
+    end;
+   // var
+    //j,i:integer;
+    begin
+    for j:=1 to NumTraining do
+    for i:=1 to NumOutputs do
+    begin
+    SaidasBlocos[0][j][i]:=0.0;
+    SaidasBlocosAleatorias[0][j][i]:=0.0;
+    end;
+    end;
+    end;
+ //rotina iniciopreve
+ procedure TMainForm.inicioPreve(Sender: TObject);
+    var
+    j,i:integer;
+    begin
+ {   for i:=1 to NumTraining do
+    begin
+    for j:= 1 to NumOutputs do
+    begin
+   SaidasOriginais[i,j]:= 0.0;
+   ExemplosCalculados[NumBlocos,i,j]:=0.0;
+    end;
+    end;  }
+    for j:=1 to NumTraining do
+    begin
+    for i:=1 to NumOutputs do
+    begin
+    SaidasBlocos[0][j][i]:=0.0;
+    SaidasBlocosAleatorias[0][j][i]:=0.0;
+    end;
+    end;
+    end;
+
+
+procedure TMainForm.RotinaExemplosAleatorios;
+var
+Existe:boolean;
+Verdade,NumExemplos,i,j,jgera,h,o,aux:integer;
+
+begin
+     NumExemplos:=(NumTraining-NumTeste);
+     RandSeed:=StrToInt(Edit2.Text);
+     // Randomize;
+      ValorAleatorio[1]:=0;
+      for jgera:=1 to  NumExemplos do
+      begin
+        Existe:=true;
+      aux:= Random(NumExemplos);
+      aux:=aux+1;
+      While (Existe) do
+      begin
+      Verdade:=0;
+       for i:=1 to jgera do
+       begin
+       if (ValorAleatorio[i]= aux) then
+       begin
+       Verdade:= Verdade+1;
+       end;
+       end;
+       if (Verdade>0) then
+       begin
+       aux:=Random(NumExemplos);
+       aux:=aux+1;
+       end
+       else
+       begin
+       Existe:=false;
+       end;
+         end;
+          ValorAleatorio[jgera]:= aux;
+    {AssignFile(ArqSaida1,'c:\rede\DadosSaida.TXT');
+    Append(ArqSaida1);
+    Write(Arqsaida1,jgera:3,ValorAleatorio[jgera]:4);
+     Writeln(ArqSaida1,' ');
+     CloseFile(ArqSaida1); }
+     end;
+     for j:=1 to NumExemplos do
+     begin
+    for h:=1 to NumInputs do
+    begin
+    EntradasAleatorias[j,h]:= Entradas[ValorAleatorio[j],h];
+    end;
+    for o:= 1 to NumOutputs do
+    begin
+    SaidasAleatorias[j,o]:= Saidas[ValorAleatorio[j],o];
+    SaidasBlocosAleatorias[NumBlocos-1,j,o]:=
+    SaidasBlocos[NumBlocos-1,ValorAleatorio[j],o];
+    {AssignFile(ArqSaida1,'c:\rede\DadosSaida.TXT');
+    Append(ArqSaida1);
+    Writeln(ArqSaida1,' '); }
+    {Write(Arqsaida1,j:3,ValorAleatorio[j]:4,SaidasAleatorias[j][o]:4:2,Saidas[ValorAleatorio[j],o]:4:2); }
+     end;
+      { CloseFile(ArqSaida1); }
+    end;
+
+
+
+end;
+
+procedure TMainForm.RotinaForward(Sender: TObject);
+var
+itr,i,j,ii:integer;
+ea,eb,ea2,eb2:double;
+begin
+ ncont:=0;
+ ncont1:=0;
+ ncont2:=0;
+ ReadLearn:=true;
+ Dminimo:= 1.0e20;
+ teste:=0.0;
+ Ktempo:=0;
+ //Ktempo1:=0;
+ //ContRms:=0;
+ ValorMaximoPesos:=-1.0e-80;
+ lambda:=StrToFloat(edit1.Text)/1000.0;
+ if (lambda<=0.0) then
+ begin
+ lambda:=0.001;
+ end;
+
+ if (lambda>=0.90) then
+ begin
+ lambda:=0.9;
+ end;
+ //lambda:=0.035;
+
+ while ReadLearn=true do
+ begin
+ //RotinaExemplosAleatorios;
+ {inicializa somatorio dos pesos}
+
+ //Application.ProcessMessages;
+
+for j:= 1 to NumHidden do
+begin
+SomaDelbs1[j]:=0.0;
+SomaDelbs2[j]:=0.0;
+
+for ii:= 1 to NumInputs do
+begin
+SomaDelwt1[j][ii]:=0.0;
+end;
+end;
+for j:= 1 to NumOutputs do
+begin
+for i:= 1 to NumHidden do
+begin
+SomaDelwt2[j][i]:=0.0;
+end;
+end;
+
+ for itr:= 1 to (NumTraining -NumTeste-NumValidacao) do
+ begin
+ for j:=1 to NumHidden do
+ begin
+ Netin1[j]:= Bias1[j];
+ for i:=1 to NumInputs do
+ begin
+ Netin1[j]:= Netin1[j]+ Weight1[j][i]*EntradasAleatorias[itr][i];
+ end;
+ if (Netin1[j]<-600.00)then
+ begin
+ ea:=0.0;
+ eb:=1.0e80;
+ end
+ else
+ begin
+ if (Netin1[j]>600.00)then
+ begin
+ ea:=1.0e80 ;
+ eb:=0.0
+  end
+  else
+  begin
+
+ try
+ begin
+ ea:= exp(Netin1[j]);
+ eb:= exp(-1.0*Netin1[j]);
+  end;
+  except
+  on EOverflow do ;
+  on EUnderflow do
+  raise;
+  end;
+
+ end;
+
+ end;
+ Actv1[j]:= (ea-eb)/(ea+eb);
+ Actv2[j]:= Actv1[j]+ Bias2[j];
+
+ end;
+ for j:=1 to NumOutputs do
+ begin
+ Netin2[itr][j]:= SaidasBlocosAleatorias[NumBlocos-1][itr][j];
+
+ for i:=1 to NumHidden do
+ begin
+
+
+  try
+  begin
+ Netin2[itr][j]:= Netin2[itr][j]+ Weight2[j][i]*
+ (power(Actv2[i],(i)));
+ ea2:= exp(Netin2[itr][j]);
+ eb2:= exp(-1.0*Netin2[itr][j]);
+  end;
+  except
+  on EOverflow do ;
+  on EUnderflow do
+  raise;
+  end;
+
+
+ Actv3[j]:= (ea2-eb2)/(ea2+eb2);
+ Netout[itr][j]:= Actv3[j];
+
+
+
+ end;
+
+ end;
+
+ {rotina backward}
+for j:= 1 to NumOutputs do
+begin
+Error2[itr][j]:= (SaidasAleatorias[itr][j] - Netout[itr][j]);
+
+for i:=1 to NumHidden do
+begin
+{Delwt2[j][i]:= Lcoef*Error2[itr][i]*
+power(Actv2[i],(i))+motum*Prdlwt2[j][i]; }
+Delwt2[j][i]:= Lcoef*(Error2[itr][j])*
+(1.0-Netout[itr][j]*Netout[itr][j])*power(Actv2[i],(i))
++ motum*Prdlwt2[j][i];
+end;
+end;
+for j:=1 to NumHidden do
+begin
+Sum1[j]:=0.0;
+for i:= 1 to NumOutputs do
+begin
+Sum1[j]:= Sum1[j]+(Error2[itr][i]*Weight2[i][j])*
+(1.0-Netout[itr][j]*Netout[itr][j]);
+end;
+Error1[itr][j]:=(1.0-Actv1[j]*Actv1[j])*
+Sum1[j]*(j)*power(Actv2[j],j-1);
+Delbs1[j]:= Lcoef*Error1[itr][j]+motum*Prdlbs1[j];
+Delbs2[j]:= Lcoef*Sum1[j]*(j)*power(Actv2[j],j-1)+
+motum*Prdlbs2[j];
+for ii:=1 to NumInputs do
+begin
+Delwt1[j][ii]:= Lcoef*Error1[itr][j]*
+EntradasAleatorias[itr][ii]+ motum*Prdlwt1[j][ii];
+end;
+end;
+for j:= 1 to NumHidden do
+begin
+Bias1[j]:= Delbs1[j]+ Bias1[j];
+Prdlbs1[j]:= Delbs1[j];
+Bias2[j] := Delbs2[j]+ Bias2[j];
+Prdlbs2[j]:= Delbs2[j];
+
+SomaDelbs1[j]:=SomaDelbs1[j]+ Delbs1[j];
+SomaDelbs2[j]:=Somadelbs2[j]+ Delbs2[j];
+
+for ii:= 1 to NumInputs do
+begin
+Weight1[j][ii]:= Weight1[j][ii] + Delwt1[j][ii];
+Prdlwt1[j][ii]:= Delwt1[j][ii];
+SomaDelwt1[j][ii]:=SomaDelwt1[j][ii]+ Delwt1[j][ii];
+end;
+end;
+for j:= 1 to NumOutputs do
+begin
+for i:= 1 to NumHidden do
+begin
+Weight2[j][i] := Weight2[j][i]+Delwt2[j][i];
+Prdlwt2[j][i]:= Delwt2[j][i];
+SomaDelwt2[j][i]:=SomaDelwt2[j][i]+ Delwt2[j][i];
+
+end;
+end;
+end;
+{calcula valor maximo  do incremento de pesos}
+
+for j:= 1 to NumHidden do
+begin
+SomaDelbs1[j]:= (SomaDelbs1[j])/(NumTraining-NumTeste);
+SomaDelbs2[j] := (SomaDelbs2[j])/(NumTraining-NumTeste);
+if(SomaDelbs1[j]>ValorMaximoPesos) then
+begin
+ValorMaximoPesos:=SomaDelbs1[j];
+end;
+if(SomaDelbs2[j]>ValorMaximoPesos) then
+begin
+ValorMaximoPesos:=SomaDelbs2[j];
+end;
+
+for ii:= 1 to NumInputs do
+begin
+SomaDelwt1[j][ii]:= SomaDelwt1[j][ii]/(NumTraining-NumTeste);
+if(SomaDelwt1[j][ii]>ValorMaximoPesos) then
+begin
+ValorMaximoPesos:=SomaDelwt1[j][ii];
+end;
+end;
+end;
+for j:= 1 to NumOutputs do
+begin
+for i:= 1 to NumHidden do
+begin
+SomaDelwt2[j][i] := SomaDelwt2[j][i]/(NumTraining-NumTeste);
+if(SomaDelwt2[j][i]>ValorMaximoPesos) then
+begin
+ValorMaximoPesos:=SomaDelwt2[j][i];
+end;
+end;
+end;
+RotinaNormalizaPesos(self);
+  {atualizacao dos pesos}
+
+for j:= 1 to NumHidden do
+begin
+AntigoBias1[j]:=Bias1[j];
+Bias1[j]:=SomaDelbs1[j]+ Bias1[j];
+AntigoPrdlbs1[j]:= Prdlbs1[j];
+Prdlbs1[j]:= SomaDelbs1[j];
+AntigoBias2[j] := Bias2[j];
+AntigoPrdlbs2[j]:=Prdlbs2[j] ;
+
+Bias2[j] := SomaDelbs2[j]+ Bias2[j];
+Prdlbs2[j]:= SomaDelbs2[j];
+for ii:= 1 to NumInputs do
+begin
+AntigoWeight1[j][ii]:= Weight1[j][ii];
+Weight1[j][ii]:= Weight1[j][ii] +
+SomaDelwt1[j][ii];
+AntigoPrdlwt1[j][ii]:=Prdlwt1[j][ii];
+Prdlwt1[j][ii]:= SomaDelwt1[j][ii];
+end;
+end;
+for j:= 1 to NumOutputs do
+begin
+for i:= 1 to NumHidden do
+begin
+AntigoWeight2[j][i] := Weight2[j][i];
+Weight2[j][i] := Weight2[j][i]+ SomaDelwt2[j][i];
+AntigoPrdlwt2[j][i]:=Prdlwt2[j][i];
+Prdlwt2[j][i]:= SomaDelwt2[j][i];
+end;
+end;
+{pesos atualizados}
+RotinaForwardTeste(self);
+{RotinaExemplosAleatorios;  }
+end;
+
+end;
+procedure TMainForm.RotinaForwardTeste(Sender: TObject);
+var
+itteste,j,i:integer;
+ea,eb,ea2,eb2: double;
+begin
+for itteste:= (NumTraining-NumTeste-NumValidacao) to (NumTraining-NumValidacao) do
+begin
+for j:=1 to NumHidden do
+begin
+Netin1[j]:= Bias1[j];
+for i:= 1 to NumInputs do
+begin
+Netin1[j]:= Netin1[j]+ Weight1[j][i] *
+Entradas[itteste][i];
+end;
+
+ if (Netin1[j]<-600.00)then
+ begin
+ ea:=0.0;
+ eb:=1.0e80;
+ end
+ else
+ begin
+ if (Netin1[j]>600.00)then
+ begin
+ ea:=1.0e80 ;
+ eb:=0.0
+  end
+  else
+  begin
+  try
+  begin
+ ea:= exp(Netin1[j]);
+ eb:= exp(-1.0*Netin1[j]);
+ end;
+ except
+ on EOverflow do;
+ on EUnderflow do
+ raise;
+ end;
+
+ end;
+
+ end;
+
+Actv1[j]:= (ea-eb)/(ea+eb);
+Actv2[j]:= Actv1[j]+ Bias2[j];
+end;
+for j:=1 to NumOutputs do
+begin
+Netin2[itteste][j]:= SaidasBlocos[NumBlocos-1][itteste][j];
+for i:=1 to NumHidden do
+begin
+
+try
+begin
+Netin2[itteste][j]:= Netin2[itteste][j] + Weight2[j][i]*
+power(Actv2[i],(i));
+
+
+ea2:= exp(Netin2[itteste][j]);
+eb2:= exp(-1.0*Netin2[itteste][j]);
+Actv3[j]:= (ea2-eb2)/(ea2+eb2);
+Netout[itteste][j]:= Actv3[j];
+  end;
+  except
+on EOverflow do;
+on EUnderflow do
+raise;
+end;
+
+
+
+ {AssignFile(ArqSaida1,'c:\rede\DadosSaida.TXT');
+    Append(ArqSaida1);
+    Write(Arqsaida1,itteste:4,Netout[itteste][j]:8:2,Saidas[itteste][j]:8:2);
+    Writeln(ArqSaida1,' ');
+       CloseFile(ArqSaida1);}
+       end;
+
+end;
+
+RotinaCalculaErro(self);
+end;
+
+ { colocar};
+end;
+procedure TMainForm.RotinaCalculaErro(Sender: TObject);
+var
+i,j,k:integer;
+
+begin
+RMS:=0.0;
+
+for i:=(NumTraining-NumTeste-NumValidacao) to (NumTraining-NumValidacao) do
+begin
+     for  j:= 1 to NumOutputs do
+     begin
+     RMS:= (Saidas[i][j]-Netout[i][j])*
+     (Saidas[i][j]-Netout[i][j])+ RMS ;
+     {imprimir RMS}
+     end;
+     end;
+     RMS:= RMS/(NumTeste);
+     //Contador para o erro medio
+   {  ContRms:=ContRms+1;
+     ErroMedio[ContRms]:=RMS;
+    if (ContRms> 1000) then
+     begin
+     for  k:=1 to (ContRms-1) do
+     ErroMedio[k]:= ErroMedio[k+1];
+     ContRms:=ContRms-1;
+     end; }
+     RotinaFacateste(self);
+     if ((ncont1/10)=Ktempo) then
+     begin
+  //   TracaGrafico(self);
+   //  SaidasDoGrafico(self);
+    // ErroGrafico(self);
+    // Application.ProcessMessages;
+     Ktempo:=Ktempo+1;
+     end;
+
+end;
+  //erro validacao
+ procedure TMainForm.RotinaErroValidacao(Sender: TObject);
+var
+i,j,k:integer;
+
+begin
+RMSValidacao:=0.0;
+ErroMedioPercentual:=0.0;
+for i:=(NumTraining-NumValidacao)to NumTraining do
+begin
+     for  j:= 1 to NumOutputs do
+     begin
+     RMSValidacao:= (SaidasOriginais[i][j]- ExemplosCalculados[NumBlocos][i][j])*
+     (SaidasOriginais[i][j]-ExemplosCalculados[NumBlocos][i][j])+ RMSValidacao ;
+     if((SaidasOriginais[i][j]>0.0) or (SaidasOriginais[i][j]<0.0))then
+     begin
+     ErroMedioPercentual:=abs(SaidasOriginais[i][j]- ExemplosCalculados[NumBlocos][i][j])/
+     SaidasOriginais[i][j]+ErroMedioPercentual
+     end;
+     {imprimir RMS}
+     end;
+     end;
+     if ( NumValidacao > 0) then
+     begin
+     RMSValidacao:= sqrt(RMSValidacao/(NumValidacao));
+     ErroMedioPercentual:=(ErroMedioPercentual/(NumValidacao))*100.0;
+     Edit3.Text:= FloatToStr(ErroMedioPercentual);
+     Edit4.Text:= FloatToStr(RMSValidacao);
+     end;
+end;
+
+procedure TMainForm.RotinaFacaTeste(Sender: TObject);
+ var
+ i,k:integer;
+begin
+if (RMS > Dminimo) then
+begin
+ncont:=ncont+1; { colocar};
+//ncont1:=0;
+//AtualizaTaxa(self);
+if (ncont>= 80000) then
+begin
+ReadLearn:=false;
+end;
+end
+else
+begin
+//teste:= (abs(RMS-Dminimo)/Dminimo)*100.00;
+if (ncont1 >=160000)then
+begin
+ReadLearn:=false;
+//Break;
+end
+else
+begin
+//AtualizaTaxa1(self);
+Dminimo:=RMS;
+DminimoBloco[NumBlocos]:= Dminimo;
+ncont:=0;
+ncont1:=ncont1+1;
+RotinaGuardaPesosOtimos(self);
+
+  //Contador para o erro medio
+    ContRms:=ContRms+1;
+    ErroMedio[ContRms]:=RMS;
+    if (ContRms<500) then
+    begin
+     ErroGrafico(self);
+     TracaGrafico(self);
+     SaidasDoGrafico(self);
+
+      Application.ProcessMessages;
+      end;
+
+     if ((ContRms/20000)=Ktempo1) then
+     begin
+    // for  k:=1 to (ContRms-1) do
+    // ErroMedio[k]:= ErroMedio[k+1];
+   //  ContRms:=ContRms-1;
+    // end;    }
+    //if   ((ContRms)=Ktempo1) then
+   //begin
+      ErroGrafico(self);
+           TracaGrafico(self);
+     SaidasDoGrafico(self);
+
+      Application.ProcessMessages;
+      Ktempo1:=Ktempo1+1;
+     end;
+   // end;
+
+    // Edit6.text:= FloatToStr(RMS);
+    //Button13Click(self);
+    //TracaGrafico(self);
+   // SaidasDoGrafico(self);
+   // Application.ProcessMessages;
+
+end;
+end;
+end;
+
+procedure TMainForm.RotinaGuardaPesosOtimos(Sender: TObject);
+var
+j,i:integer;
+begin
+for j:=1 to NumHidden do
+begin
+Bias1Otimo[NumBlocos][j]:=Bias1[j];
+Bias2Otimo[NumBlocos][j]:= Bias2[j];
+for i:=1 to NumInputs do
+begin
+Weight1Otimo[NumBlocos][j][i]:=Weight1[j][i];
+end;
+end;
+for j:= 1 to NumOutputs do
+begin
+for i:=1 to NumHidden do
+begin
+Weight2Otimo[NumBlocos][j][i]:=Weight2[j][i];
+end;
+end;
+ { colocar};
+end;
+
+procedure TMainForm.RotinaForwardSaidasBlocos(Sender: TObject);
+var
+itr,j,i:integer;
+ea,eb,ea2,eb2:double;
+begin
+for itr:=1 to NumTraining do
+begin
+for j:=1 to NumHidden do
+begin
+Netin1[j]:= Bias1Otimo[NumBlocos][j];
+for i:= 1 to NumInputs do
+begin
+Netin1[j]:= Netin1[j]+ Weight1Otimo[NumBlocos][j][i]*
+Entradas[itr][i];
+end;
+{inicio tratamento de erro}
+  if (Netin1[j]<-600.00)then
+ begin
+ ea:=0.0;
+ eb:=1.0e80;
+ end
+ else
+ begin
+ if (Netin1[j]>600.00)then
+ begin
+ ea:=1.0e80 ;
+ eb:=0.0
+  end
+  else
+  begin
+  try
+  begin
+ ea:= exp(Netin1[j]);
+ eb:= exp(-1.0*Netin1[j]);
+ end;
+ except
+ on EOverflow do;
+ on EUnderflow do
+ end;
+
+
+
+ end;
+  end;
+ {fim de tratamento de erro}
+Actv1[j]:=(ea-eb)/(ea+eb);
+Actv2[j]:= Actv1[j]+ Bias2Otimo[NumBlocos][j];
+end;
+for j:=1 to NumOutputs do
+begin
+Netin2[itr][j]:= SaidasBlocos[NumBlocos-1][itr][j];
+for i:=1 to NumHidden do
+begin
+try
+begin
+Netin2[itr][j]:= Netin2[itr][j]+
+Weight2Otimo[NumBlocos][j][i]* power(Actv2[i],(i));
+ea2:= exp(Netin2[itr][j]);
+eb2:= exp(-1.0*Netin2[itr][j]);
+Actv3[j]:= (ea2-eb2)/(ea2+eb2);
+Netout[itr][j]:=Actv3[j];
+ end;
+ except
+ on EOverflow do;
+ on EUnderflow do
+ end;
+
+
+
+end;
+SaidasBlocos[NumBlocos][itr][j]:= Netin2[itr][j];
+ExemplosCalculados[NumBlocos][itr][j]:= Netout[itr][j];
+{AssignFile(ArqSaida1,'c:\rede\DadosSaida.TXT');
+Append(ArqSaida1);
+Write(ArqSaida1,itr:5,Netout[itr,j]:4:2,Saidas[itr,j]:4:2); }
+
+end;
+{CloseFile(ArqSaida1);}
+end;
+
+
+{ colocar};
+end;
+ //rotina de saida das previsoes
+
+
+ procedure TMainForm.RotinaForwardSaidasBlocosPrevisao(Sender: TObject);
+var
+itr,j,i:integer;
+ea,eb,ea2,eb2:double;
+begin
+for itr:= (NumPreve-NumInputs) to (NumPreve-NumInputs) do
+begin
+for j:=1 to NumHidden do
+begin
+Netin1[j]:= Bias1Otimo[NumBlocos][j];
+for i:= 1 to NumInputs do
+begin
+Netin1[j]:= Netin1[j]+ Weight1Otimo[NumBlocos][j][i]*
+Entradas[itr][i];
+end;
+{inicio tratamento de erro}
+  if (Netin1[j]<-600.00)then
+ begin
+ ea:=0.0;
+ eb:=1.0e80;
+ end
+ else
+ begin
+ if (Netin1[j]>600.00)then
+ begin
+ ea:=1.0e80 ;
+ eb:=0.0
+  end
+  else
+  begin
+ ea:= exp(Netin1[j]);
+ eb:= exp(-1.0*Netin1[j]);
+ end;
+  end;
+ {fim de tratamento de erro}
+Actv1[j]:=(ea-eb)/(ea+eb);
+Actv2[j]:= Actv1[j]+ Bias2Otimo[NumBlocos][j];
+end;
+for j:=1 to NumOutputs do
+begin
+Netin2[itr][j]:= SaidasBlocos[NumBlocos-1][itr][j];
+for i:=1 to NumHidden do
+begin
+Netin2[itr][j]:= Netin2[itr][j]+
+Weight2Otimo[NumBlocos][j][i]* power(Actv2[i],(i));
+ea2:= exp(Netin2[itr][j]);
+eb2:= exp(-1.0*Netin2[itr][j]);
+Actv3[j]:= (ea2-eb2)/(ea2+eb2);
+Netout[itr][j]:=Actv3[j];
+end;
+ SaidasBlocos[NumBlocos][itr][j]:= Netin2[itr][j];
+ ExemplosCalculados[NumBlocos][itr][j]:= Netout[itr][j];
+
+end;
+end;
+ { colocar};
+end;
+
+
+
+procedure TMainForm.RotinaSalvaPesos(Sender: TObject);
+var
+i,j,k,io,jo:integer;
+begin
+
+    AssignFile(ArqSaida,'c:\NeuroInflow\PesosOtimos.TXT');
+    Rewrite(ArqSaida);
+    //Write(Arqsaida,NumeroTotal:3);
+    Write(Arqsaida,NumBlocos:2,NumInputs:10,NumOutputs:10, NumeroSazonal1:10);
+    writeln(ArqSaida,'');
+    Write(Arqsaida,ValorMaximo:12:6,ValorMinimo:12:6, ConstanteBoxCox:12:2);
+    writeln(ArqSaida,'');
+    for i:= 1 to NumeroSazonal1 do
+    begin
+    write(ArqSaida, MediaExemplos[i]:12:6);
+    end;
+    writeln(ArqSaida,'');
+    for j:= 1 to NumeroSazonal1 do
+    begin
+    write(ArqSaida,DesvioExemplos[j]:12:6);
+    end;
+    writeln(ArqSaida,'');
+    for k:= 1 to NumBlocos do
+    begin
+    for J:= 1 to k do
+    begin
+    Write(ArqSaida,Bias1Otimo[k,J]:30:20);
+    writeln(ArqSaida,'');
+    Write(ArqSaida,Bias2Otimo[k,J]:30:20);
+    writeln(ArqSaida,'');
+    for i:= 1 to NumInputs do
+    begin
+    Write(ArqSaida,Weight1Otimo[k,J,i]:30:20);
+    writeln(ArqSaida,'');
+    end;
+    end;
+    end;
+    for k:=1 to NumBlocos do
+    begin
+    for jo:=1 to NumOutputs do
+    begin
+    for io:=1 to k do
+    begin
+    Write(ArqSaida,Weight2Otimo[k,Jo,io]:20:10);
+    {write(ArqSaida,Dados[i]:8:1);
+    writeln(ArqSaida,''); }
+  end;
+  end;
+  end;
+    CloseFile(ArqSaida);
+
+ { colocar};
+end;
+ ///teste de leitura dos pesos
+procedure TMainForm.RotinaSalvaPesos3(Sender: TObject);
+var
+i,j,k,io,jo:integer;
+begin
+
+    AssignFile(ArqSaida3,'c:\NeuroInflow\PesosOtimos3.TXT');
+    Rewrite(ArqSaida3);
+    //Write(Arqsaida,NumeroTotal:3);
+    Write(Arqsaida3,NumBlocos:2,NumInputs:20,NumOutputs:20, NumeroSazonal1:10);
+    writeln(ArqSaida3,'');
+  //  Write(Arqsaida3,ValorMaximo:8:4,ValorMinimo:8:4);
+    Write(Arqsaida3,ValorMaximo:12:6,ValorMinimo:12:6, ConstanteBoxCox:12:6);
+    writeln(ArqSaida3,'');
+    for i:= 1 to NumeroSazonal1 do
+    begin
+    write(ArqSaida3, MediaExemplos[i]:12:6);
+    end;
+    writeln(ArqSaida3,'');
+    for j:= 1 to NumeroSazonal1 do
+    begin
+    write(ArqSaida3,DesvioExemplos[j]:12:6);
+    end;
+    writeln(ArqSaida3,'');
+
+    for k:= 1 to NumBlocos do
+    begin
+    for J:= 1 to k do
+    begin
+    Write(ArqSaida3,Bias1Otimo[k,J]:20:10);
+    writeln(ArqSaida3,'');
+    Write(ArqSaida3,Bias2Otimo[k,J]:20:10);
+    writeln(ArqSaida3,'');
+    for i:= 1 to NumInputs do
+    begin
+    Write(ArqSaida3,Weight1Otimo[k,J,i]:20:10);
+    writeln(ArqSaida3,'');
+    end;
+    end;
+    end;
+    for k:=1 to NumBlocos do
+    begin
+    for jo:=1 to NumOutputs do
+    begin
+    for io:=1 to k do
+    begin
+    Write(ArqSaida3,Weight2Otimo[k,Jo,io]:20:10);
+    {write(ArqSaida,Dados[i]:8:1);
+    writeln(ArqSaida,''); }
+  end;
+  end;
+  end;
+    CloseFile(ArqSaida3);
+
+ { colocar};
+end;
+
+///leitura dos pesos otimos
+procedure TMainForm.RotinaLerPesos(Sender: TObject);
+var
+i,j,k,io,jo:integer;
+begin
+
+  AssignFile(ArqSaida,'c:\NeuroInflow\PesosOtimos.TXT');
+   Reset(ArqSaida);
+   Read(Arqsaida,NumBlocos,NumInputs,NumOutputs, NumeroSazonal1);
+   Read(Arqsaida,ValorMaximo,ValorMinimo, ConstanteBoxCox);
+    for i:= 1 to NumeroSazonal1 do
+    begin
+    Read(ArqSaida, MediaExemplos[i]);
+    end;
+    for j:= 1 to NumeroSazonal1 do
+    begin
+    Read(ArqSaida,DesvioExemplos[j]);
+    end;
+
+    for k:= 1 to NumBlocos do
+    begin
+    for J:= 1 to k do
+    begin
+    Read(ArqSaida,Bias1Otimo[k,J]);
+    //writeln(ArqSaida,'');
+    Read(ArqSaida,Bias2Otimo[k,J]);
+    //writeln(ArqSaida,'');
+    for i:= 1 to NumInputs do
+    begin
+    Read(ArqSaida,Weight1Otimo[k,J,i]);
+    //writeln(ArqSaida,'');
+    end;
+    end;
+    end;
+    for k:=1 to NumBlocos do
+    begin
+    for jo:=1 to NumOutputs do
+    begin
+    for io:=1 to k do
+    begin
+    Read(ArqSaida,Weight2Otimo[k,Jo,io]);
+  {write(ArqSaida,Dados[i]:8:1);
+  writeln(ArqSaida,''); }
+  end;
+  end;
+  end;
+    CloseFile(ArqSaida);
+
+ { colocar};
+end;
+
+
+
+
+procedure TmainForm.RotinaSalvaDadosTreinamento(Sender:TObject);
+var
+i,j:integer;
+begin
+    AssignFile(ArqSaida1,'c:\NeuroInflow\DadosSaida.TXT');
+    //Rewrite(ArqSaida1);
+    Rewrite(ArqSaida1);
+    Write(Arqsaida1,NumBlocos:3,NumInputs:3,NumOutputs:3,NumTraining:5);
+    writeln(ArqSaida1,'');
+    Write(Arqsaida1,ncont:8,ncont1:8);
+    writeln(ArqSaida1,'');
+    for i:= 1 to NumTraining do
+    begin
+    for j:= 1 to NumOutputs do
+    begin
+    Write(ArqSaida1,ExemplosCalculados[NumBlocos,i,j]:8:1,
+    SaidasOriginais[i,j]:8:1);
+    end;
+    writeln(ArqSaida1,'');
+    end;
+    CloseFile(ArqSaida1);
+   { for J:= 1 to NumeroSazonal1 do
+    Write(ArqSaida,MediaExemplos[J]:8:4);
+    writeln(ArqSaida,'');
+    write(ArqSaida,Dados[i]:8:1);
+    writeln(ArqSaida,''); }
+
+end;
+  //salvar dados de previsao
+ procedure TmainForm.RotinaSalvaDadosPrevisao(Sender:TObject);
+var
+i,j:integer;
+begin
+    AssignFile(ArqSaida2,'c:\NeuroInflow\DadosPrevisao.TXT');
+    //Rewrite(ArqSaida1);
+    Append(ArqSaida2);
+  Write(Arqsaida2,NumBlocos:3,NumInputs:3,NumOutputs:3,NumTraining:5, NumBlocosF:5, NumMes:5);
+    writeln(ArqSaida2,'');
+    Write(Arqsaida2,ldmda1:8:0,ldmda2:8:0,ldmda3:8:0,ldmda4:8:0,ldmda5:8:0,ldmda6:8:0,ldmda7:8:0
+    ,ldmda8:8:0,ldmda9:8:0,ldmda10:8:0,ldmda11:8:0,ldmda12:8:0);
+
+  {  for i:= (NumeroPrevisao+1-NumInputs) to (NumeroPrevisao+12-NumInputs)do
+    begin
+    for j:= 1 to NumOutputs do
+    begin
+    Write(ArqSaida2,SaidasOriginais[i,j]:8:0);
+    end;
+    writeln(ArqSaida2,'');
+    end;
+    //imprimindo as entradas
+    for i:= 1 to (NumeroTotal-NumInputs)do
+    begin
+    for j:= 1 to NumInputs do
+    begin
+    Write(ArqSaida2,Entradas[i,j]:8:4);
+    end;
+    writeln(ArqSaida2,'');
+    end;
+    for j:= 1 to (NumeroTotal)do
+    begin
+    Write(ArqSaida2,DadosNormalizados[j]:8:4);
+    end; }
+
+
+    CloseFile(ArqSaida2);
+
+end;
+
+
+
+
+procedure  TMainForm.AtualizaTaxa(sender:tObject);
+begin
+teste:= (abs(RMS-Dminimo)/Dminimo)*100.00;
+if (teste > 4.00) then
+RotinaAntigosPesos(Self);
+begin
+Lcoef:= Lcoef*0.90;
+motum:=0.0;
+
+end;
+ end;
+
+ procedure  TMainForm.AtualizaTaxa1(sender:tObject);
+ begin
+ Lcoef:=Lcoef*1.05;
+motum:= motum1;
+if (Lcoef > 0.1) then
+begin
+Lcoef:=0.1;
+end;
+   end;
+
+procedure TMainForm.GeraAleatorio;
+var
+RandSeed: LongInt;
+i,j:integer;
+Iwtst:double;
+begin
+RandSeed:=StrToInt(Edit2.Text) ;
+//RandSeed:=1315;
+Iwtst:=10000;
+ //Randomize;
+ for j:=1 to NumHidden do
+ begin
+ Bias1[j]:= (2.0*Random(400)-400)/Iwtst;
+ //RandSeed:=RandSeed+1385;
+ Prdlbs1[j]:= (2.0*Random(300)-300)/Iwtst;
+ Delbs1[j]:=0.0;
+  //RandSeed:=RandSeed+75;
+ Bias2[j]:= (2.0*Random(200)-200)/(10.0*Iwtst);
+ Prdlbs2[j]:= (2.0*Random(100)-100)/(10.0*Iwtst);
+ Delbs2[j]:=0.0;
+ for i:=1 to NumInputs do
+ begin
+ Weight1[j][i]:=(2.0*Random(200)-200)/Iwtst;
+ Prdlwt1[j][i]:=(2.0*Random(300)-300)/Iwtst;
+ Delwt1[j][i]:=0.0;
+ end;
+ end;
+ for j:=1 to NumOutputs do
+ begin
+ for i:=1 to NumHidden do
+
+ begin
+ // RandSeed:=RandSeed+13;
+ Weight2[j][i]:=(2.0*Random(500)-500)/(10.0*Iwtst);
+ Prdlwt2[j][i]:=(2.0*Random(100)-100)/(10.0*Iwtst);
+ Delwt2[j][i]:=0.0;
+ end;
+ end;
+ end;
+ {antigos pesos}
+
+ procedure TMainForm.RotinaNormalizaPesos(sender:tObject);
+ var
+ i,j,ii:integer;
+ coef:double;
+ begin
+ Coef:=ValorMaximoPesos/lambda;
+ for j:= 1 to NumHidden do
+begin
+SomaDelbs1[j] := SomaDelbs1[j]/coef;
+SomaDelbs2[j] := SomaDelbs2[j]/coef;
+
+for ii:= 1 to NumInputs do
+begin
+SomaDelwt1[j][ii]:= SomaDelwt1[j][ii]/coef;
+end;
+end;
+for j:= 1 to NumOutputs do
+begin
+for i:= 1 to NumHidden do
+begin
+SomaDelwt2[j][i] := SomaDelwt2[j][i]/coef;
+end;
+end;
+
+end;
+ procedure TMainForm.RotinaAntigosPesos(sender:tObject);
+ var
+ i,j,ii:integer;
+
+ begin
+ for j:= 1 to NumHidden do
+begin
+Bias1[j]:= AntigoBias1[j];
+Prdlbs1[j]:= AntigoPrdlbs1[j];
+Bias2[j] := AntigoBias2[j];
+Prdlbs2[j]:= AntigoPrdlbs2[j];
+for ii:= 1 to NumInputs do
+begin
+Weight1[j][ii]:= AntigoWeight1[j][ii];
+Prdlwt1[j][ii]:= AntigoPrdlwt1[j][ii];
+end;
+end;
+for j:= 1 to NumOutputs do
+begin
+for i:= 1 to NumHidden do
+begin
+Weight2[j][i] := AntigoWeight2[j][i];
+Prdlwt2[j][i]:= AntigoPrdlwt2[j][i];
+end;
+
+ end;
+
+
+end;
+procedure TMainForm.prever(Sender: TObject);
+var
+
+i,j,Indice:integer;
+
+begin
+    prever1(self);
+    RotinaMesInicial(self);
+    Indice:=NumMes+1;
+    for i:= (NumeroPrevisao+1-NumInputs)  to  (NumeroPrevisao+12-NumInputs)  do
+    begin
+    for j:= 1 to NumOutputs do
+    begin
+    if (Indice > 12) then
+    begin
+    Indice:= Indice-12;
+    end;
+    ExemplosCalculados[NumBlocos,i,j]:= (ValorMinimo +
+    (ValorMaximo-ValorMinimo)*(ExemplosCalculados[NumBlocos][i][j]+0.85)/1.70);
+    ExemplosCalculados[NumBlocos,i,j]:= ExemplosCalculados[NumBlocos,i,j]*
+    DesvioExemplos[Indice]+ MediaExemplos[Indice];
+    SaidasOriginais[i,j]:= exp(ExemplosCalculados[NumBlocos][i][j])
+    +ConstanteBoxCox;
+    end;
+    Indice:=Indice+1;
+    end;
+  //primeiro mes
+ldmda1:= 0.0;
+ldmda1:=  ExemplosCalculados[NumBlocos,NumeroPrevisao+1-NumInputs,1] ;
+ldmda1S1:=ldmda1 + Intc1*ep1;
+ldmda1I1:=ldmda1-Intc1*ep1;
+ldmda1S2:=ldmda1 + Intc2*ep1;
+ldmda1I2:=ldmda1-Intc2*ep1;
+ldmda1:=exp(ldmda1)+ ConstanteBoxCox;
+
+
+ldmda1S1:=exp(ldmda1S1)+ ConstanteBoxCox;
+ldmda1I1:=exp (ldmda1I1)+ ConstanteBoxCox;
+ldmda1S2:=exp (ldmda1S2)+ConstanteBoxCox;
+ldmda1I2:=exp (ldmda1I2)+ConstanteBoxCox;
+
+
+MeP195.Caption:= IntTostr(Round(ldmda1));
+MaP195.Caption:= IntTostr(Round(ldmda1S1));
+MiP195.Caption:= IntTostr(Round(ldmda1I1));
+MeP150.Caption:= IntTostr(Round(ldmda1));
+MaP150.Caption:= IntTostr(Round(ldmda1S2));
+MiP150.Caption:= IntTostr(Round(ldmda1I2));
+
+
+ldmda2:= ExemplosCalculados[NumBlocos,NumeroPrevisao+2-NumInputs,1] ;
+ldmda2S1:=ldmda2 + Intc1*ep1;
+ldmda2I1:=ldmda2-Intc1*ep1;
+ldmda2S2:=ldmda2 + Intc2*ep1;
+ldmda2I2:=ldmda2-Intc2*ep1;
+ldmda2:=exp (ldmda2)+ConstanteBoxCox;
+
+ldmda2S1:=exp(ldmda2S1)+ConstanteBoxCox;
+ldmda2I1:=exp (ldmda2I1)+ConstanteBoxCox;
+ldmda2S2:=exp (ldmda2S2)+ConstanteBoxCox;
+ldmda2I2:=exp (ldmda2I2)+ConstanteBoxCox;
+
+MeP295.Caption:= IntTostr(Round(ldmda2));
+MaP295.Caption:= IntTostr(Round(ldmda2S1));
+MiP295.Caption:= IntTostr(Round(ldmda2I1));
+MeP250.Caption:= IntTostr(Round(ldmda2));
+MaP250.Caption:= IntTostr(Round(ldmda2S2));
+MiP250.Caption:= IntTostr(Round(ldmda2I2));
+
+ldmda3:= ExemplosCalculados[NumBlocos,NumeroPrevisao+3-NumInputs,1] ;
+ldmda3S1:=ldmda3 + Intc1*ep1;
+ldmda3I1:=ldmda3-Intc1*ep1;
+ldmda3S2:=ldmda3 + Intc2*ep1;
+ldmda3I2:=ldmda3-Intc2*ep1;
+ldmda3:=exp (ldmda3)+ConstanteBoxCox;
+
+ldmda3S1:=exp(ldmda3S1)+ConstanteBoxCox;
+ldmda3I1:=exp (ldmda3I1)+ConstanteBoxCox;
+ldmda3S2:=exp (ldmda3S2)+ConstanteBoxCox;
+ldmda3I2:=exp (ldmda3I2)+ConstanteBoxCox;
+
+MeP395.Caption:= IntTostr(Round(ldmda3));
+MaP395.Caption:= IntTostr(Round(ldmda3S1));
+MiP395.Caption:= IntTostr(Round(ldmda3I1));
+MeP350.Caption:= IntTostr(Round(ldmda3));
+MaP350.Caption:= IntTostr(Round(ldmda3S2));
+MiP350.Caption:= IntTostr(Round(ldmda3I2));
+
+ ldmda4:= ExemplosCalculados[NumBlocos,NumeroPrevisao+4-NumInputs,1] ;
+ ldmda4S1:=ldmda4 + Intc1*ep1;
+ ldmda4I1:=ldmda4 -Intc1*ep1;
+ ldmda4S2:=ldmda4 + Intc2*ep1;
+ ldmda4I2:=ldmda4-Intc2*ep1;
+ ldmda4:=exp (ldmda4)+ConstanteBoxCox;
+
+ ldmda4S1:=exp(ldmda4S1)+ConstanteBoxCox;
+ ldmda4I1:=exp (ldmda4I1)+ConstanteBoxCox;
+ ldmda4S2:=exp (ldmda4S2)+ConstanteBoxCox;
+ ldmda4I2:=exp (ldmda4I2)+ConstanteBoxCox;
+
+ MeP495.Caption:= IntTostr(Round(ldmda4));
+ MaP495.Caption:= IntTostr(Round(ldmda4S1));
+ MiP495.Caption:= IntTostr(Round(ldmda4I1));
+ MeP450.Caption:= IntTostr(Round(ldmda4));
+ MaP450.Caption:= IntTostr(Round(ldmda4S2));
+ MiP450.Caption:= IntTostr(Round(ldmda4I2));
+
+
+ ldmda5:= ExemplosCalculados[NumBlocos,NumeroPrevisao+5-NumInputs,1] ;
+ ldmda5S1:=ldmda5 + Intc1*ep1;
+ ldmda5I1:=ldmda5 -Intc1*ep1;
+ ldmda5S2:=ldmda5 + Intc2*ep1;
+ ldmda5I2:=ldmda5 -Intc2*ep1;
+ ldmda5:=exp (ldmda5)+ConstanteBoxCox;
+
+ ldmda5S1:=exp(ldmda5S1)+ConstanteBoxCox;
+ ldmda5I1:=exp (ldmda5I1)+ConstanteBoxCox;
+ ldmda5S2:=exp (ldmda5S2)+ConstanteBoxCox;
+ ldmda5I2:=exp (ldmda5I2)+ConstanteBoxCox;
+
+MeP595.Caption:= IntTostr(Round(ldmda5));
+MaP595.Caption:= IntTostr(Round(ldmda5S1));
+MiP595.Caption:= IntTostr(Round(ldmda5I1));
+MeP550.Caption:= IntTostr(Round(ldmda5));
+MaP550.Caption:= IntTostr(Round(ldmda5S2));
+MiP550.Caption:= IntTostr(Round(ldmda5I2));
+ldmda6:= ExemplosCalculados[NumBlocos,NumeroPrevisao+6-NumInputs,1] ;
+ ldmda6S1:=ldmda6 + Intc1*ep1;
+ ldmda6I1:=ldmda6 -Intc1*ep1;
+ ldmda6S2:=ldmda6 + Intc2*ep1;
+ ldmda6I2:=ldmda6 -Intc2*ep1;
+ ldmda6:=exp (ldmda6)+ConstanteBoxCox;
+
+ ldmda6S1:=exp(ldmda6S1)+ConstanteBoxCox;
+ ldmda6I1:=exp (ldmda6I1)+ConstanteBoxCox;
+ ldmda6S2:=exp (ldmda6S2)+ConstanteBoxCox;
+ ldmda6I2:=exp (ldmda6I2)+ConstanteBoxCox;
+
+ MeP695.Caption:= IntTostr(Round(ldmda6));
+ MaP695.Caption:= IntTostr(Round(ldmda6S1));
+ MiP695.Caption:= IntTostr(Round(ldmda6I1));
+ MeP650.Caption:= IntTostr(Round(ldmda6));
+ MaP650.Caption:= IntTostr(Round(ldmda6S2));
+ MiP650.Caption:= IntTostr(Round(ldmda6I2));
+ ldmda7:= ExemplosCalculados[NumBlocos,NumeroPrevisao+7-NumInputs,1] ;
+ ldmda7S1:=ldmda7 + Intc1*ep1;
+ ldmda7I1:=ldmda7 -Intc1*ep1;
+ ldmda7S2:=ldmda7 + Intc2*ep1;
+ ldmda7I2:=ldmda7 -Intc2*ep1;
+ ldmda7:=exp (ldmda7)+ConstanteBoxCox;
+
+ ldmda7S1:=exp(ldmda7S1)+ConstanteBoxCox;
+ ldmda7I1:=exp (ldmda7I1)+ConstanteBoxCox;
+ ldmda7S2:=exp (ldmda7S2)+ConstanteBoxCox;
+ ldmda7I2:=exp (ldmda7I2)+ConstanteBoxCox;
+
+
+ MeP795.Caption:= IntTostr(Round(ldmda7));
+ MaP795.Caption:= IntTostr(Round(ldmda7S1));
+ MiP795.Caption:= IntTostr(Round(ldmda7I1));
+ MeP750.Caption:= IntTostr(Round(ldmda7));
+ MaP750.Caption:= IntTostr(Round(ldmda7S2));
+ MiP750.Caption:= IntTostr(Round(ldmda7I2));
+
+ ldmda8:= ExemplosCalculados[NumBlocos,NumeroPrevisao+8-NumInputs,1] ;
+ ldmda8S1:=ldmda8 + Intc1*ep1;
+ ldmda8I1:=ldmda8 -Intc1*ep1;
+ ldmda8S2:=ldmda8 + Intc2*ep1;
+ ldmda8I2:=ldmda8 -Intc2*ep1;
+ ldmda8:=exp (ldmda8)+ConstanteBoxCox;
+
+ ldmda8S1:=exp(ldmda8S1)+ConstanteBoxCox;
+ ldmda8I1:=exp (ldmda8I1)+ConstanteBoxCox;
+ ldmda8S2:=exp (ldmda8S2)+ConstanteBoxCox;
+ ldmda8I2:=exp (ldmda8I2)+ConstanteBoxCox;
+
+ MeP895.Caption:= IntTostr(Round(ldmda8));
+ MaP895.Caption:= IntTostr(Round(ldmda8S1));
+ MiP895.Caption:= IntTostr(Round(ldmda8I1));
+ MeP850.Caption:= IntTostr(Round(ldmda8));
+ MaP850.Caption:= IntTostr(Round(ldmda8S2));
+ MiP850.Caption:= IntTostr(Round(ldmda8I2));
+
+ ldmda9:= ExemplosCalculados[NumBlocos,NumeroPrevisao+9-NumInputs,1] ;
+ ldmda9S1:=ldmda9 + Intc1*ep1;
+ ldmda9I1:=ldmda9 -Intc1*ep1;
+ ldmda9S2:=ldmda9 + Intc2*ep1;
+ ldmda9I2:=ldmda9 -Intc2*ep1;
+ ldmda9:=exp (ldmda9)+ConstanteBoxCox;
+
+ ldmda9S1:=exp(ldmda9S1 )+ConstanteBoxCox;
+ ldmda9I1:=exp (ldmda9I1)+ConstanteBoxCox;
+ ldmda9S2:=exp (ldmda9S2)+ConstanteBoxCox;
+ ldmda9I2:=exp (ldmda9I2)+ConstanteBoxCox;
+
+MeP995.Caption:= IntTostr(Round(ldmda9));
+ MaP995.Caption:= IntTostr(Round(ldmda9S1));
+ MiP995.Caption:= IntTostr(Round(ldmda9I1));
+ MeP950.Caption:= IntTostr(Round(ldmda9));
+ MaP950.Caption:= IntTostr(Round(ldmda9S2));
+ MiP950.Caption:= IntTostr(Round(ldmda9I2));
+
+ ldmda10:= ExemplosCalculados[NumBlocos,NumeroPrevisao+10-NumInputs,1] ;
+ ldmda10S1:=ldmda10 + Intc1*ep1;
+ ldmda10I1:=ldmda10 -Intc1*ep1;
+ ldmda10S2:=ldmda10 + Intc2*ep1;
+ ldmda10I2:=ldmda10 -Intc2*ep1;
+ ldmda10:=exp (ldmda10)+ConstanteBoxCox;
+
+ ldmda10S1:=exp(ldmda10S1)+ConstanteBoxCox;
+ ldmda10I1:=exp (ldmda10I1)+ConstanteBoxCox;
+ ldmda10S2:=exp (ldmda10S2) +ConstanteBoxCox;
+ ldmda10I2:=exp (ldmda10I2)+ConstanteBoxCox;
+
+ MeP1095.Caption:= IntTostr(Round(ldmda10));
+ MaP1095.Caption:= IntTostr(Round(ldmda10S1));
+ MiP1095.Caption:= IntTostr(Round(ldmda10I1));
+ MeP1050.Caption:= IntTostr(Round(ldmda10));
+ MaP1050.Caption:= IntTostr(Round(ldmda10S2));
+ MiP1050.Caption:= IntTostr(Round(ldmda10I2));
+
+ ldmda11:= ExemplosCalculados[NumBlocos,NumeroPrevisao+11-NumInputs,1] ;
+ ldmda11S1:=ldmda11 + Intc1*ep1;
+ ldmda11I1:=ldmda11 -Intc1*ep1;
+ ldmda11S2:=ldmda11 + Intc2*ep1;
+ ldmda11I2:=ldmda11 -Intc2*ep1;
+ ldmda11:=exp (ldmda11)+ConstanteBoxCox;
+
+ ldmda11S1:=exp(ldmda11S1)+ConstanteBoxCox;
+ ldmda11I1:=exp (ldmda11I1)+ConstanteBoxCox;
+ ldmda11S2:=exp (ldmda11S2)+ConstanteBoxCox;
+ ldmda11I2:=exp (ldmda11I2)+ConstanteBoxCox;
+
+MeP1195.Caption:= IntTostr(Round(ldmda11));
+MaP1195.Caption:= IntTostr(Round(ldmda11S1));
+MiP1195.Caption:= IntTostr(Round(ldmda11I1));
+MeP1150.Caption:= IntTostr(Round(ldmda11));
+MaP1150.Caption:= IntTostr(Round(ldmda11S2));
+MiP1150.Caption:= IntTostr(Round(ldmda11I2));
+
+ ldmda12:= ExemplosCalculados[NumBlocos,NumeroPrevisao+12-NumInputs,1] ;
+ ldmda12S1:=ldmda12 + Intc1*ep1;
+ ldmda12I1:=ldmda12 -Intc1*ep1;
+ ldmda12S2:=ldmda12 + Intc2*ep1;
+ ldmda12I2:=ldmda12 -Intc2*ep1;
+ ldmda12:=exp (ldmda12)+ConstanteBoxCox;
+
+ ldmda12S1:=exp(ldmda12S1)+ConstanteBoxCox;
+ ldmda12I1:=exp (ldmda12I1)+ConstanteBoxCox;
+ ldmda12S2:=exp (ldmda12S2)+ConstanteBoxCox;
+ ldmda12I2:=exp (ldmda12I2)+ConstanteBoxCox;
+
+MeP1295.Caption:= IntTostr(Round(ldmda12));
+MaP1295.Caption:= IntTostr(Round(ldmda12S1));
+MiP1295.Caption:= IntTostr(Round(ldmda12I1));
+MeP1250.Caption:= IntTostr(Round(ldmda12));
+MaP1250.Caption:= IntTostr(Round(ldmda12S2));
+MiP1250.Caption:= IntTostr(Round(ldmda12I2));
+
+ RotinaSalvaDadosPrevisao(self);
+
+
+end;
+
+procedure TMainForm.BitBtn1Click(Sender: TObject);
+Const
+Intc80 = '90%';
+Intc50 = '50%';
+ begin
+Label13.caption:=intc80;Label15.caption:=intc80;
+Label17.caption:=intc80;Label19.caption:=intc80;
+Label21.caption:=intc80;Label23.caption:=intc80;
+Label14.caption:=intc50;Label16.caption:=intc50;
+Label18.caption:=intc50;Label20.caption:=intc50;
+Label22.caption:=intc50;Label24.caption:=intc50;
+Label31.caption:=intc80;Label32.caption:=intc50;
+Label33.caption:=intc80;Label35.caption:=intc50;
+Label36.caption:=intc80;Label37.caption:=intc50;
+Label38.caption:=intc80;Label39.caption:=intc50;
+Label40.caption:=intc80;Label41.caption:=intc50;
+Label42.caption:=intc80;Label43.caption:=intc50;
+intc1:=c90;
+intc2:=c50;
+prever1(self);
+prever(self);
+end;
+
+procedure TMainForm.Button1Click(Sender: TObject);
+  Const
+  MES4 = 'NOV';
+ MES5 = 'DEZ';
+ MESp1 = 'JAN';
+ MESp2 = 'FEV';
+ MESp3 = 'MAR';
+ MESp4 = 'ABR';
+ MESp5 = 'MAI';
+ MESp6 = 'JUN';
+ mesp25 = 'JUL';
+ MESp26 = 'AGO';
+ MESp27 = 'SET';
+ mesp28 = 'OUT';
+ MESp29 = 'NOV';
+ MESp30 = 'DEZ';
+  begin
+ //Label7.Caption := MES5;
+ //Label8.Caption := MES4;
+
+ Labelp1.Caption := MESp1;
+ Labelp2.Caption := MESp2;
+ Labelp3.Caption := MESp3;
+ Labelp4.Caption := MESp4;
+ Labelp5.Caption := MESp5;
+ Labelp6.Caption := MESp6;
+ Label25.Caption := MESp25;
+ Label26.Caption := MESp26;
+ Label27.Caption := MESp27;
+ Label28.Caption := MESp28;
+ Label29.Caption := MESp29;
+ Label30.Caption := MESp30;
+ cp11:=c11;cp12:=c12;cp13:=c13;cp14:=c14;ctp1:=ct1;ep1:=e1;
+ cp21:=c21;cp22:=c22;cp23:=c23;cp24:=c24;ctp2:=ct2;ep2:=e2;
+ cp31:=c31;cp32:=c32;cp33:=c33;cp34:=c34;ctp3:=ct3;ep3:=e3;
+ cp41:=c41;cp42:=c42;cp43:=c43;cp44:=c44;ctp4:=ct4;ep4:=e4;
+ cp51:=c51;cp52:=c52;cp53:=c53;cp54:=c54;ctp5:=ct5;ep5:=e5;
+ cp61:=c61;cp62:=c62;cp63:=c63;cp64:=c64;ctp6:=ct6;ep6:=e6;
+ep1:=erroPadrao[1,1];ep2:=erroPadrao[1,2];ep3:=erroPadrao[1,3];
+ep4:=erroPadrao[1,4];ep5:=erroPadrao[1,5];ep6:=erroPadrao[1,6];
+ep7:=erroPadrao[1,7];ep8:=erroPadrao[1,8];ep9:=erroPadrao[1,9];
+ep10:=erroPadrao[1,10];ep11:=erroPadrao[1,11];ep12:=erroPadrao[1,12];
+  AssignFile(ArqSaida2,'c:\NeuroInflow\DadosPrevisao.TXT');
+ Rewrite(ArqSaida2);
+ Write(Arqsaida2,Mesp1:8,Mesp2:8,Mesp3:8,Mesp4:8,Mesp5:8,Mesp6:8,
+ Mesp25:8,Mesp26:8,Mesp27:8, Mesp28:8, Mesp29:8, Mesp30:8);
+ writeln(ArqSaida2,'');
+ CloseFile(ArqSaida2);
+
+
+ end;
+   procedure TMainForm.Button2Click(Sender: TObject);
+  Const
+ MES4 = 'DEZ';
+ MES5 = 'JAN';
+ MESp1 = 'FEV';
+ MESp2 = 'MAR';
+ MESp3 = 'ABR';
+ MESp4 = 'MAI';
+ MESp5 = 'JUN';
+ MESp6 = 'JUL';
+ MESp25 = 'AGO';
+ MESp26 = 'SET';
+ MESp27 = 'OUT';
+ mesp28 = 'NOV';
+ MESp29 = 'DEZ';
+ MESp30 = 'JAN';
+
+  begin
+
+ //Label7.Caption := MES5;
+// Label8.Caption := MES4;
+
+ Labelp1.Caption := MESp1;
+ Labelp2.Caption := MESp2;
+ Labelp3.Caption := MESp3;
+ Labelp4.Caption := MESp4;
+ Labelp5.Caption := MESp5;
+ Labelp6.Caption := MESp6;
+ Label25.Caption := MESp25;
+ Label26.Caption := MESp26;
+ Label27.Caption := MESp27;
+ Label28.Caption := MESp28;
+ Label29.Caption := MESp29;
+ Label30.Caption := MESp30;
+
+ cp11:=c21;cp12:=c22;cp13:=c23;cp14:=c24;ctp1:=ct2;ep1:=e2;
+ cp21:=c31;cp22:=c32;cp23:=c33;cp24:=c34;ctp2:=ct3;ep2:=e3;
+ cp31:=c41;cp32:=c42;cp33:=c43;cp34:=c44;ctp3:=ct4;ep3:=e4;
+ cp41:=c51;cp42:=c52;cp43:=c53;cp44:=c54;ctp4:=ct5;ep4:=e5;
+ cp51:=c61;cp52:=c62;cp53:=c63;cp54:=c64;ctp5:=ct6;ep5:=e6;
+ cp61:=c71;cp62:=c72;cp63:=c73;cp64:=c74;ctp6:=ct7;ep6:=e7;
+
+ep1:=erroPadrao[2,1];ep2:=erroPadrao[2,2];ep3:=erroPadrao[2,3];
+ep4:=erroPadrao[2,4];ep5:=erroPadrao[2,5];ep6:=erroPadrao[2,6];
+ep7:=erroPadrao[2,7];ep8:=erroPadrao[2,8];ep9:=erroPadrao[2,9];
+ep10:=erroPadrao[2,10];ep11:=erroPadrao[2,11];ep12:=erroPadrao[2,12];
+ AssignFile(ArqSaida2,'c:\NeuroInflow\DadosPrevisao.TXT');
+ Rewrite(ArqSaida2);
+ Write(Arqsaida2,Mesp1:8,Mesp2:8,Mesp3:8,Mesp4:8,Mesp5:8,Mesp6:8,
+ Mesp25:8,Mesp26:8,Mesp27:8, Mesp28:8, Mesp29:8, Mesp30:8);
+ writeln(ArqSaida2,'');
+ CloseFile(ArqSaida2);
+
+ end;
+
+  procedure TMainForm.Button3Click(Sender: TObject);
+  Const
+ MES4 = 'JAN';
+ MES5 = 'FEV';
+ MESp1 = 'MAR';
+ MESp2 = 'ABR';
+ MESp3 = 'MAI';
+ MESp4 = 'JUN';
+ MESp5 = 'JUL';
+ MESp6 = 'AGO';
+ mesp25 = 'SET';
+ MESp26 = 'OUT';
+ MESp27 = 'NOV';
+ mesp28 = 'DEZ';
+ MESp29 = 'JAN';
+ MESp30 = 'FEV';
+
+  begin
+// Label7.Caption := MES5;
+// Label8.Caption := MES4;
+ Labelp1.Caption := MESp1;
+ Labelp2.Caption := MESp2;
+ Labelp3.Caption := MESp3;
+ Labelp4.Caption := MESp4;
+ Labelp5.Caption := MESp5;
+ Labelp6.Caption := MESp6;
+ Label25.Caption := MESp25;
+ Label26.Caption := MESp26;
+ Label27.Caption := MESp27;
+ Label28.Caption := MESp28;
+ Label29.Caption := MESp29;
+ Label30.Caption := MESp30;
+
+ cp11:=c31;cp12:=c32;cp13:=c33;cp14:=c34;ctp1:=ct3;ep1:=e3;
+ cp21:=c41;cp22:=c42;cp23:=c43;cp24:=c44;ctp2:=ct4;ep2:=e4;
+ cp31:=c51;cp32:=c52;cp33:=c53;cp34:=c54;ctp3:=ct5;ep3:=e5;
+ cp41:=c61;cp42:=c62;cp43:=c63;cp44:=c64;ctp4:=ct6;ep4:=e6;
+ cp51:=c71;cp52:=c72;cp53:=c73;cp54:=c74;ctp5:=ct7;ep5:=e7;
+ cp61:=c81;cp62:=c82;cp63:=c83;cp64:=c84;ctp6:=ct8;ep6:=e8;
+ep1:=erroPadrao[3,1];ep2:=erroPadrao[3,2];ep3:=erroPadrao[3,3];
+ep4:=erroPadrao[3,4];ep5:=erroPadrao[3,5];ep6:=erroPadrao[3,6];
+ep7:=erroPadrao[3,7];ep8:=erroPadrao[3,8];ep9:=erroPadrao[3,9];
+ep10:=erroPadrao[3,10];ep11:=erroPadrao[3,11];ep12:=erroPadrao[3,12];
+ AssignFile(ArqSaida2,'c:\NeuroInflow\DadosPrevisao.TXT');
+ Rewrite(ArqSaida2);
+ Write(Arqsaida2,Mesp1:8,Mesp2:8,Mesp3:8,Mesp4:8,Mesp5:8,
+ Mesp6:8,Mesp25:8,Mesp26:8,Mesp27:8, Mesp28:8, Mesp29:8, Mesp30:8);
+ writeln(ArqSaida2,'');
+ CloseFile(ArqSaida2);
+
+
+
+ end;
+
+  procedure TMainForm.Button4Click(Sender: TObject);
+  Const
+ MES4 = 'FEV';
+ MES5 = 'MAR';
+ MESp1 = 'ABR';
+ MESp2 = 'MAI';
+ MESp3 = 'JUN';
+ MESp4 = 'JUL';
+ MESp5 = 'AGO';
+ MESp6 = 'SET';
+ MESp25 = 'OUT';
+ MESp26 = 'NOV';
+ MESp27 = 'DEZ';
+ MESp28 = 'JAN';
+ MESp29 = 'FEV';
+ MESp30 = 'MAR';
+
+  begin
+ //Label7.Caption := MES5;
+ //Label8.Caption := MES4;
+
+ Labelp1.Caption := MESp1;
+ Labelp2.Caption := MESp2;
+ Labelp3.Caption := MESp3;
+ Labelp4.Caption := MESp4;
+ Labelp5.Caption := MESp5;
+ Labelp6.Caption := MESp6;
+ Label25.Caption := MESp25;
+ Label26.Caption := MESp26;
+ Label27.Caption := MESp27;
+ Label28.Caption := MESp28;
+ Label29.Caption := MESp29;
+ Label30.Caption := MESp30;
+
+ cp11:=c41;cp12:=c42;cp13:=c43;cp14:=c44;ctp1:=ct4;ep1:=e4;
+ cp21:=c51;cp22:=c52;cp23:=c53;cp24:=c54;ctp2:=ct5;ep2:=e5;
+ cp31:=c61;cp32:=c62;cp33:=c63;cp34:=c64;ctp3:=ct6;ep3:=e6;
+ cp41:=c71;cp42:=c72;cp43:=c73;cp44:=c74;ctp4:=ct7;ep4:=e7;
+ cp51:=c81;cp52:=c82;cp53:=c83;cp54:=c84;ctp5:=ct8;ep5:=e8;
+ cp61:=c91;cp62:=c92;cp63:=c93;cp64:=c94;ctp6:=ct9;ep6:=e9;
+ep1:=erroPadrao[4,1];ep2:=erroPadrao[4,2];ep3:=erroPadrao[4,3];
+ep4:=erroPadrao[4,4];ep5:=erroPadrao[4,5];ep6:=erroPadrao[4,6];
+ep7:=erroPadrao[4,7];ep8:=erroPadrao[4,8];ep9:=erroPadrao[4,9];
+ep10:=erroPadrao[4,10];ep11:=erroPadrao[4,11];ep12:=erroPadrao[4,12];
+ AssignFile(ArqSaida2,'c:\NeuroInflow\DadosPrevisao.TXT');
+ Rewrite(ArqSaida2);
+ Write(Arqsaida2,Mesp1:8,Mesp2:8,Mesp3:8,
+ Mesp4:8,Mesp5:8,Mesp6:8,Mesp25:8,Mesp26:8,Mesp27:8, Mesp28:8,Mesp29:8,Mesp30:8);
+ writeln(ArqSaida2,'');
+ CloseFile(ArqSaida2);
+
+
+
+ end;
+
+  procedure TMainForm.Button5Click(Sender: TObject);
+  Const
+ MES4 = 'MAR';
+ MES5 = 'ABR';
+ MESp1 = 'MAI';
+ MESp2 = 'JUN';
+ MESp3 = 'JUL';
+ MESp4 = 'AGO';
+ MESp5 = 'SET';
+ MESp6 = 'OUT';
+ mesp25 = 'NOV';
+ MESp26 = 'DEZ';
+ MESp27 = 'JAN';
+ mesp28 = 'FEV';
+ MESp29 = 'MAR';
+ MESp30 = 'ABR';
+
+  begin
+ //Label7.Caption := MES5;
+// Label8.Caption := MES4;
+
+ Labelp1.Caption := MESp1;
+ Labelp2.Caption := MESp2;
+ Labelp3.Caption := MESp3;
+ Labelp4.Caption := MESp4;
+ Labelp5.Caption := MESp5;
+ Labelp6.Caption := MESp6;
+ Label25.Caption := MESp25;
+ Label26.Caption := MESp26;
+ Label27.Caption := MESp27;
+ Label28.Caption := MESp28;
+ Label29.Caption := MESp29;
+ Label30.Caption := MESp30;
+
+
+ cp11:=c51;cp12:=c52;cp13:=c53;cp14:=c54;ctp1:=ct5;ep1:=e5;
+ cp21:=c61;cp22:=c62;cp23:=c63;cp24:=c64;ctp2:=ct6;ep2:=e6;
+ cp31:=c71;cp32:=c72;cp33:=c73;cp34:=c74;ctp3:=ct7;ep3:=e7;
+ cp41:=c81;cp42:=c82;cp43:=c83;cp44:=c84;ctp4:=ct8;ep4:=e8;
+ cp51:=c91;cp52:=c92;cp53:=c93;cp54:=c94;ctp5:=ct9;ep5:=e9;
+ cp61:=c101;cp62:=c102;cp63:=c103;cp64:=c104;ctp6:=ct10;ep6:=e10;
+ep1:=erroPadrao[5,1];ep2:=erroPadrao[5,2];ep3:=erroPadrao[5,3];
+ep4:=erroPadrao[5,4];ep5:=erroPadrao[5,5];ep6:=erroPadrao[5,6];
+ep7:=erroPadrao[5,7];ep8:=erroPadrao[5,8];ep9:=erroPadrao[5,9];
+ep10:=erroPadrao[5,10];ep11:=erroPadrao[5,11];ep12:=erroPadrao[5,12];
+  AssignFile(ArqSaida2,'c:\NeuroInflow\DadosPrevisao.TXT');
+ Rewrite(ArqSaida2);
+ Write(Arqsaida2,Mesp1:8,Mesp2:8,Mesp3:8,Mesp4:8,Mesp5:8,Mesp6:8
+ ,Mesp25 :8,Mesp26:8,Mesp27:8, Mesp28:8, Mesp29:8, Mesp30:8);
+ writeln(ArqSaida2,'');
+ CloseFile(ArqSaida2);
+
+
+
+ end;
+
+  procedure TMainForm.Button6Click(Sender: TObject);
+  Const
+ MES4 = 'ABR';
+ MES5 = 'MAI';
+ MESp1 = 'JUN';
+ MESp2 = 'JUL';
+ MESp3 = 'AGO';
+ MESp4 = 'SET';
+ MESp5 = 'OUT';
+ MESp6 = 'NOV';
+ mesp25 = 'DEZ';
+ MESp26 = 'JAN';
+ MESp27 = 'FEV';
+ mesp28 = 'MAR';
+ MESp29 = 'ABR';
+ MESp30 = 'MAI';
+
+  begin
+
+// Label7.Caption := MES5;
+ //Label8.Caption := MES4;
+
+ Labelp1.Caption := MESp1;
+ Labelp2.Caption := MESp2;
+ Labelp3.Caption := MESp3;
+ Labelp4.Caption := MESp4;
+ Labelp5.Caption := MESp5;
+ Labelp6.Caption := MESp6;
+ Label25.Caption := MESp25;
+ Label26.Caption := MESp26;
+ Label27.Caption := MESp27;
+ Label28.Caption := MESp28;
+ Label29.Caption := MESp29;
+ Label30.Caption := MESp30;
+
+ cp11:=c61;cp12:=c62;cp13:=c63;cp14:=c64;ctp1:=ct6;ep1:=e6;
+ cp21:=c71;cp22:=c72;cp23:=c73;cp24:=c74;ctp2:=ct7;ep2:=e7;
+ cp31:=c81;cp32:=c82;cp33:=c83;cp34:=c84;ctp3:=ct8;ep3:=e8;
+ cp41:=c91;cp42:=c92;cp43:=c93;cp44:=c94;ctp4:=ct9;ep4:=e9;
+ cp51:=c101;cp52:=c102;cp53:=c103;cp54:=c104;ctp5:=ct10;ep5:=e10;
+ cp61:=c111;cp62:=c112;cp63:=c113;cp64:=c114;ctp6:=ct11;ep6:=e11;
+ep1:=erroPadrao[6,1];ep2:=erroPadrao[6,2];ep3:=erroPadrao[6,3];
+ep4:=erroPadrao[6,4];ep5:=erroPadrao[6,5];ep6:=erroPadrao[6,6];
+ep7:=erroPadrao[6,7];ep8:=erroPadrao[6,8];ep9:=erroPadrao[6,9];
+ep10:=erroPadrao[6,10];ep11:=erroPadrao[6,11];ep12:=erroPadrao[6,12];
+  AssignFile(ArqSaida2,'c:\NeuroInflow\DadosPrevisao.TXT');
+ Rewrite(ArqSaida2);
+ Write(Arqsaida2,Mesp1:8,Mesp2:8,Mesp3:8,Mesp4:8,Mesp5:8
+ ,Mesp6:8,Mesp25:8,Mesp26:8,Mesp27:8, Mesp28:8, Mesp29:8, Mesp30:8);
+ writeln(ArqSaida2,'');
+ CloseFile(ArqSaida2);
+
+
+ end;
+
+
+   procedure TMainForm.Button7Click(Sender: TObject);
+  Const
+ MES4 = 'MAI';
+ MES5 = 'JUN';
+ MESp1 = 'JUL';
+ MESp2 = 'AGO';
+ MESp3 = 'SET';
+ MESp4 = 'OUT';
+ MESp5 = 'NOV';
+ MESp6 = 'DEZ';
+ MESp25 = 'JAN';
+ MESp26 = 'FEV';
+ MESp27 = 'MAR';
+ MESp28 = 'ABR';
+ MESp29 = 'MAI';
+ MESp30 = 'JUN';
+
+  begin
+// Label7.Caption := MES5;
+ //Label8.Caption := MES4;
+
+ Labelp1.Caption := MESp1;
+ Labelp2.Caption := MESp2;
+ Labelp3.Caption := MESp3;
+ Labelp4.Caption := MESp4;
+ Labelp5.Caption := MESp5;
+ Labelp6.Caption := MESp6;
+ Label25.Caption := MESp25;
+ Label26.Caption := MESp26;
+ Label27.Caption := MESp27;
+ Label28.Caption := MESp28;
+ Label29.Caption := MESp29;
+ Label30.Caption := MESp30;
+
+ cp11:=c71;cp12:=c72;cp13:=c73;cp14:=c74;ctp1:=ct7;ep1:=e7;
+ cp21:=c81;cp22:=c82;cp23:=c83;cp24:=c84;ctp2:=ct8;ep2:=e8;
+ cp31:=c91;cp32:=c92;cp33:=c93;cp34:=c94;ctp3:=ct9;ep3:=e9;
+ cp41:=c101;cp42:=c102;cp43:=c103;cp44:=c104;ctp4:=ct10;ep4:=e10;
+ cp51:=c111;cp52:=c112;cp53:=c113;cp54:=c114;ctp5:=ct11;ep5:=e11;
+ cp61:=c121;cp62:=c122;cp63:=c123;cp64:=c124;ctp6:=ct12;ep6:=e12;
+ep1:=erroPadrao[7,1];ep2:=erroPadrao[7,2];ep3:=erroPadrao[7,3];
+ep4:=erroPadrao[7,4];ep5:=erroPadrao[7,5];ep6:=erroPadrao[7,6];
+ep7:=erroPadrao[7,7];ep8:=erroPadrao[7,8];ep9:=erroPadrao[7,9];
+ep10:=erroPadrao[7,10];ep11:=erroPadrao[7,11];ep12:=erroPadrao[7,12];
+ AssignFile(ArqSaida2,'c:\NeuroInflow\DadosPrevisao.TXT');
+ Rewrite(ArqSaida2);
+ Write(Arqsaida2,Mesp1:8,Mesp2:8,Mesp3:8,Mesp4:8,Mesp5:8,Mesp6:8,
+ MESp25:8,Mesp26:8,Mesp27:8, Mesp28:8, Mesp29:8, Mesp30:8);
+ writeln(ArqSaida2,'');
+ CloseFile(ArqSaida2);
+
+
+ end;
+
+
+  procedure TMainForm.Button8Click(Sender: TObject);
+  Const
+ MES4 = 'JUN';
+ MES5 = 'JUL';
+ MESp1 = 'AGO';
+ MESp2 = 'SET';
+ MESp3 = 'OUT';
+ MESp4 = 'NOV';
+ MESp5 = 'DEZ';
+ MESp6 = 'JAN';
+ mesp25 = 'FEV';
+ MESp26 = 'MAR';
+ MESp27 = 'ABR';
+ mesp28 = 'MAI';
+ MESp29 = 'JUN';
+ MESp30 = 'JUL';
+  begin
+ //Label7.Caption := MES5;
+// Label8.Caption := MES4;
+
+ Labelp1.Caption := MESp1;
+ Labelp2.Caption := MESp2;
+ Labelp3.Caption := MESp3;
+ Labelp4.Caption := MESp4;
+ Labelp5.Caption := MESp5;
+ Labelp6.Caption := MESp6;
+ Label25.Caption := MESp25;
+ Label26.Caption := MESp26;
+ Label27.Caption := MESp27;
+ Label28.Caption := MESp28;
+ Label29.Caption := MESp29;
+ Label30.Caption := MESp30;
+
+ cp11:=c81;cp12:=c82;cp13:=c83;cp14:=c84;ctp1:=ct8;ep1:=e8;
+ cp21:=c91;cp22:=c92;cp23:=c93;cp24:=c94;ctp2:=ct9;ep2:=e9;
+ cp31:=c101;cp32:=c102;cp33:=c103;cp34:=c104;ctp3:=ct10;ep3:=e10;
+ cp41:=c111;cp42:=c112;cp43:=c113;cp44:=c114;ctp4:=ct11;ep4:=e11;
+ cp51:=c121;cp52:=c122;cp53:=c123;cp54:=c124;ctp5:=ct12;ep5:=e12;
+ cp61:=c131;cp62:=c132;cp63:=c133;cp64:=c134;ctp6:=ct13;ep6:=e13;
+ep1:=erroPadrao[8,1];ep2:=erroPadrao[8,2];ep3:=erroPadrao[8,3];
+ep4:=erroPadrao[8,4];ep5:=erroPadrao[8,5];ep6:=erroPadrao[8,6];
+ep7:=erroPadrao[8,7];ep8:=erroPadrao[8,8];ep9:=erroPadrao[8,9];
+ep10:=erroPadrao[8,10];ep11:=erroPadrao[8,11];ep12:=erroPadrao[8,12];
+ AssignFile(ArqSaida2,'c:\NeuroInflow\DadosPrevisao.TXT');
+ Rewrite(ArqSaida2);
+ Write(Arqsaida2,Mesp1:8,Mesp2:8,Mesp3:8,Mesp4:8,Mesp5:8,Mesp6:8,
+ Mesp25:8,Mesp26:8,Mesp27:8, Mesp28:8, Mesp29:8, Mesp30:8);
+ writeln(ArqSaida2,'');
+ CloseFile(ArqSaida2);
+
+
+
+ end;
+
+  procedure TMainForm.Button9Click(Sender: TObject);
+  Const
+ MES4 = 'JUL';
+ MES5 = 'AGO';
+ MESp1 = 'SET';
+ MESp2 = 'OUT';
+ MESp3 = 'NOV';
+ MESp4 = 'DEZ';
+ MESp5 = 'JAN';
+ MESp6 = 'FEV';
+ mesp25 = 'MAR';
+ MESp26 = 'ABR';
+ MESp27 = 'MAI';
+ mesp28 = 'JUN';
+ MESp29 = 'JUL';
+ MESp30 = 'AGO';
+  begin
+ //Label7.Caption := MES5;
+ //Label8.Caption := MES4;
+
+ Labelp1.Caption := MESp1;
+ Labelp2.Caption := MESp2;
+ Labelp3.Caption := MESp3;
+ Labelp4.Caption := MESp4;
+ Labelp5.Caption := MESp5;
+ Labelp6.Caption := MESp6;
+ Label25.Caption := MESp25;
+ Label26.Caption := MESp26;
+ Label27.Caption := MESp27;
+ Label28.Caption := MESp28;
+ Label29.Caption := MESp29;
+ Label30.Caption := MESp30;
+
+ cp11:=c91;cp12:=c92;cp13:=c93;cp14:=c94;ctp1:=ct9;ep1:=e9;
+ cp21:=c101;cp22:=c102;cp23:=c103;cp24:=c104;ctp2:=ct10;ep2:=e10;
+ cp31:=c111;cp32:=c112;cp33:=c113;cp34:=c114;ctp3:=ct11;ep3:=e11;
+ cp41:=c121;cp42:=c122;cp43:=c123;cp44:=c124;ctp4:=ct12;ep4:=e12;
+ cp51:=c131;cp52:=c132;cp53:=c133;cp54:=c134;ctp5:=ct13;ep5:=e13;
+ cp61:=c141;cp62:=c142;cp63:=c143;cp64:=c144;ctp6:=ct14;ep6:=e14;
+ep1:=erroPadrao[9,1];ep2:=erroPadrao[9,2];ep3:=erroPadrao[9,3];
+ep4:=erroPadrao[9,4];ep5:=erroPadrao[9,5];ep6:=erroPadrao[9,6];
+ep7:=erroPadrao[9,7];ep8:=erroPadrao[9,8];ep9:=erroPadrao[9,9];
+ep10:=erroPadrao[9,10];ep11:=erroPadrao[9,11];ep12:=erroPadrao[9,12];
+ AssignFile(ArqSaida2,'c:\NeuroInflow\DadosPrevisao.TXT');
+ Rewrite(ArqSaida2);
+ Write(Arqsaida2,Mesp1:8,Mesp2:8,Mesp3:8,Mesp4:8,Mesp5:8,Mesp6:8,
+ Mesp25:8,Mesp26:8,Mesp27:8, Mesp28:8, Mesp29:8, Mesp30:8);
+ writeln(ArqSaida2,'');
+ CloseFile(ArqSaida2);
+
+
+ end;
+
+   procedure TMainForm.Button10Click(Sender: TObject);
+  Const
+  MES4 = 'AGO';
+ MES5 = 'SET';
+ MESp1 = 'OUT';
+ MESp2 = 'NOV';
+ MESp3 = 'DEZ';
+ MESp4 = 'JAN';
+ MESp5 = 'FEV';
+ MESp6 = 'MAR';
+ mesp25 = 'ABR';
+ MESp26 = 'MAI';
+ MESp27 = 'JUN';
+ mesp28 = 'JUL';
+ MESp29 = 'AGO';
+ MESp30 = 'SET';
+
+  begin
+// Label7.Caption := MES5;
+// Label8.Caption := MES4;
+
+ Labelp1.Caption := MESp1;
+ Labelp2.Caption := MESp2;
+ Labelp3.Caption := MESp3;
+ Labelp4.Caption := MESp4;
+ Labelp5.Caption := MESp5;
+ Labelp6.Caption := MESp6;
+ Label25.Caption := MESp25;
+ Label26.Caption := MESp26;
+ Label27.Caption := MESp27;
+ Label28.Caption := MESp28;
+ Label29.Caption := MESp29;
+ Label30.Caption := MESp30;
+
+ cp11:=c101;cp12:=c102;cp13:=c103;cp14:=c104;ctp1:=ct10;ep1:=e10;
+ cp21:=c111;cp22:=c112;cp23:=c113;cp24:=c114;ctp2:=ct11;ep2:=e11;
+ cp31:=c121;cp32:=c122;cp33:=c123;cp34:=c124;ctp3:=ct12;ep3:=e12;
+ cp41:=c131;cp42:=c132;cp43:=c133;cp44:=c134;ctp4:=ct13;ep4:=e13;
+ cp51:=c141;cp52:=c142;cp53:=c143;cp54:=c144;ctp5:=ct14;ep5:=e14;
+ cp61:=c151;cp62:=c152;cp63:=c153;cp64:=c154;ctp6:=ct15;ep6:=e15;
+ep1:=erroPadrao[10,1];ep2:=erroPadrao[10,2];ep3:=erroPadrao[10,3];
+ep4:=erroPadrao[10,4];ep5:=erroPadrao[10,5];ep6:=erroPadrao[10,6];
+ep7:=erroPadrao[10,7];ep8:=erroPadrao[10,8];ep9:=erroPadrao[10,9];
+ep10:=erroPadrao[10,10];ep11:=erroPadrao[10,11];ep12:=erroPadrao[10,12];
+ AssignFile(ArqSaida2,'c:\NeuroInflow\DadosPrevisao.TXT');
+ Append(ArqSaida2);
+ Write(Arqsaida2,Mesp1:8,Mesp2:8,Mesp3:8,Mesp4:8,Mesp5:8,Mesp6:8,
+ Mesp25:8,Mesp26:8,Mesp27:8, Mesp28:8, Mesp29:8, Mesp30:8);
+ writeln(ArqSaida2,'');
+ CloseFile(ArqSaida2);
+
+end;
+
+  procedure TMainForm.Button11Click(Sender: TObject);
+  Const
+ MES4 = 'SET';
+ MES5 = 'OUT';
+ MESp1 = 'NOV';
+ MESp2 = 'DEZ';
+ MESp3 = 'JAN';
+ MESp4 = 'FEV';
+ MESp5 = 'MAR';
+ MESp6 = 'ABR';
+ mesp25 = 'MAI';
+ MESp26 = 'JUN';
+ MESp27 = 'JUL';
+ mesp28 = 'AGO';
+ MESp29 = 'SET';
+ MESp30 = 'OUT';
+
+  begin
+ //Label7.Caption := MES5;
+// Label8.Caption := MES4;
+
+ Labelp1.Caption := MESp1;
+ Labelp2.Caption := MESp2;
+ Labelp3.Caption := MESp3;
+ Labelp4.Caption := MESp4;
+ Labelp5.Caption := MESp5;
+ Labelp6.Caption := MESp6;
+ Label25.Caption := MESp25;
+ Label26.Caption := MESp26;
+ Label27.Caption := MESp27;
+ Label28.Caption := MESp28;
+ Label29.Caption := MESp29;
+ Label30.Caption := MESp30;
+
+ cp11:=c111;cp12:=c112;cp13:=c113;cp14:=c114;ctp1:=ct11;ep1:=e11;
+ cp21:=c121;cp22:=c122;cp23:=c123;cp24:=c124;ctp2:=ct12;ep2:=e12;
+ cp31:=c131;cp32:=c132;cp33:=c133;cp34:=c134;ctp3:=ct13;ep3:=e13;
+ cp41:=c141;cp42:=c142;cp43:=c143;cp44:=c144;ctp4:=ct14;ep4:=e14;
+ cp51:=c151;cp52:=c152;cp53:=c153;cp54:=c154;ctp5:=ct15;ep5:=e15;
+ cp61:=c161;cp62:=c162;cp63:=c163;cp64:=c164;ctp6:=ct16;ep6:=e16;
+ep1:=erroPadrao[11,1];ep2:=erroPadrao[11,2];ep3:=erroPadrao[11,3];
+ep4:=erroPadrao[11,4];ep5:=erroPadrao[11,5];ep6:=erroPadrao[11,6];
+ep7:=erroPadrao[11,7];ep8:=erroPadrao[11,8];ep9:=erroPadrao[11,9];
+ep10:=erroPadrao[11,10];ep11:=erroPadrao[11,11];ep12:=erroPadrao[11,12];
+
+ AssignFile(ArqSaida2,'c:\NeuroInflow\DadosPrevisao.TXT');
+ Rewrite(ArqSaida2);
+ Write(Arqsaida2,Mesp1:8,Mesp2:8,Mesp3:8,Mesp4:8,Mesp5:8,
+ Mesp25:8,Mesp26:8,Mesp27:8, Mesp28:8, Mesp29:8, Mesp30:8);
+ writeln(ArqSaida2,'');
+ CloseFile(ArqSaida2);
+
+ end;
+
+ procedure TMainForm.Button12Click(Sender: TObject);
+  Const
+
+ MES4 = 'OUT';
+ MES5 = 'NOV';
+ MESp1 = 'DEZ';
+ MESp2 = 'JAN';
+ MESp3 = 'FEV';
+ MESp4 = 'MAR';
+ MESp5 = 'ABR';
+ MESp6 = 'MAI';
+ mesp25 = 'JUN';
+ MESp26 = 'JUL';
+ MESp27 = 'AGO';
+ mesp28 = 'SET';
+ MESp29 = 'OUT';
+ MESp30 = 'NOV';
+
+  begin
+// Label7.Caption := MES5;
+// Label8.Caption := MES4;
+
+ Labelp1.Caption := MESp1;
+ Labelp2.Caption := MESp2;
+ Labelp3.Caption := MESp3;
+ Labelp4.Caption := MESp4;
+ Labelp5.Caption := MESp5;
+ Labelp6.Caption := MESp6;
+ Label25.Caption := MESp25;
+ Label26.Caption := MESp26;
+ Label27.Caption := MESp27;
+ Label28.Caption := MESp28;
+ Label29.Caption := MESp29;
+ Label30.Caption := MESp30;
+
+ cp11:=c121;cp12:=c122;cp13:=c123;cp14:=c124;ctp1:=ct12;ep1:=e12;
+ cp21:=c131;cp22:=c132;cp23:=c133;cp24:=c134;ctp2:=ct13;ep2:=e13;
+ cp31:=c141;cp32:=c142;cp33:=c143;cp34:=c144;ctp3:=ct14;ep3:=e14;
+ cp41:=c151;cp42:=c152;cp43:=c153;cp44:=c154;ctp4:=ct15;ep4:=e15;
+ cp51:=c161;cp52:=c162;cp53:=c163;cp54:=c164;ctp5:=ct16;ep5:=e16;
+ cp61:=c171;cp62:=c172;cp63:=c173;cp64:=c174;ctp6:=ct17;ep6:=e17;
+ep1:=erroPadrao[12,1];ep2:=erroPadrao[12,2];ep3:=erroPadrao[12,3];
+ep4:=erroPadrao[12,4];ep5:=erroPadrao[12,5];ep6:=erroPadrao[12,6];
+ep7:=erroPadrao[12,7];ep8:=erroPadrao[12,8];ep9:=erroPadrao[12,9];
+ep10:=erroPadrao[12,10];ep11:=erroPadrao[12,11];ep12:=erroPadrao[12,12];
+ AssignFile(ArqSaida2,'c:\NeuroInflow\DadosPrevisao.TXT');
+ Rewrite(ArqSaida2);
+ Write(Arqsaida2,Mesp1:8,Mesp2:8,Mesp3:8,Mesp4:8,Mesp5:8,Mesp6:8,
+ Mesp25:8,Mesp26:8,Mesp27:8, Mesp28:8, Mesp29:8, Mesp30:8);
+ writeln(ArqSaida2,'');
+ CloseFile(ArqSaida2);
+
+end;
+
+procedure TMainForm.Edit1KeyPress(Sender: TObject;var Key:char);
+begin
+ if not (key in ['0'..'9',#8]) then
+ begin
+ key := #0;
+ MessageBeep ($FFFF);
+ end;
+end;
+
+ procedure TMainForm.FileExit(Sender: TObject);
+begin
+  Mainform.Close;
+  end;
+
+procedure TMainForm.BitBtn2Click(Sender: TObject);
+Const
+Intc80='95%';
+Intc50='70%';
+
+begin
+Label13.caption:=intc80;Label15.caption:=intc80;
+Label17.caption:=intc80;Label19.caption:=intc80;
+Label21.caption:=intc80;Label23.caption:=intc80;
+Label14.caption:=intc50;Label16.caption:=intc50;
+Label18.caption:=intc50;Label20.caption:=intc50;
+Label22.caption:=intc50;Label24.caption:=intc50;
+Label31.caption:=intc80;Label32.caption:=intc50;
+Label33.caption:=intc80;Label35.caption:=intc50;
+Label36.caption:=intc80;Label37.caption:=intc50;
+Label38.caption:=intc80;Label39.caption:=intc50;
+Label40.caption:=intc80;Label41.caption:=intc50;
+Label42.caption:=intc80;Label43.caption:=intc50;
+intc1:=c95;
+intc2:=c70;
+prever1(self);
+prever(self);
+
+end;
+
+procedure TMainForm.Button53Click(Sender: TObject);
+var
+ i,j,k,kk,Kcont,IndiceMes:integer;
+
+ begin
+  ValorMaximo:=-1.e20;
+  ValorMinimo:=1.e20;
+  Label4.Caption := 'ESTOU EM TREINAMENTO';
+
+ begin
+ //if OpenDialog.Execute then
+    ConstanteBoxCox:=StrToFloat(edit5.Text);
+    NumAr:=StrToInt(edit6.Text);
+    //ConstanteBoxCox:=0.00;
+   // NumAr:=3;
+    AssignFile(Arq,'c:\NeuroInflow\DadosUsina.TXT');
+    Reset(Arq);
+    {Read(Arq,NumeroAnos1); }
+    Read(Arq,NumeroSazonal1);
+    k:=1;
+    while not eof(Arq)   do
+    Begin
+    Read(Arq,Dados[k]);
+    DadosTransformados[k]:=ln(Dados[k]-ConstanteBoxCox);
+    k:=k+1;
+
+    end;
+    NumInputs:=NumAR;
+    NumOutputs:=1;
+    NumeroTotal:=k-1;
+    NumeroAnos1:=NumeroTotal div NumeroSazonal1;
+
+    NumMes:= NumeroTotal-(NumeroTotal div 12)*12;
+    //NumTraining:= NumeroTotal;
+    NumTraining:= NumeroTotal-NumMes;
+    Kcont:=1;
+
+    for i:=1 to (NumeroAnos1) do
+    begin
+    for j:= 1 to NumeroSazonal1 do
+    begin
+    Exemplos[i,j]:=DadosTransformados[Kcont];
+    Kcont:=Kcont+1;
+    end;
+    end;
+  end;
+   CloseFile(Arq);
+ { end;}
+    {calculo da media}
+    for j:=1 to NumeroSazonal1 do
+    begin
+    MediaExemplos[j]:=0.0;
+    DesvioExemplos[j]:=0.0;
+    end;
+
+    for j:=1 to NumeroSazonal1 do
+    begin
+    for i:= 1 to (NumeroAnos1) do
+    begin
+    MediaExemplos[j]:=Exemplos[i,j]+ MediaExemplos[j];
+    end;
+    end;
+
+    for j:=1 to NumeroSazonal1 do
+    begin
+    MediaExemplos[j]:=MediaExemplos[j]/(NumeroAnos1);
+    end;
+    {calculo do desvio padrao}
+    for j:=1 to NumeroSazonal1 do
+    begin
+    for i:= 1 to (NumeroAnos1) do
+    begin
+    DesvioExemplos[j]:=(Exemplos[i,j]- MediaExemplos[j])*
+    (Exemplos[i,j]- MediaExemplos[j])+ DesvioExemplos[j];
+    end;
+    end;
+
+    for j:=1 to NumeroSazonal1 do
+    begin
+    DesvioExemplos[j]:=DesvioExemplos[j]/(NumeroAnos1-1);
+    DesvioExemplos[j]:= Sqrt(DesvioExemplos[j]);
+    end;
+
+    IndiceMes:=1;
+    for i:=1 to  NumTraining   do
+    begin
+    if (IndiceMes>12) then
+    begin
+    IndiceMes:=IndiceMes-12;
+    end;
+    DadosPadronizados[i]:=(DadosTransformados[i]-MediaExemplos[IndiceMes])/DesvioExemplos[IndiceMes];
+    IndiceMes:=IndiceMes+1;
+    end;
+
+    {for j:=1 to NumeroSazonal1 do
+    begin
+    for i:=1 to NumeroAnos1   do
+    begin
+    Exemplos[i,j] :=(Exemplos[i,j]- MediaExemplos[j])/(DesvioExemplos[j])  ;
+
+
+    end;
+    end;  }
+   { kcont:=1;
+    for i:=1 to NumeroAnos1 do
+    begin
+    for j:=1 to NumeroSazonal1   do
+    begin
+    DadosPadronizados[kcont] :=Exemplos[i,j];
+    Kcont:=Kcont+1;
+    end;
+    end;  }
+
+    for i:=1 to (NumTraining) do
+    begin
+    if ( DadosPadronizados[i])> ValorMaximo then
+    ValorMaximo:=DadosPadronizados[i]
+    else
+    if ( DadosPadronizados[i]) < ValorMinimo then
+    ValorMinimo:= DadosPadronizados[i];
+    end;
+
+
+    for i:=1 to (NumTraining) do
+    begin
+    DadosNormalizados[i]:= -0.85 + 1.70*
+    (DadosPadronizados[i]-ValorMinimo)/(ValorMaximo-ValorMinimo);
+    end;
+
+
+    IndiceMes:=1;
+    for k:=1 to (NumInputs) do
+    begin
+    for i:= 1 to (NumTraining-NumAr)  do
+    begin
+    Entradas[i,k]:= DadosNormalizados[k+i-1];
+    EntradasAleatorias[i,k]:= Entradas[i][k];
+    end;
+    end;
+    for k:=1 to (NumOutputs) do
+    begin
+    for i:= 1 to (NumTraining-NumAr) do
+    begin
+    Saidas[i,k]:= DadosNormalizados[NumAr+k+i-1];
+    SaidasAleatorias[i,k]:= Saidas[i][k];
+    end;
+    end;
+    NumTraining:=NumTraining-NumAr;
+    begin
+    AssignFile(ArqSaida,'c:\NeuroInflow\fozsaida.TXT');
+    Rewrite(ArqSaida);
+    Write(Arqsaida,NumTraining:6);
+    Write(Arqsaida,NumeroAnos1:6);
+    Write(Arqsaida,NumMes:6);
+    writeln(ArqSaida,'');
+    for i:= 1 to (NumTraining) do
+    begin
+    for j:= 1 to NumInputs do
+    begin
+    Write(ArqSaida,Entradas[i,j]:12:4);
+    end;
+    writeln(ArqSaida,'');
+    end;
+    for i:= (NumAr+1) to (NumTraining) do
+    begin
+    for j:= 1 to NumOutputs do
+    begin
+    Write(ArqSaida,Saidas[i,j]:12:4);
+    writeln(ArqSaida,'');
+    end;
+    writeln(ArqSaida,'');
+    write(ArqSaida,DadosPadronizados[i]:8:4);
+   // writeln(ArqSaida,'');
+
+    end;
+  end;
+    CloseFile(ArqSaida);
+    State:=True;
+    Lcoef:=0.01;
+    motum1:=0.3;
+    motum:=motum1;
+    NumBlocos:=1;
+    NumHidden:=1;
+    DminimoBloco[0]:=1.0e20;
+    NumValidacao:=36;
+    NumTeste:=(NumTraining-NumValidacao) div 4;
+    {TesteBloco:=0.001;}
+    ContRms:=0;
+
+    while (state=true) do
+    begin
+    inicio(self);
+    GeraAleatorio;
+    Ktempo1:=1;
+    RotinaForward(self);
+    RotinaForwardSaidasBlocos(self);
+    Lcoef:=Lcoef/1.00;
+    motum:=motum1*0.95;
+    motum:=motum1;
+    TesteBloco:= DminimoBloco[NumBlocos]- DminimoBloco[NumBlocos-1];
+    //if (NumBlocos > 3) then
+   if ((TesteBloco> 0.00) or (NumBlocos > 10)) then
+    begin
+    State:= false ;
+    end
+    else
+    begin
+   NumBlocos:= NumBlocos+1;
+   NumHidden:= NumHidden+1;
+   end;
+
+  end;
+   NumBlocos:= NumBlocos-1;
+   NumHidden:= NumHidden-1;
+
+    RotinaSalvaPesos(self);
+    Edit8.Text:= FloatToStr(DminimoBloco[NumBlocos]);
+
+    {iniciando as variáveis}
+    IndiceMes:=NumAr+1;
+    for i:=1 to NumTraining do
+    begin
+    for j:= 1 to NumOutputs do
+    begin
+    if (IndiceMes > 12) then
+    begin
+    IndiceMes:= IndiceMes-12;
+    end;
+    ExemplosCalculados[NumBlocos,i,j]:= (ValorMinimo +
+    (ValorMaximo-ValorMinimo)*(ExemplosCalculados[NumBlocos][i][j]+0.85)/1.70);
+    ExemplosCalculados[NumBlocos,i,j]:= ExemplosCalculados[NumBlocos,i,j]*
+    DesvioExemplos[IndiceMes]+ MediaExemplos[IndiceMes];
+    ExemplosCalculados[NumBlocos,i,j]:= exp(ExemplosCalculados[NumBlocos][i][j])
+    + ConstanteBoxCox;
+
+    SaidasOriginais[i,j]:= (ValorMinimo +
+    (ValorMaximo-ValorMinimo)*(Saidas[i][j]+ 0.85)/1.70);
+
+    SaidasOriginais[i,j]:= SaidasOriginais[i,j]*
+    DesvioExemplos[IndiceMes]+ MediaExemplos[IndiceMes];
+    SaidasOriginais[i,j]:=exp(SaidasOriginais[i,j])
+    +ConstanteBoxCox;
+    end;
+    IndiceMes:=IndiceMes+1;
+    end;
+
+    Label4.Caption := 'REDE TREINADA';
+    Button13Click(self);
+    //Application.ProcessMessages;
+    RotinaSalvaDadosTreinamento(self);
+    RotinaErroValidacao(self);
+  end;
+
+
+procedure TMainForm.prever1(Sender: TObject);
+ var
+ i,j,k,kk,Kcont,IndiceMes,kb,jj:integer;
+
+ begin
+ ValorMaximo:=-1.e20;
+ ValorMinimo:=1.e20;
+begin
+
+    AssignFile(Arq,'c:\NeuroInflow\PreveUsina.Txt');
+    Reset(Arq);
+    Read(Arq,NumeroSazonal1);
+    k:=1;
+    while not eof(Arq)   do
+    Begin
+    Read(Arq,Dados[k]);
+    DadosTransformados[k]:=ln(Dados[k]-ConstanteBoxCox);
+    k:=k+1;
+
+    end;
+
+    NumeroPrevisao:=k-1;
+    NumeroAnos1:=NumeroTotal div NumeroSazonal1;
+    NumMes:= NumeroPrevisao-(NumeroPrevisao div 12)*12;
+    NumeroTotal:=NumeroPrevisao+12;
+    NumTraining:= NumeroTotal;
+    Kcont:=1;
+  end;
+   CloseFile(Arq);
+
+   RotinaLerPesos(self);
+   NumBlocosF:=NumBlocos;
+   AssignFile(ArqSaida4,'c:\NeuroInflow\ErroUsina.TXT');
+   Reset(ArqSaida4);
+
+   for i:= 1 to 12 do
+   begin
+   for j:= 1 to 12 do
+   begin
+   Read(ArqSaida4, ErroPadrao[i,j]);
+   end;
+   end;
+   CloseFile(ArqSaida4);
+
+    Kcont:=1;
+    for j:=1 to NumeroPrevisao do
+    begin
+    if (Kcont>12) then
+    begin
+    Kcont:=Kcont-12;
+    end;
+    DadosPadronizados[j]:=( DadosTransformados[j]- MediaExemplos[Kcont])/(DesvioExemplos[Kcont])  ;
+    Kcont:=Kcont+1;
+    end;
+    for i:=1 to (NumeroPrevisao) do
+    begin
+    DadosNormalizados[i]:= -0.85 + 1.70*
+    (DadosPadronizados[i]-ValorMinimo)/(ValorMaximo-ValorMinimo);
+    end;
+   RotinaSalvaPesos3(self);
+   inicioPreve(self);
+   NumPreve:= NumeroPrevisao+1;
+    for jj:= 1 to 12 do
+    begin
+   NumBlocos:=1;
+   NumHidden:=1;
+
+     //entradas
+    for k:=1 to (NumInputs) do
+    begin
+    for i:= 1 to (NumPreve-NumInputs)  do
+    begin
+    Entradas[i,k]:= DadosNormalizados[k+i-1];
+    EntradasAleatorias[i,k]:= Entradas[i][k];
+    //imprimindo entradas
+   { AssignFile(ArqSaida2,'c:\NeuroInflow\DadosPrevisao.TXT');
+    //Rewrite(ArqSaida1);
+    Append(ArqSaida2);
+    Write(Arqsaida2,NumBlocos:3,NumInputs:3,NumOutputs:3,NumPreve:5);
+    writeln(ArqSaida2,'');
+    Write(Arqsaida2,Entradas[i,1]:8:4);
+    writeln(ArqSaida2,'');
+    CloseFile(ArqSaida2);   }
+
+    end;
+    end;
+    //calculo das saidas
+   for kb:= 1 to NumBlocosF do
+   begin
+   NumBlocos:=kb;
+   NumHidden:=kb;
+   RotinaForwardSaidasBlocosPrevisao(self);
+   end;
+   DadosNormalizados[NumPreve]:=ExemplosCalculados[NumBlocos,NumPreve-NumInputs,1];
+   SaidasOriginais[NumPreve-NumInputs,1]:=ExemplosCalculados[NumBlocos,NumPreve-NumInputs,1];
+   NumPreve:=NumPreve+1;
+ end;
+
+
+end;
+//define mes inicial
+
+procedure TMainForm.RotinaMesInicial(Sender: TObject);
+var
+i:integer;
+begin
+  if (NumMes=0 ) then
+  begin
+  Button1Click(self);
+   end;
+   if (NumMes=1 ) then
+  begin
+  Button2Click(self);
+   end;
+  if (NumMes=2 ) then
+  begin
+  Button3Click(self);
+   end;
+   if (NumMes=3 ) then
+  begin
+  Button4Click(self);
+   end;
+  if (NumMes=4 ) then
+  begin
+  Button5Click(self);
+   end;
+  if (NumMes=5 ) then
+  begin
+  Button6Click(self);
+   end;
+   if (NumMes=6 ) then
+  begin
+  Button7Click(self);
+   end;
+ if (NumMes=7 ) then
+  begin
+  Button8Click(self);
+   end;
+ if (NumMes=8 ) then
+  begin
+  Button9Click(self);
+   end;
+     if (NumMes=9) then
+  begin
+  Button10Click(self);
+   end;
+      if (NumMes=10 ) then
+  begin
+  Button11Click(self);
+   end;
+      if (NumMes=11 ) then
+  begin
+  Button12Click(self);
+   end;
+
+end;
+
+procedure TMainForm.Button13Click(Sender: TObject);
+var
+i:integer;
+begin
+Series1.Clear;
+Series2.Clear;
+
+for i := 1 to (NumTraining)  do
+begin
+{With Series1 do}
+  Series1.AddArray( ExemplosCalculados[NumBlocos,i,1]) ;
+{With Series2 do  }
+  Series2.AddArray(SaidasOriginais[i,1]) ;
+end;
+
+
+end;
+ procedure TMainForm.SaidasDoGrafico(Sender: TObject);
+var
+i:integer;
+begin
+Series1.Clear;
+Series2.Clear;
+
+for i := 1 to (NumTraining)  do
+begin
+{With Series1 do }
+  Series2.AddArray( SaidasGrafico[i,1]) ;
+{With Series2 do}
+   Series1.AddArray(NetoutGrafico[i,1]) ;
+end;
+ end;
+
+procedure TMainForm.TracaGrafico(Sender: TObject);
+var
+i,j, IndiceMensal:integer;
+begin
+    IndiceMensal:=NumAr+1;
+    for i:=1 to NumTraining do
+    begin
+    for j:= 1 to NumOutputs do
+    begin
+    if (IndiceMensal> 12) then
+    begin
+    IndiceMensal:= IndiceMensal-12;
+    end;
+
+   SaidasGrafico[i,j]:= (ValorMinimo +
+   (ValorMaximo-ValorMinimo)*(Saidas[i][j]+ 0.85)/1.70);
+
+   SaidasGrafico[i,j]:= SaidasGrafico[i,j]*
+   DesvioExemplos[IndiceMensal]+ MediaExemplos[IndiceMensal];
+   SaidasGrafico[i,j]:=exp(SaidasGrafico[i,j])
+   + ConstanteBoxCox;
+   NetoutGrafico[i,j]:= (ValorMinimo +
+  (ValorMaximo-ValorMinimo)*( Netout[i][j]+0.85)/1.70);
+   NetoutGrafico[i,j]:=  NetoutGrafico[i,j]*
+   DesvioExemplos[IndiceMensal]+ MediaExemplos[IndiceMensal];
+   NetoutGrafico[i,j]:= exp( NetoutGrafico[i,j])
+   + ConstanteBoxCox;
+
+    end;
+    IndiceMensal:=IndiceMensal+1;
+    end;
+
+ end;
+
+  procedure TMainForm.ErroGrafico(Sender: TObject);
+var
+i:integer;
+begin
+Series3.Clear;
+
+for i := 1 to ContRms do
+begin
+{With Series1 do }
+  Series3.AddArray( ErroMedio[i]) ;
+
+end;
+ end;
+
+
+
+
+
+
+initialization
+  RegisterClasses ([TLabel,Tedit,TBitbtn,Tbutton]);
+end.
+

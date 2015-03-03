@@ -187,9 +187,26 @@ namespace UPE_ONS.Util
             return bytes;
         }
 
-        public ArrayList readPotRequestFile(String tag)
+        public ArrayList readPotRequestFile(String tag, int numeroEntradas)
         {
             ArrayList integralizedPowerList = new ArrayList();
+            //Esse index depende da quantidade de entradas de cada previsor
+            int limitIndex = 0;
+            //Previsor PP são dados de 30 em 30 minutos. Como o PI retorna valores de 30 em 30 segundos
+            //São necessários 60 valores para representar os 30 minutos
+            //Em 3 horas teremos 6 valores
+            if (numeroEntradas == 6)
+            {
+                limitIndex = 60;
+            }
+
+            //Previsor PP são dados de 10 em 10 minutos. Como o PI retorna valores de 30 em 30 segundos
+            //São necessários 20 valores para representar os 30 minutos
+            //Em 3 horas, teremos 18 valores
+            if (numeroEntradas == 18)
+            {
+                limitIndex = 20;
+            }
 
             String[] tags = tag.Split('.');
             string path = NeuroEOLParameters.PIDrive + "\\" + NeuroEOLParameters.PIDirectory + "\\" + tags[0] + ".txt";
@@ -213,10 +230,10 @@ namespace UPE_ONS.Util
                 {
                     pot += Convert.ToDouble(objects[6]);
                     index++;
-
-                    if(index == 10)
+                 
+                    if (index == limitIndex)
                     {
-                        integralizedPowerList.Add(Math.Round((pot/10),2));
+                        integralizedPowerList.Add(Math.Round((pot / limitIndex), 2));
                         index = 0;
                         pot = 0;
                     }

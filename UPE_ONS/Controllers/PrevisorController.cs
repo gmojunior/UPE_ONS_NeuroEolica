@@ -24,6 +24,8 @@ namespace UPE_ONS.Controllers
         private const string PASTA_TRABALHO = "/TRABALHO";
         private const string PASTA_PESOS_OTIMOS = "/PesosOtimos";
         private const string PREVISOR_ENTRADA_NOME = "NEURO_EOLICA_PREVISOR_ENTRADAS_0";
+        private const int PREVISOR_PP_NUMERO_ENTRADAS = 6;
+        private const int PREVISOR_TR_NUMERO_ENTRADAS = 18;
         
 
         private const string PREVISOR_PP_DIRECTORY_NAME = "PrevisorPP";
@@ -195,7 +197,7 @@ namespace UPE_ONS.Controllers
                 //Abrir PI
                 MyPiController controller = new MyPiController(tag, initialDate, currentDateTime);
                 controller.run();
-                ArrayList integralizedPowerList = fileReader.readPotRequestFile(tag);
+                ArrayList integralizedPowerList = fileReader.readPotRequestFile(tag,PREVISOR_PP_NUMERO_ENTRADAS);
 
                 String path = PREVISOR_PP_DIRECTORY_NAME + "/" + parque.SiglaPrevEOL + PASTA_ENTRADAS;
 
@@ -212,7 +214,7 @@ namespace UPE_ONS.Controllers
                 //Abrir PI
                 MyPiController controller = new MyPiController(tag, time1, time2);
                 controller.run();
-                ArrayList integralizedPowerList = fileReader.readPotRequestFile(tag);
+                ArrayList integralizedPowerList = fileReader.readPotRequestFile(tag,PREVISOR_TR_NUMERO_ENTRADAS);
 
                 String path = PREVISOR_TR_DIRECTORY_NAME + "/" + parque.SiglaPrevEOL + PASTA_ENTRADAS;
 
