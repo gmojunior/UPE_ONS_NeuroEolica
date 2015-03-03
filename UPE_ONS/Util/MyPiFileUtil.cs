@@ -259,7 +259,7 @@ namespace UPE_ONS.Util
 
             FileStream fs = new FileStream(path1 + "\\" + path + "\\NEURO_EOLICA_PREVISOR_ENTRADAS.txt", FileMode.Create, FileAccess.Write);
             StreamWriter writer = new StreamWriter(fs);
-            writer.WriteLine(text);
+            writer.WriteLine(text.Replace(',', '.'));
 
             writer.Close();
             fs.Close();
