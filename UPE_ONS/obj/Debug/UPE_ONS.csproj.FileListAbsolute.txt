@@ -1,0 +1,152 @@
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\bin\Debug\UPE_ONS.exe.config
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\bin\Debug\UPE_ONS.exe
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\bin\Debug\UPE_ONS.pdb
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\Main.baml
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\Views\Previsor.baml
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\Views\Calibrar.baml
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\Views\Importacao\ImportacaoPrevEOL.baml
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\Views\Apresentacao.baml
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\Views\Importacao\ImportacaoCPTEC.baml
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\Views\Gerenciar\ParqueEolico\ParqueEolicoSelect.baml
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\Views\VisualizarPrevisoes.baml
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\Main.g.cs
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\Views\Previsor.g.cs
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\Views\Calibrar.g.cs
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\Views\Importacao\ImportacaoPrevEOL.g.cs
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\Views\Apresentacao.g.cs
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\Views\Importacao\ImportacaoCPTEC.g.cs
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\Views\Gerenciar\ParqueEolico\ParqueEolicoForm.g.cs
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\Views\Gerenciar\ParqueEolico\ParqueEolicoSelect.g.cs
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\Views\VisualizarDados.g.cs
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\Views\VisualizarPrevisoes.g.cs
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\App.g.cs
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\UPE_ONS_Content.g.cs
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\UPE_ONS_MarkupCompile.cache
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\UPE_ONS_MarkupCompile.lref
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\Views\Gerenciar\ParqueEolico\ParqueEolicoForm.baml
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\Views\VisualizarDados.baml
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\UPE_ONS.g.resources
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\UPE_ONS.Properties.Resources.resources
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\UPE_ONS.csproj.GenerateResource.Cache
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\UPE_ONS.exe
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\UPE_ONS.pdb
+C:\Users\gilson\Dropbox\UPE_ONS\workspace\UPE_ONS 28-07-2014\obj\Debug\UPE_ONS.csprojResolveAssemblyReference.cache
+C:\Junior\workspace\SVN\UPE_ONS\bin\Debug\UPE_ONS.exe.config
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\UPE_ONS.exe
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\UPE_ONS.pdb
+C:\Junior\workspace\SVN\UPE_ONS\bin\Debug\UPE_ONS.exe
+C:\Junior\workspace\SVN\UPE_ONS\bin\Debug\UPE_ONS.pdb
+C:\Junior\workspace\SVN\UPE_ONS\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\UPE_ONS.csprojResolveAssemblyReference.cache
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Main.baml
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Views\Previsor.baml
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Views\Calibrar.baml
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Views\Importacao\ImportacaoPrevEOL.baml
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Views\Apresentacao.baml
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Views\Importacao\ImportacaoCPTEC.baml
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Views\Gerenciar\ParqueEolico\ParqueEolicoSelect.baml
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Views\VisualizarPrevisoes.baml
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Main.g.cs
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Views\Previsor.g.cs
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Views\Calibrar.g.cs
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Views\Importacao\ImportacaoPrevEOL.g.cs
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Views\Apresentacao.g.cs
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Views\Importacao\ImportacaoCPTEC.g.cs
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Views\Gerenciar\ParqueEolico\ParqueEolicoForm.g.cs
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Views\Gerenciar\ParqueEolico\ParqueEolicoSelect.g.cs
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Views\VisualizarDados.g.cs
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Views\VisualizarPrevisoes.g.cs
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\App.g.cs
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\UPE_ONS_Content.g.cs
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\UPE_ONS_MarkupCompile.cache
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\UPE_ONS_MarkupCompile.lref
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Views\Gerenciar\ParqueEolico\ParqueEolicoForm.baml
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Views\VisualizarDados.baml
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\UPE_ONS.g.resources
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\UPE_ONS.Properties.Resources.resources
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\UPE_ONS.csproj.GenerateResource.Cache
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Views\PrevisorVentoPotencia.baml
+C:\Junior\workspace\SVN\UPE_ONS\obj\Debug\Views\PrevisorVentoPotencia.g.cs
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\bin\Debug\UPE_ONS.exe.config
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\UPE_ONS.exe
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\UPE_ONS.pdb
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\UPE_ONS.csprojResolveAssemblyReference.cache
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Main.baml
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Views\PrevisorVentoPotencia.baml
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Views\Previsor.baml
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Views\Calibrar.baml
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Views\Importacao\ImportacaoPrevEOL.baml
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Views\Apresentacao.baml
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Views\Importacao\ImportacaoCPTEC.baml
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Views\Gerenciar\ParqueEolico\ParqueEolicoSelect.baml
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Views\VisualizarPrevisoes.baml
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Main.g.cs
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Views\PrevisorVentoPotencia.g.cs
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Views\Previsor.g.cs
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Views\Calibrar.g.cs
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Views\Importacao\ImportacaoPrevEOL.g.cs
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Views\Apresentacao.g.cs
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Views\Importacao\ImportacaoCPTEC.g.cs
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Views\Gerenciar\ParqueEolico\ParqueEolicoForm.g.cs
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Views\Gerenciar\ParqueEolico\ParqueEolicoSelect.g.cs
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Views\VisualizarDados.g.cs
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Views\VisualizarPrevisoes.g.cs
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\App.g.cs
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\UPE_ONS_Content.g.cs
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\UPE_ONS_MarkupCompile.cache
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\UPE_ONS_MarkupCompile.lref
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Views\Gerenciar\ParqueEolico\ParqueEolicoForm.baml
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\Views\VisualizarDados.baml
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\UPE_ONS.g.resources
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\bin\Debug\UPE_ONS.exe
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\bin\Debug\UPE_ONS.pdb
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\bin\Debug\GraphLib.dll
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\bin\Debug\GraphLib.pdb
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\UPE_ONS.Properties.Resources.resources
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\UPE_ONS.Views.GraphForm.resources
+C:\Users\breno.poli\Documents\Visual Studio 2013\Projects\UPE_ONS\obj\Debug\UPE_ONS.csproj.GenerateResource.Cache
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\bin\Debug\UPE_ONS.exe.config
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\UPE_ONS.exe
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\UPE_ONS.pdb
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\UPE_ONS.csprojResolveAssemblyReference.cache
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Main.baml
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Views\PrevisorVentoPotencia.baml
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Views\Previsor.baml
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Views\Calibrar.baml
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Views\Importacao\ImportacaoPrevEOL.baml
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Views\Apresentacao.baml
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Views\Importacao\ImportacaoCPTEC.baml
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Views\Gerenciar\ParqueEolico\ParqueEolicoSelect.baml
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Views\VisualizarPrevisoes.baml
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Main.g.cs
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Views\PrevisorVentoPotencia.g.cs
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Views\Previsor.g.cs
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Views\Calibrar.g.cs
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Views\Importacao\ImportacaoPrevEOL.g.cs
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Views\Apresentacao.g.cs
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Views\Importacao\ImportacaoCPTEC.g.cs
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Views\Gerenciar\ParqueEolico\ParqueEolicoForm.g.cs
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Views\Gerenciar\ParqueEolico\ParqueEolicoSelect.g.cs
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Views\VisualizarDados.g.cs
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Views\VisualizarPrevisoes.g.cs
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\App.g.cs
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\UPE_ONS_Content.g.cs
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\UPE_ONS_MarkupCompile.cache
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\UPE_ONS_MarkupCompile.lref
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\bin\Debug\UPE_ONS.exe
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\bin\Debug\UPE_ONS.pdb
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\bin\Debug\GraphLib.dll
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\bin\Debug\GraphLib.pdb
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Views\Gerenciar\ParqueEolico\ParqueEolicoForm.baml
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\Views\VisualizarDados.baml
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\UPE_ONS.g.resources
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\UPE_ONS.Properties.Resources.resources
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\UPE_ONS.Views.GraphForm.resources
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\UPE_ONS.csproj.GenerateResource.Cache

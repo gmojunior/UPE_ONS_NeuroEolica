@@ -8,34 +8,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UPE_ONS", "UPE_ONS.csproj",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphLib", "..\GraphLib\GraphLib.csproj", "{0C0A1F4D-1363-4544-A7C5-196C76D26CCA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScriptDB", "ScriptDB", "{D8590576-CEF8-4F6B-A3CB-B78938AA6070}"
-	ProjectSection(SolutionItems) = preProject
-		..\ScriptDB\23-02-2015-upe-ons.sql = ..\ScriptDB\23-02-2015-upe-ons.sql
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Arquivos", "Arquivos", "{D8765990-55CA-4E5E-996B-FA3F3F12DB73}"
-	ProjectSection(SolutionItems) = preProject
-		..\Arquivos\Scripts_de_Importacao_PISQL.rar = ..\Arquivos\Scripts_de_Importacao_PISQL.rar
-		..\Arquivos\Tags Eólicas.xlsx = ..\Arquivos\Tags Eólicas.xlsx
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Importação", "Importação", "{E9F53694-CCB5-46A4-A9D8-A0BF846F32D8}"
-	ProjectSection(SolutionItems) = preProject
-		..\Arquivos\Importação\RNUEV4_base_30min.txt = ..\Arquivos\Importação\RNUEV4_base_30min.txt
-		..\Arquivos\Importação\RNUEV4_base_30min__.txt = ..\Arquivos\Importação\RNUEV4_base_30min__.txt
-		..\Arquivos\Importação\SaidaBV.Txt = ..\Arquivos\Importação\SaidaBV.Txt
-		..\Arquivos\Importação\SaidaCQ.Txt = ..\Arquivos\Importação\SaidaCQ.Txt
-		..\Arquivos\Importação\SaidaEN.Txt = ..\Arquivos\Importação\SaidaEN.Txt
-		..\Arquivos\Importação\SaidaEN_exemplo.Txt = ..\Arquivos\Importação\SaidaEN_exemplo.Txt
-		..\Arquivos\Importação\uebv_base_10min_.txt = ..\Arquivos\Importação\uebv_base_10min_.txt
-		..\Arquivos\Importação\uebv_base_30min.txt = ..\Arquivos\Importação\uebv_base_30min.txt
-		..\Arquivos\Importação\uecq_base_10min.txt = ..\Arquivos\Importação\uecq_base_10min.txt
-		..\Arquivos\Importação\uecq_base_30min.txt = ..\Arquivos\Importação\uecq_base_30min.txt
-		..\Arquivos\Importação\uecq_base_30min_exemplo.txt = ..\Arquivos\Importação\uecq_base_30min_exemplo.txt
-		..\Arquivos\Importação\ueen_base_10min.txt = ..\Arquivos\Importação\ueen_base_10min.txt
-		..\Arquivos\Importação\ueen_base_30min.txt = ..\Arquivos\Importação\ueen_base_30min.txt
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|Any CPU = CD_ROM|Any CPU
@@ -68,8 +40,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{E9F53694-CCB5-46A4-A9D8-A0BF846F32D8} = {D8765990-55CA-4E5E-996B-FA3F3F12DB73}
 	EndGlobalSection
 EndGlobal

@@ -341,8 +341,8 @@ namespace UPE_ONS.DAO
                     for(int i = 28; i < 28+24; i++)
                         velocidades.Add(reader.GetString(i));
 
-                    ret.Add(new ParqueEolicoImportacaoCPTEC(reader.GetString(0), reader.GetString(1), 
-                        reader.GetString(2), reader.GetInt32(3),  velocidades, direcoes));
+                    ret.Add(new ParqueEolicoImportacaoCPTEC(reader.GetInt32(0).ToString(), reader.GetInt32(1).ToString(),
+                        reader.GetInt32(2).ToString(), reader.GetInt32(3), velocidades, direcoes));
                 }
 
                 reader.Close();

@@ -45,6 +45,7 @@ namespace UPE_ONS.Views
 
         private void UpdateDatagridItemsSourceCPTEC()
         {
+            this.cmbBoxIntervalo.Visibility = Visibility.Hidden;
             if (this.cmbBoxParquesEolicos.SelectedItem != null)
             {
                 ParqueEolico parqueEolico = (ParqueEolico)this.cmbBoxParquesEolicos.SelectedItem;
@@ -76,8 +77,8 @@ namespace UPE_ONS.Views
                                 for (int k = 0; k < listaVelocidades.Count; k++)
                                 {
                                     listVelocidadeDirecao.Add("Hora: " + k.ToString().PadLeft(2,'0') + ": "+
-                                        "| Velocidade: " + dados[k].velocidades[k].PadLeft(5, '0') + " " +
-                                        "| Direção: " + dados[k].direcoes[k]);
+                                        "| Velocidade: " + dados[i].velocidades[k].PadLeft(5, '0') + " " +
+                                        "| Direção: " + dados[i].direcoes[k]);
                                 }
 
                                 item.ItemsSource = listVelocidadeDirecao;
@@ -195,7 +196,7 @@ namespace UPE_ONS.Views
 
         private void Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            if(this.radioPrevEOL.IsChecked == true)
+            if (this.radioPrevEOL.IsChecked == true)
                 this.UpdateDatagridItemsSourcePrevEOL();
             else if (this.radioCPTEC.IsChecked == true)
                 this.UpdateDatagridItemsSourceCPTEC();
@@ -210,6 +211,7 @@ namespace UPE_ONS.Views
 
         private void UpdateDatagridItemsSourcePrevEOL()
         {
+            this.cmbBoxIntervalo.Visibility = Visibility.Visible;
             if (this.chkBoxAllFields.IsChecked != null)
                 this.UpdateDatagridRowsAndColumns((bool)this.chkBoxAllFields.IsChecked);
             else

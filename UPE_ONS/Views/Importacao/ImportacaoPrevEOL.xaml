@@ -55,7 +55,8 @@
         </Grid>
 
         <Grid Name="gridMessage" Visibility="Hidden" Grid.Row="1" Background="White">
-            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Name="txtMessage"/>
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center"
+                       Name="txtMessage"/>
         </Grid>
     </Grid>
 </UserControl>

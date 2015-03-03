@@ -1,0 +1,55 @@
+﻿using System.Windows.Controls;
+using UPE_ONS.Controllers;
+
+namespace UPE_ONS.Views
+{
+    /// <summary>
+    /// Interaction logic for CalibrarRedeNeural.xaml
+    /// </summary>
+    public partial class Previsor : UserControl
+    {
+        public Previsor()
+        {
+            InitializeComponent();
+
+            TreeViewItem item01 = new TreeViewItem();
+            item01.Header = "Canoa Quebrada";
+            item01.ItemsSource = new string[] 
+            { 
+                "24/04/2014 - 08:00 - 50.0", 
+                "24/04/2014 - 07:30 - 50.0",
+                "24/04/2014 - 07:00 - 50.0",
+                "24/04/2014 - 06:30 - 50.0",
+                "24/04/2014 - 06:00 - 50.0",
+                "24/04/2014 - 05:30 - 50.0"
+            };
+
+            TreeViewItem item02 = new TreeViewItem();
+            item01.Header = "Bons Ventos";
+            item01.ItemsSource = new string[] 
+            { 
+                "24/04/2014 - 08:00 - 50.0", 
+                "24/04/2014 - 07:30 - 50.0",
+                "24/04/2014 - 07:00 - 50.0",
+                "24/04/2014 - 06:30 - 50.0",
+                "24/04/2014 - 06:00 - 50.0",
+                "24/04/2014 - 05:30 - 50.0"
+            };
+
+            TreeViewItem item03 = new TreeViewItem();
+            item01.Header = "Enacel";
+            item01.ItemsSource = new string[] 
+            { 
+                "24/04/2014 - 08:00 - 50.0", 
+                "24/04/2014 - 07:30 - 50.0",
+                "24/04/2014 - 07:00 - 50.0",
+                "24/04/2014 - 06:30 - 50.0",
+                "24/04/2014 - 06:00 - 50.0",
+                "24/04/2014 - 05:30 - 50.0"
+            };
+
+
+            this.TreeViewParquesEolicos.Items.Add(item01);
+        }
+    }
+}

@@ -1,0 +1,18 @@
+
+                           Número de exemplos     9
+              Erro Medio Absoluto Normalizado 76.19
+                          Erro Medio Absoluto  7.62
+                Raiz do Erro Médio Quadrático 11.38
+    Raiz do Erro Médio Quadrático Normalizado113.79
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1 @@
+Server=GILSON-NOTE\SQL_SERVER_INST; Database=NeuroEolica; Integrated Security=true;Connect Timeout=30;
