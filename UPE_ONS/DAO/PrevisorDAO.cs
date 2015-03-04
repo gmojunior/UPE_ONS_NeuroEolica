@@ -17,6 +17,7 @@ namespace UPE_ONS.DAO
 
             for (int diaPrevisto = 0; diaPrevisto < 5; diaPrevisto++)
             {
+                /*
                 string query = "SELECT p.id, p.nome, vv.dia, vv.mes, vv.ano, vv.mes, vv.velocidade00, vv.velocidade01, " +
                 " vv.velocidade02, vv.velocidade03, vv.velocidade04, vv.velocidade05, vv.velocidade06, vv.velocidade07, vv.velocidade08," +
                 " vv.velocidade09, vv.velocidade10, vv.velocidade11, vv.velocidade12, vv.velocidade13, vv.velocidade14, vv.velocidade15," +
@@ -33,6 +34,23 @@ namespace UPE_ONS.DAO
                     " AND str_to_date(CONCAT(vv.ano,'-',vv.mes,'-',vv.dia),'%Y-%m-%d') <= '" + String.Format("{0:yyyy-M-d}", DateTime.Now) + "'" +
                     " ORDER BY vv.ano DESC, vv.mes DESC, vv.dia DESC " +
                     " LIMIT 1;";
+                */
+
+                string query = "SELECT TOP 1 p.id, p.nome, vv.dia, vv.mes, vv.ano, vv.mes, vv.velocidade00, vv.velocidade01, " +
+               " vv.velocidade02, vv.velocidade03, vv.velocidade04, vv.velocidade05, vv.velocidade06, vv.velocidade07, vv.velocidade08," +
+               " vv.velocidade09, vv.velocidade10, vv.velocidade11, vv.velocidade12, vv.velocidade13, vv.velocidade14, vv.velocidade15," +
+               " vv.velocidade16, vv.velocidade17, vv.velocidade18, vv.velocidade19, vv.velocidade20, vv.velocidade21, vv.velocidade22, " +
+               " vv.velocidade23, dv.direcao00, dv.direcao01, dv.direcao02, dv.direcao03, dv.direcao04, dv.direcao05, dv.direcao06, " +
+               " dv.direcao07, dv.direcao08, dv.direcao09, dv.direcao10, dv.direcao11, dv.direcao12, dv.direcao13, dv.direcao14, dv.direcao15," +
+               " dv.direcao16, dv.direcao17, dv.direcao18, dv.direcao19, dv.direcao20, dv.direcao21, dv.direcao22, " +
+               " dv.direcao23 FROM velocidadevento vv, direcaovento dv, parque p WHERE p.id = " + parque.Id +
+                   " AND dv.idParque = " + parque.Id + " AND vv.idParque = " + parque.Id +
+                   " AND vv.dia = dv.dia " +
+                   " AND vv.mes = dv.mes " +
+                   " AND vv.ano = dv.ano " +
+                   " AND vv.diaPrevisto = " + diaPrevisto +
+                   " AND CONVERT(DATETIME,(CONCAT(vv.ano,'-',vv.mes,'-',vv.dia)),102) <= '" + String.Format("{0:yyyy-M-d}", DateTime.Now) + "'" +
+                   " ORDER BY vv.ano DESC, vv.mes DESC, vv.dia DESC;";
 
                 command.CommandText = query;
 
@@ -68,7 +86,7 @@ namespace UPE_ONS.DAO
 
             SqlConnection connection = (SqlConnection)Database.openConnection();
             SqlCommand command = connection.CreateCommand();
-
+            /*
             string query = "SELECT p.id, p.nome, p.siglaCPTEC, p.siglaPrevEOL, vv.dia, vv.mes, vv.ano, vv.mes " +
                 " FROM velocidadevento vv, direcaovento dv, parque p WHERE p.id = " + parque.Id +
                 " AND dv.idParque = " + parque.Id + " AND vv.idParque = " + parque.Id +
@@ -78,6 +96,15 @@ namespace UPE_ONS.DAO
                 " AND str_to_date(CONCAT(vv.ano,'-',vv.mes,'-',vv.dia),'%Y-%m-%d') <= '" + String.Format("{0:yyyy-M-d}", DateTime.Now) + "'" +
                 " ORDER BY vv.ano DESC, vv.mes DESC, vv.dia DESC " +
                 " LIMIT 1;";
+            */
+            string query = "SELECT TOP 1 p.id, p.nome, p.siglaCPTEC, p.siglaPrevEOL, vv.dia, vv.mes, vv.ano, vv.mes " +
+               " FROM velocidadevento vv, direcaovento dv, parque p WHERE p.id = " + parque.Id +
+               " AND dv.idParque = " + parque.Id + " AND vv.idParque = " + parque.Id +
+               " AND vv.dia = dv.dia " +
+               " AND vv.mes = dv.mes " +
+               " AND vv.ano = dv.ano " +
+               " AND CONVERT(DATETIME,(CONCAT(vv.ano,'-',vv.mes,'-',vv.dia)),102) <= '" + String.Format("{0:yyyy-M-d}", DateTime.Now) + "'" +
+               " ORDER BY vv.ano DESC, vv.mes DESC, vv.dia DESC; ";
 
             command.CommandText = query;
 

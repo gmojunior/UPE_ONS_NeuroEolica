@@ -222,7 +222,7 @@ namespace UPE_ONS.DAO
             try
             {
                 String fileName = caminhoArquivo + "NEURO_EOLICA_ENTRADAS_0" + (diaPrevisto + 1) + ".txt";
-
+                /*
                 command.CommandText = "SELECT parque.potenciaMedia, parque.dia, parque.mes, parque.ano, parque.hora, v.velocidade00 , v.velocidade01," +
                         "v.velocidade02, v.velocidade03, v.velocidade04, v.velocidade05, v.velocidade06, v.velocidade07, " +
                         "v.velocidade08, v.velocidade09, v.velocidade10, v.velocidade11, v.velocidade12, v.velocidade13, " +
@@ -239,6 +239,24 @@ namespace UPE_ONS.DAO
                         " AND str_to_date(CONCAT(v.ano,'-',v.mes,'-',v.dia),'%Y-%m-%d') >= '" + String.Format("{0:yyyy-M-d}", dataInicial) + "' " +
                         " AND str_to_date(CONCAT(v.ano,'-',v.mes,'-',v.dia),'%Y-%m-%d') <= '" + String.Format("{0:yyyy-M-d}", dataFinal) + "' " +
                         " AND parque.minuto = 00 AND parque.intervalo = '" + intervalo + "';";
+                */
+
+                command.CommandText = "SELECT parque.potenciaMedia, parque.dia, parque.mes, parque.ano, parque.hora, v.velocidade00 , v.velocidade01," +
+                      "v.velocidade02, v.velocidade03, v.velocidade04, v.velocidade05, v.velocidade06, v.velocidade07, " +
+                      "v.velocidade08, v.velocidade09, v.velocidade10, v.velocidade11, v.velocidade12, v.velocidade13, " +
+                      "v.velocidade14, v.velocidade15, v.velocidade16, v.velocidade17, v.velocidade18, v.velocidade19, " +
+                      "v.velocidade20, v.velocidade21, v.velocidade22, v.velocidade23, d.direcao00 , d.direcao01, d.direcao02, " +
+                      "d.direcao03, d.direcao04, d.direcao05, d.direcao06, d.direcao07, d.direcao08, d.direcao09, d.direcao10, " +
+                      "d.direcao11, d.direcao12, d.direcao13, d.direcao14, d.direcao15, d.direcao16, d.direcao17, d.direcao18, " +
+                      "d.direcao19, d.direcao20, d.direcao21, d.direcao22, d.direcao23 " +
+                      "FROM velocidadevento v, direcaovento d, parque_eolico_importacao parque " +
+                      "WHERE v.diaPrevisto = " + diaPrevisto + " AND d.diaPrevisto = " + diaPrevisto +
+                      " AND v.idParque = " + parqueEolico.Id + " AND d.idParque = " + parqueEolico.Id + " and parque.idParque = " + parqueEolico.Id +
+                      " AND CONVERT(DATETIME,(CONCAT(v.ano,'-',v.mes,'-',v.dia)),102)  = CONVERT(DATETIME,(CONCAT(d.ano,'-',d.mes,'-',d.dia)),102)" +
+                      " AND CONVERT(DATETIME,(CONCAT(v.ano,'-',v.mes,'-',v.dia)),102)  = CONVERT(DATETIME,(CONCAT(parque.ano,'-',parque.mes,'-',parque.dia)),102" +
+                      " AND CONVERT(DATETIME,(CONCAT(v.ano,'-',v.mes,'-',v.dia)),102) >= '" + String.Format("{0:yyyy-M-d}", dataInicial) + "' " +
+                      " AND CONVERT(DATETIME,(CONCAT(v.ano,'-',v.mes,'-',v.dia)),102) <= '" + String.Format("{0:yyyy-M-d}", dataFinal) + "' " +
+                      " AND parque.minuto = 00 AND parque.intervalo = '" + intervalo + "';";
 
               SqlDataReader reader = command.ExecuteReader();
 

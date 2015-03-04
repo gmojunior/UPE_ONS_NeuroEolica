@@ -66,7 +66,7 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="300,377,102,0">
-                    <Button Height="35" Click="btnExibirGraficos_Click" Margin="10" Width="100" IsEnabled="False" Name="btn1">
+                    <Button Height="35" Click="btnExibirGraficos_Click" Margin="10" Width="100" Name="btn1">
                         <Button.Content>
                             <TextBlock TextWrapping="Wrap" TextAlignment="Center" RenderTransformOrigin="0.51,0.525" Padding="10 0 10 0">
                                     Exibir gráficos
