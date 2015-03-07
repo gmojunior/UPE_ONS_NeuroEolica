@@ -8,6 +8,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UPE_ONS", "UPE_ONS.csproj",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphLib", "..\GraphLib\GraphLib.csproj", "{0C0A1F4D-1363-4544-A7C5-196C76D26CCA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScriptDB", "ScriptDB", "{025C4D28-6ADD-48BE-B65F-1F011CBD4CCD}"
+	ProjectSection(SolutionItems) = preProject
+		..\ScriptDB\03-03-2015-upe-ons.sql = ..\ScriptDB\03-03-2015-upe-ons.sql
+		..\ScriptDB\04-03-2015-upe-ons.sql = ..\ScriptDB\04-03-2015-upe-ons.sql
+		..\ScriptDB\23-02-2015-upe-ons.sql = ..\ScriptDB\23-02-2015-upe-ons.sql
+		..\ScriptDB\NeuroEolica07032015 = ..\ScriptDB\NeuroEolica07032015
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|Any CPU = CD_ROM|Any CPU
