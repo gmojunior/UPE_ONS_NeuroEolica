@@ -71,7 +71,9 @@ namespace UPE_ONS.Views
                     this.ListaParquesEolicos = new ObservableCollection<ParqueEolico>(FactoryController.getInstance().ParqueEolicoController.getAll_LEFT("PP"));
                 }
                 else
+                {
                     this.ListaParquesEolicos = new ObservableCollection<ParqueEolico>(FactoryController.getInstance().ParqueEolicoController.getAll_LEFT("VP"));
+                }
             }
             this.lstViewParquesEolicos.ItemsSource = this.ListaParquesEolicos;
 
@@ -159,6 +161,11 @@ namespace UPE_ONS.Views
 
         private void cmbBoxTipo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (((ComboBoxItem)cmbBoxTipo.SelectedItem).Tag.Equals("PP"))
+                this.cmbBoxIntervalo.Visibility = Visibility.Visible;
+            else
+                this.cmbBoxIntervalo.Visibility = Visibility.Hidden;
+
             this.carregarParquesEolicos();
         }
 

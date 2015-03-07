@@ -27,7 +27,7 @@ namespace UPE_ONS.Views.Importacao
             try
             {
                 InitializeComponent();
-               //FactoryDAO.getInstance().CPTECDAO.importOldFile(CAMINHO_FILES + CAMINHO_ENTRADA_IMPORTACAO + @"\SaidaBV.txt", 11);
+                //FactoryDAO.getInstance().CPTECDAO.importOldFile(CAMINHO_FILES + CAMINHO_ENTRADA_IMPORTACAO + @"\SaidaBV.txt", 11);
                 //FactoryDAO.getInstance().CPTECDAO.importOldFile(CAMINHO_FILES + CAMINHO_ENTRADA_IMPORTACAO + @"\SaidaCQ.txt", 9);
                 //FactoryDAO.getInstance().CPTECDAO.importOldFile(CAMINHO_FILES + CAMINHO_ENTRADA_IMPORTACAO + @"\SaidaEN.txt", 10);
 
