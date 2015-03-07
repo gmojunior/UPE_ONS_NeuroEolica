@@ -290,7 +290,7 @@ namespace UPE_ONS.DAO
                                 reader.GetInt32((int)ParqueEolicoImportacaoPrevEOL.EnumCampos.SEGUNDO),
                                 float.Parse(reader.GetString((int)ParqueEolicoImportacaoPrevEOL.EnumCampos.VELOCIDADE_MEDIA).Replace(".", ",")),
                                 float.Parse(reader.GetString((int)ParqueEolicoImportacaoPrevEOL.EnumCampos.DIRECAO_MEDIA).Replace(".", ",")),
-                                float.Parse(reader.GetString((int)ParqueEolicoImportacaoPrevEOL.EnumCampos.POTENCIA).Replace(".", ","))));
+                                reader.GetDouble((int)ParqueEolicoImportacaoPrevEOL.EnumCampos.POTENCIA)));
                 }
                 reader.Close();
 

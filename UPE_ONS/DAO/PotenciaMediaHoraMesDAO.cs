@@ -86,7 +86,7 @@ namespace UPE_ONS.DAO
             int contadorDeMeses = 1;
             while (reader.Read())
             {
-                file.Write(Math.Round(Double.Parse(reader.GetString((int)PotenciaMediaHoraMes.EnumCampos.POTENCIA_MEDIA)), 4).ToString().Replace(",", ".") + " ");
+                file.Write(Math.Round(reader.GetDouble((int)PotenciaMediaHoraMes.EnumCampos.POTENCIA_MEDIA), 4).ToString().Replace(",", ".") + " ");
                 contadorDeMeses++;
             }
             // Se o contador de meses for menor que 24 é porque está faltando 

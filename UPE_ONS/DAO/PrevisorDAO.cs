@@ -112,7 +112,7 @@ namespace UPE_ONS.DAO
 
             if (reader.Read())
             {
-                ParqueEolico p = new ParqueEolico(reader.GetInt32(0), reader.GetString(1),
+                ParqueEolico p = new ParqueEolico(reader.GetInt32(0), reader.GetInt32(1).ToString(),
                     reader.GetString(2), reader.GetString(3), reader.GetString(4), -1, -1, new Calibracao());
 
                 ret = new EntradaVentoPotencia(p, reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7), -1, "", "", "");

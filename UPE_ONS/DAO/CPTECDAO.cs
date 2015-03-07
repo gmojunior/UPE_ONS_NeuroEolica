@@ -27,10 +27,10 @@ namespace UPE_ONS.DAO
             {
                 while (reader.Read())
                 {
-                    dia = reader.GetString(1);
-                    mes = reader.GetString(2);
-                    ano = reader.GetString(3);
-                    hora = Int16.Parse(reader.GetString(4));
+                    dia = reader.GetInt32(1).ToString();
+                    mes = reader.GetInt32(2).ToString();
+                    ano = reader.GetInt32(3).ToString();
+                    hora = reader.GetInt32(4);
 
                     key = hora + ";" + mes;
                     String linha = //dia + " " + mes + " " + ano + " " + hora + " " +
@@ -40,7 +40,7 @@ namespace UPE_ONS.DAO
                                     Math.Round(Math.Cos(2 * 3.141516 * (Double.Parse(reader.GetString(hora + 5 + 24).Replace(".", ",")) / 180)), 3).ToString().Replace(",", ".") + " " +
                                     (dic[key]) + " " +
                                     reader.GetString(hora + 5) + " " +
-                                    reader.GetString(0);
+                                    reader.GetDouble(0).ToString().Replace(",",".");
                     if (!linha.Contains("-999"))
                         file.WriteLine(linha);
                 }
@@ -211,6 +211,7 @@ namespace UPE_ONS.DAO
             catch (Exception e)
             {
                 Console.WriteLine("ERROR: " + e.Message);
+                throw e;
             }
             connection.Close(); ;
         }
@@ -249,11 +250,11 @@ namespace UPE_ONS.DAO
                       "d.direcao03, d.direcao04, d.direcao05, d.direcao06, d.direcao07, d.direcao08, d.direcao09, d.direcao10, " +
                       "d.direcao11, d.direcao12, d.direcao13, d.direcao14, d.direcao15, d.direcao16, d.direcao17, d.direcao18, " +
                       "d.direcao19, d.direcao20, d.direcao21, d.direcao22, d.direcao23 " +
-                      "FROM velocidadevento v, direcaovento d, parque_eolico_importacao parque " +
+                      "FROM [NeuroEolica].[dbo].[velocidadevento] v, [NeuroEolica].[dbo].[direcaovento] d, [NeuroEolica].[dbo].[parque_eolico_importacao] parque " +
                       "WHERE v.diaPrevisto = " + diaPrevisto + " AND d.diaPrevisto = " + diaPrevisto +
                       " AND v.idParque = " + parqueEolico.Id + " AND d.idParque = " + parqueEolico.Id + " and parque.idParque = " + parqueEolico.Id +
                       " AND CONVERT(DATETIME,(CONCAT(v.ano,'-',v.mes,'-',v.dia)),102)  = CONVERT(DATETIME,(CONCAT(d.ano,'-',d.mes,'-',d.dia)),102)" +
-                      " AND CONVERT(DATETIME,(CONCAT(v.ano,'-',v.mes,'-',v.dia)),102)  = CONVERT(DATETIME,(CONCAT(parque.ano,'-',parque.mes,'-',parque.dia)),102" +
+                      " AND CONVERT(DATETIME,(CONCAT(v.ano,'-',v.mes,'-',v.dia)),102)  = CONVERT(DATETIME,(CONCAT(parque.ano,'-',parque.mes,'-',parque.dia)),102)" +
                       " AND CONVERT(DATETIME,(CONCAT(v.ano,'-',v.mes,'-',v.dia)),102) >= '" + String.Format("{0:yyyy-M-d}", dataInicial) + "' " +
                       " AND CONVERT(DATETIME,(CONCAT(v.ano,'-',v.mes,'-',v.dia)),102) <= '" + String.Format("{0:yyyy-M-d}", dataFinal) + "' " +
                       " AND parque.minuto = 00 AND parque.intervalo = '" + intervalo + "';";
