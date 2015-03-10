@@ -13,7 +13,9 @@ namespace UPE_ONS.Views
 
     using GraphLib;
     using System.Collections.ObjectModel;
+    using System.IO;
     using System.Windows;
+    using UPE_ONS.Controllers;
     using UPE_ONS.Model;
 
     public partial class GraphForm : Form
@@ -27,6 +29,11 @@ namespace UPE_ONS.Views
 
         private PrecisionTimer.Timer mTimer = null;
         private DateTime lastTimerTick = DateTime.Now;
+
+        private const string PREVISOR_TR_DIRECTORY_NAME = "PrevisorTR";
+        private const string PASTA_ENTRADAS = "/Entradas";
+        private const string PASTA_TRABALHO = "/TRABALHO";
+
 
         public GraphForm()
         {
@@ -69,33 +76,125 @@ namespace UPE_ONS.Views
 
         private void fillComboBox()
         {
+            //Posteriormente, essa lista devera ser preenchida com a leitura do banco de dados
+            ObservableCollection<ParqueEolico> parquesPrevistosLista = new ObservableCollection<ParqueEolico>();
+            parquesPrevistosLista.Add(new ParqueEolico("uecq", "uecq", "uecq", 12, 12, null));
+           // parquesPrevistosLista.Add(new ParqueEolico("uebv", "uebv", "uebv", 12, 12, null));
+            Double[] outputData;
+            Double[] inputData;
+            Double[] inputDataWithSinAndCos;
+            Util.Util.matrixDeValoresPrevistos = new Double[parquesPrevistosLista.Count][];
+            for (int i = 0; i < parquesPrevistosLista.Count; i++)
+            {
+                inputDataWithSinAndCos = lerArquivoEntradaPrevisor(parquesPrevistosLista[i]);
+                inputData = new Double[inputDataWithSinAndCos.Count() - 2];
+                int count = 0;
+                for (int j = 0; j < inputDataWithSinAndCos.Count(); j++)
+                {
+                    if ((j == 0) || (j == 1))
+                    {
+                        continue;
+                    }
+                    inputData[count] = inputDataWithSinAndCos[j];
+                    count++;
+                }
+
+                outputData = lerArquivoSaidaPrevisor(parquesPrevistosLista[i]);
+                int sizeOfGraphData = inputData.Count() + outputData.Count();
+                Double[] graphData = new Double[sizeOfGraphData];
+                inputData.CopyTo(graphData, 0);
+                outputData.CopyTo(graphData, inputData.Count());
+
+                Util.Util.matrixDeValoresPrevistos[i] = graphData;
+                
+            }
+                
             ComboBox cb = this.Controls.Find("cb_grafico", true).FirstOrDefault() as ComboBox;
             cb.AllowDrop = true;
 
             cb.SelectedIndexChanged += cb_SelectedIndexChanged;
-
+            /*
             ObservableCollection<ParqueEolico> parquesPrevistos1 = new ObservableCollection<ParqueEolico>();
             ParqueEolico p = new ParqueEolico("uebv", "uebv", "uebv", 12, 12, null);
             ParqueEolico p2 = new ParqueEolico("uebv2", "uebv2", "uebv2", 12, 12, null);
 
             parquesPrevistos1.Add(p);
             parquesPrevistos1.Add(p2);
-
+            
             Util.Util.parquesPrevistos = parquesPrevistos1;
+            */
 
+            Util.Util.parquesPrevistos = parquesPrevistosLista;
             cb.DisplayMember = "nome";
             cb.DataSource = Util.Util.parquesPrevistos;
 
             cb.SelectedIndex = 0;
         }
 
+        private Double[] lerArquivoSaidaPrevisor(ParqueEolico p)
+        {
+
+            DirectoryInfo dir = new DirectoryInfo(PREVISOR_TR_DIRECTORY_NAME + "/" + p.SiglaPrevEOL + "/" + PASTA_TRABALHO);
+            FileInfo[] fileInfo = dir.GetFiles();
+            Double[] outputData = new Double[0];
+            if (fileInfo.Length != 0)
+            {
+                foreach (FileInfo file in fileInfo)
+                {
+
+                    StreamReader outputFile = file.OpenText();
+                    String linha = outputFile.ReadLine(); //linha em branco
+                    linha = outputFile.ReadLine(); //data
+                    linha = outputFile.ReadLine(); //linha em branco
+                    linha = outputFile.ReadLine(); //dados
+                    
+                    string[] linha2 = linha.Split(';');
+                    outputData = new Double[linha2.Count() - 1];
+                    for (int i = 0; i < linha2.Count() - 1; i++)
+                    {
+                        outputData[i] = Double.Parse(linha2[i]);
+                    }
+                }
+            }
+
+            return outputData;
+
+        }
+
+        private Double[] lerArquivoEntradaPrevisor(ParqueEolico p)
+        {
+            DirectoryInfo dir = new DirectoryInfo(PREVISOR_TR_DIRECTORY_NAME + "/" + p.SiglaPrevEOL + "/" + PASTA_ENTRADAS);
+            FileInfo[] fileInfo = dir.GetFiles();
+            Double[] inputData = new Double[0];
+            if (fileInfo.Length != 0)
+            {
+                foreach (FileInfo file in fileInfo)
+                {
+
+                    StreamReader inputFile = file.OpenText();
+                    String linha = inputFile.ReadLine(); //data
+                    linha = inputFile.ReadLine(); //dados
+
+                    string[] linha2 = linha.Split(' ');
+                    inputData = new Double[linha2.Count()];
+                    for (int i = 0; i < linha2.Count(); i++)
+                    {
+                        inputData[i] = Double.Parse(linha2[i]);
+                    }
+                }
+            }
+
+            return inputData;
+        }
+
         void cb_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox cb = this.Controls.Find("cb_grafico", true).FirstOrDefault() as ComboBox;
 
-            Util.Util.matrixDeValoresPrevistos = new Double[cb.Items.Count][];
-            Util.Util.matrixDeValoresPrevistos[0] = new double[] { 44.66, 21.75, 55.7, 21.69, 71.64, 21.25, 20.03, 1.14, 20.27, 21.12, 50.42, 51.29, 21, 21.07, 39.28, 10.25, 20.4, 19.82, 61.66, 71.75, 81.7, 21.69, 51.64, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.66, 21.75, 21.7, 21.69, 21.64, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.66, 21.75, 21.7, 21.69, 21.64, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.66, 21.75, 21.7, 21.69, 21.64, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.66, 21.75, 21.7, 21.69, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.66, 21.75, 21.7, 21.69, 21.64, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.66, 21.75, 21.7, 21.69, 21.64, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.66, 21.75, 21.7, 21.69 };
-            Util.Util.matrixDeValoresPrevistos[1] = new double[] { 21.64, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.66, 21.75, 21.7, 21.69, 21.64, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.66, 21.75, 21.7, 21.69, 21.64, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.66, 21.75, 21.7, 21.69 }; 
+           // Util.Util.matrixDeValoresPrevistos = new Double[cb.Items.Count][];
+           
+            //Util.Util.matrixDeValoresPrevistos[0] = new double[] { 44.66, 21.75, 55.7, 21.69, 71.64, 21.25, 20.03, 1.14, 20.27, 21.12, 50.42, 51.29, 21, 21.07, 39.28, 10.25, 20.4, 19.82, 61.66, 71.75, 81.7, 21.69, 51.64, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.66, 21.75, 21.7, 21.69, 21.64, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.66, 21.75, 21.7, 21.69, 21.64, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.66, 21.75, 21.7, 21.69, 21.64, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.66, 21.75, 21.7, 21.69, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.66, 21.75, 21.7, 21.69, 21.64, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.66, 21.75, 21.7, 21.69, 21.64, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.66, 21.75, 21.7, 21.69 };
+            //Util.Util.matrixDeValoresPrevistos[1] = new double[] { 21.64, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.66, 21.75, 21.7, 21.69, 21.64, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.66, 21.75, 21.7, 21.69, 21.64, 21.25, 20.03, 19.14, 20.27, 21.12, 20.42, 21.29, 21, 21.07, 19.28, 20.25, 20.4, 19.82, 21.66, 21.75, 21.7, 21.69 }; 
 
             int index = cb.SelectedIndex;
 
