@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScriptDB", "ScriptDB", "{02
 	ProjectSection(SolutionItems) = preProject
 		..\ScriptDB\03-03-2015-upe-ons.sql = ..\ScriptDB\03-03-2015-upe-ons.sql
 		..\ScriptDB\04-03-2015-upe-ons.sql = ..\ScriptDB\04-03-2015-upe-ons.sql
+		..\..\..\..\..\Users\Gilson Oliveira\Desktop\10032015.sql = ..\..\..\..\..\Users\Gilson Oliveira\Desktop\10032015.sql
 		..\ScriptDB\23-02-2015-upe-ons.sql = ..\ScriptDB\23-02-2015-upe-ons.sql
 		..\ScriptDB\NeuroEolica07032015 = ..\ScriptDB\NeuroEolica07032015
 	EndProjectSection
