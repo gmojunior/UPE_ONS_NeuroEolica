@@ -77,9 +77,10 @@ namespace UPE_ONS.Views
         private void fillComboBox()
         {
             //Posteriormente, essa lista devera ser preenchida com a leitura do banco de dados
-            ObservableCollection<ParqueEolico> parquesPrevistosLista = new ObservableCollection<ParqueEolico>();
-            parquesPrevistosLista.Add(new ParqueEolico("uecq", "uecq", "uecq", 12, 12, null));
+            //ObservableCollection<ParqueEolico> parquesPrevistosLista = new ObservableCollection<ParqueEolico>();
+           // parquesPrevistosLista.Add(new ParqueEolico("uecq", "uecq", "uecq", 12, 12, null));
            // parquesPrevistosLista.Add(new ParqueEolico("uebv", "uebv", "uebv", 12, 12, null));
+            ObservableCollection<ParqueEolico> parquesPrevistosLista = new ObservableCollection<ParqueEolico>(FactoryController.getInstance().ParqueEolicoController.getParquesPrevistos("TR"));
             Double[] outputData;
             Double[] inputData;
             Double[] inputDataWithSinAndCos;
@@ -152,7 +153,7 @@ namespace UPE_ONS.Views
                     outputData = new Double[linha2.Count() - 1];
                     for (int i = 0; i < linha2.Count() - 1; i++)
                     {
-                        outputData[i] = Double.Parse(linha2[i]);
+                        outputData[i] = Double.Parse(linha2[i].Replace('.', ','));
                     }
                 }
             }
@@ -174,12 +175,13 @@ namespace UPE_ONS.Views
                     StreamReader inputFile = file.OpenText();
                     String linha = inputFile.ReadLine(); //data
                     linha = inputFile.ReadLine(); //dados
+                  
 
-                    string[] linha2 = linha.Split(' ');
-                    inputData = new Double[linha2.Count()];
-                    for (int i = 0; i < linha2.Count(); i++)
+                    string[] linha2 = linha.Split('\t');
+                    inputData = new Double[linha2.Count() - 1];
+                    for (int i = 0; i < linha2.Count() - 1; i++)
                     {
-                        inputData[i] = Double.Parse(linha2[i]);
+                        inputData[i] = Double.Parse(linha2[i].Replace('.',','));
                     }
                 }
             }
