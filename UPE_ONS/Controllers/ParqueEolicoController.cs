@@ -53,5 +53,10 @@ namespace UPE_ONS.Controllers
         {
             return ParqueEolicoDAO.getParquesCalibrados(tipo);
         }
+
+        internal IEnumerable<ParqueEolico> getParquesPrevistos(string tipo)
+        {
+            return ParqueEolicoDAO.getParquesPrevistos(tipo);
+        }
     }
 }
