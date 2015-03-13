@@ -52,7 +52,7 @@ namespace UPE_ONS.Controllers
 
                 this.atualizarParquePastaTrabalho(parque.ParqueEolico.SiglaPrevEOL, PREVISOR_VP_DIRECTORY_NAME);
                 this.atualizarCaminhoDoExecutavelDoPrevisor(Path.GetFullPath(PREVISOR_VP_DIRECTORY_NAME));
-                this.executarPrevisor(PREVISOR_VP_EXE);
+                this.executarPrevisor(PREVISOR_VP_EXE);             
             }
             catch (FileNotFoundException e)
             {
@@ -224,6 +224,7 @@ namespace UPE_ONS.Controllers
                 //executar previsão
                 this.executarPrevisor(PREVISOR_TR_EXE);
             }
+            FactoryDAO.getInstance().ParqueEolicoDAO.atualizarParqueFoiPrevisto(parque);
         }
 
         private void executarPrevisor(string exe)
