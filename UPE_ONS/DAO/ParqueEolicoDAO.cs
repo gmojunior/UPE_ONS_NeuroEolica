@@ -131,6 +131,8 @@ namespace UPE_ONS.DAO
                     if (!reader.GetValue(7).ToString().Equals(""))
                         foiCalibrado = reader.GetInt32(7);
 
+                    int foiPrevisto = 0;
+
                     ret.Add(new ParqueEolico(reader.GetInt32((int)ParqueEolicoAtributos.ID),
                         reader.GetString((int)ParqueEolicoAtributos.NOME),
                         reader.GetString((int)ParqueEolicoAtributos.SIGLA_CPTEC),
@@ -138,7 +140,7 @@ namespace UPE_ONS.DAO
                         reader.GetString((int)ParqueEolicoAtributos.SIGLA_GETOT),
                         reader.GetInt32((int)ParqueEolicoAtributos.NUM_MAQUINAS),
                         reader.GetFloat((int)ParqueEolicoAtributos.POTENCIA),
-                        new Calibracao(0, foiCalibrado, data, tipo)));
+                        new Calibracao(0, foiCalibrado, data, tipo), new Previsao(0,foiPrevisto,data,tipo)));
                 }
                 reader.Close();
             }
@@ -148,6 +150,46 @@ namespace UPE_ONS.DAO
             }
             return ret;
         }
+        
+        internal static IEnumerable<ParqueEolico> getParquesPrevistos(string tipo)
+        {
+            List<ParqueEolico> ret = new List<ParqueEolico>();
+            try
+            {
+                SqlConnection connection = (SqlConnection)Database.openConnection();
+                SqlCommand command = connection.CreateCommand();
+                command.CommandText = "SELECT p.id, p.nome, p.siglaCPTEC, p.siglaPrevEOL, p.siglaGETOT, p.numMaquinas, p.potenciaMaxima, "
+                    + " c.foiPrevisto, c.data FROM parque p INNER JOIN previsao c ON p.id = c.idParque WHERE c.tipo = '" + tipo + "'";
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    Object datetimeStr = reader.GetValue(8);
+                    DateTime? data = null;
+                    if (!datetimeStr.ToString().Equals(""))
+                        data = Convert.ToDateTime(datetimeStr);
+
+                    int foiPrevisto = 0;
+                    if (!reader.GetValue(7).ToString().Equals(""))
+                        foiPrevisto = reader.GetInt32(7);
+
+                    ret.Add(new ParqueEolico(reader.GetInt32((int)ParqueEolicoAtributos.ID),
+                        reader.GetString((int)ParqueEolicoAtributos.NOME),
+                        reader.GetString((int)ParqueEolicoAtributos.SIGLA_CPTEC),
+                        reader.GetString((int)ParqueEolicoAtributos.SIGLA_PrevEOL),
+                        reader.GetString((int)ParqueEolicoAtributos.SIGLA_GETOT),
+                        reader.GetInt32((int)ParqueEolicoAtributos.NUM_MAQUINAS),
+                        reader.GetFloat((int)ParqueEolicoAtributos.POTENCIA),
+                        new Previsao(0, foiPrevisto, data, tipo)));
+                }
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return ret;
+        }
+         
 
         internal static IEnumerable<ParqueEolico> SelectAll_LEFT(string tipo)
         {
@@ -243,6 +285,30 @@ namespace UPE_ONS.DAO
             catch (Exception e)
             {
                 throw new Exception("Ops, não foi possível atualizar o status de calibrado do parque eólico." + e.Data);
+            }
+        }
+
+        internal void atualizarParqueFoiPrevisto(ParqueEolico p)
+        {
+            try
+            {
+                SqlConnection connection = (SqlConnection)Database.openConnection();
+                SqlCommand command = connection.CreateCommand();
+
+                command.CommandText = "SELECT COUNT(*) FROM previsao WHERE idParque = " + p.Id + " AND tipo = '" + p.Previsao.Tipo + "'";
+                int? count = int.Parse(command.ExecuteScalar().ToString());
+
+                if (count != null && count != 0)
+                    command.CommandText = "UPDATE previsao SET data = GetDate() WHERE idParque = " + p.Id + ";";
+                else
+                    command.CommandText = "INSERT INTO previsao (foiPrevisto, data, idParque, tipo) VALUES (1,GetDate(), " + p.Id + ", '" + p.Previsao.Tipo + "')";
+
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ops, não foi possível atualizar o status de previsão do parque eólico." + e.Data);
             }
         }
     }
