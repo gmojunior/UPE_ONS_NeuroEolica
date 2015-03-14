@@ -60,7 +60,7 @@ namespace UPE_ONS.Controllers
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, Constants.WARNNING_CAPTION);
+                throw ex;
             }
         }
 

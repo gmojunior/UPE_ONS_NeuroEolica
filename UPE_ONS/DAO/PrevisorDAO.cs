@@ -36,7 +36,7 @@ namespace UPE_ONS.DAO
                     " LIMIT 1;";
                 */
 
-                string query = "SELECT TOP 1 p.id, p.nome, vv.dia, vv.mes, vv.ano, vv.mes, vv.velocidade00, vv.velocidade01, " +
+                string query = "SELECT TOP 1 p.id, p.nome, vv.dia, vv.mes, vv.ano, vv.velocidade00, vv.velocidade01, " +
                " vv.velocidade02, vv.velocidade03, vv.velocidade04, vv.velocidade05, vv.velocidade06, vv.velocidade07, vv.velocidade08," +
                " vv.velocidade09, vv.velocidade10, vv.velocidade11, vv.velocidade12, vv.velocidade13, vv.velocidade14, vv.velocidade15," +
                " vv.velocidade16, vv.velocidade17, vv.velocidade18, vv.velocidade19, vv.velocidade20, vv.velocidade21, vv.velocidade22, " +
@@ -49,7 +49,7 @@ namespace UPE_ONS.DAO
                    " AND vv.mes = dv.mes " +
                    " AND vv.ano = dv.ano " +
                    " AND vv.diaPrevisto = " + diaPrevisto +
-                   " AND CONVERT(DATETIME,(CONCAT(vv.ano,'-',vv.mes,'-',vv.dia)),102) <= '" + String.Format("{0:yyyy-M-d}", DateTime.Now) + "'" +
+                   " AND CONVERT(DATETIME,(CONCAT(vv.ano,'-',vv.mes,'-',vv.dia)),102) <= '" + DateTime.Now + "'" +
                    " ORDER BY vv.ano DESC, vv.mes DESC, vv.dia DESC;";
 
                 command.CommandText = query;
@@ -64,12 +64,12 @@ namespace UPE_ONS.DAO
                     for (int hora = 0; hora < totalHorasPorDia; hora++)
                     {
                         // A chave do dictionary de potencias medias é a hora;mes
-                        string key = hora + ";" + reader.GetString(3);
+                        string key = hora + ";" + reader.GetInt32(3);
 
                         ParqueEolico p = new ParqueEolico(reader.GetInt32(0), reader.GetString(1), "", "","", 0, 0, new Calibracao());
 
                         entrada.Add(new EntradaVentoPotencia(p, reader.GetInt32(2), reader.GetInt32(3),
-                            reader.GetInt32(4), hora, reader.GetString(6 + hora), reader.GetString(30 + hora),
+                            reader.GetInt32(4), hora, reader.GetString(5 + hora), reader.GetString(29 + hora),
                             (string)dicPotenciaMedia[key]));
                     }
                     ret.Add(entrada);
@@ -83,43 +83,48 @@ namespace UPE_ONS.DAO
         internal EntradaVentoPotencia GetDadosPrevisaoPotenciaVentoVisualizar(ParqueEolico parque)
         {
             EntradaVentoPotencia ret = null;
-
-            SqlConnection connection = (SqlConnection)Database.openConnection();
-            SqlCommand command = connection.CreateCommand();
-            /*
-            string query = "SELECT p.id, p.nome, p.siglaCPTEC, p.siglaPrevEOL, vv.dia, vv.mes, vv.ano, vv.mes " +
-                " FROM velocidadevento vv, direcaovento dv, parque p WHERE p.id = " + parque.Id +
-                " AND dv.idParque = " + parque.Id + " AND vv.idParque = " + parque.Id +
-                " AND vv.dia = dv.dia " +
-                " AND vv.mes = dv.mes " +
-                " AND vv.ano = dv.ano " +
-                " AND str_to_date(CONCAT(vv.ano,'-',vv.mes,'-',vv.dia),'%Y-%m-%d') <= '" + String.Format("{0:yyyy-M-d}", DateTime.Now) + "'" +
-                " ORDER BY vv.ano DESC, vv.mes DESC, vv.dia DESC " +
-                " LIMIT 1;";
-            */
-            string query = "SELECT TOP 1 p.id, p.nome, p.siglaCPTEC, p.siglaPrevEOL, vv.dia, vv.mes, vv.ano, vv.mes " +
-               " FROM velocidadevento vv, direcaovento dv, parque p WHERE p.id = " + parque.Id +
-               " AND dv.idParque = " + parque.Id + " AND vv.idParque = " + parque.Id +
-               " AND vv.dia = dv.dia " +
-               " AND vv.mes = dv.mes " +
-               " AND vv.ano = dv.ano " +
-               " AND CONVERT(DATETIME,(CONCAT(vv.ano,'-',vv.mes,'-',vv.dia)),102) <= '" + String.Format("{0:yyyy-M-d}", DateTime.Now) + "'" +
-               " ORDER BY vv.ano DESC, vv.mes DESC, vv.dia DESC; ";
-
-            command.CommandText = query;
-
-            SqlDataReader reader = command.ExecuteReader();
-
-            if (reader.Read())
+            try
             {
-                ParqueEolico p = new ParqueEolico(reader.GetInt32(0), reader.GetInt32(1).ToString(),
-                    reader.GetString(2), reader.GetString(3), reader.GetString(4), -1, -1, new Calibracao());
+                SqlConnection connection = (SqlConnection)Database.openConnection();
+                SqlCommand command = connection.CreateCommand();
+                /*
+                string query = "SELECT p.id, p.nome, p.siglaCPTEC, p.siglaPrevEOL, vv.dia, vv.mes, vv.ano, vv.mes " +
+                    " FROM velocidadevento vv, direcaovento dv, parque p WHERE p.id = " + parque.Id +
+                    " AND dv.idParque = " + parque.Id + " AND vv.idParque = " + parque.Id +
+                    " AND vv.dia = dv.dia " +
+                    " AND vv.mes = dv.mes " +
+                    " AND vv.ano = dv.ano " +
+                    " AND str_to_date(CONCAT(vv.ano,'-',vv.mes,'-',vv.dia),'%Y-%m-%d') <= '" + String.Format("{0:yyyy-M-d}", DateTime.Now) + "'" +
+                    " ORDER BY vv.ano DESC, vv.mes DESC, vv.dia DESC " +
+                    " LIMIT 1;";
+                */
+                string query = "SELECT TOP 1 p.id, p.nome, p.siglaCPTEC, p.siglaPrevEOL, p.siglaGETOT, vv.dia, vv.mes, vv.ano " +
+                   " FROM [NeuroEolica].[dbo].[velocidadevento] vv, [NeuroEolica].[dbo].[direcaovento] dv, [NeuroEolica].[dbo].[parque] p WHERE p.id = " + parque.Id +
+                   " AND dv.idParque = " + parque.Id + " AND vv.idParque = " + parque.Id +
+                   " AND vv.dia = dv.dia " +
+                   " AND vv.mes = dv.mes " +
+                   " AND vv.ano = dv.ano " +
+                   " AND CONVERT(DATETIME,(CONCAT(vv.ano,'-',vv.mes,'-',vv.dia)),102) <= '" + DateTime.Now + "'" +
+                   " ORDER BY vv.ano DESC, vv.mes DESC, vv.dia DESC; ";
 
-                ret = new EntradaVentoPotencia(p, reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7), -1, "", "", "");
+                command.CommandText = query;
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    ParqueEolico p = new ParqueEolico(reader.GetInt32(0), reader.GetString(1),
+                        reader.GetString(2), reader.GetString(3), reader.GetString(4), -1, -1, new Calibracao());
+
+                    ret = new EntradaVentoPotencia(p, reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7), -1, "", "", "");
+                }
+
+                reader.Close();
             }
-
-            reader.Close();
-
+            catch (Exception e)
+            {
+                throw e;
+            }
             return ret;
         }
     }

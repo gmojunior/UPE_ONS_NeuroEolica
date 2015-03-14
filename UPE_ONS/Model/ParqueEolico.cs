@@ -15,6 +15,7 @@ namespace UPE_ONS.Model
         public double PotenciaMaxima { get; set; }
 
         public Calibracao Calibracao { get; set; }
+        public Previsao Previsao { get; set; }
         
         public ParqueEolico()
         {
@@ -31,6 +32,33 @@ namespace UPE_ONS.Model
             this.NumMaquinas = numMaquinas;
             this.PotenciaMaxima = potenciaMaxima;
             this.Calibracao = calibracao;
+        }
+
+        public ParqueEolico(int id, String nome, String siglaCPTEC, String siglaPrevEOL, String SiglaGETOT, int numMaquinas,
+            double potenciaMaxima, Previsao previsao)
+        {
+            this.Id = id;
+            this.Nome = nome;
+            this.SiglaCPTEC = siglaCPTEC;
+            this.SiglaPrevEOL = siglaPrevEOL;
+            this.SiglaGETOT = SiglaGETOT;
+            this.NumMaquinas = numMaquinas;
+            this.PotenciaMaxima = potenciaMaxima;
+            this.Previsao = previsao;
+        }
+
+        public ParqueEolico(int id, String nome, String siglaCPTEC, String siglaPrevEOL, String SiglaGETOT, int numMaquinas,
+            double potenciaMaxima, Calibracao calibracao, Previsao previsao)
+        {
+            this.Id = id;
+            this.Nome = nome;
+            this.SiglaCPTEC = siglaCPTEC;
+            this.SiglaPrevEOL = siglaPrevEOL;
+            this.SiglaGETOT = SiglaGETOT;
+            this.NumMaquinas = numMaquinas;
+            this.PotenciaMaxima = potenciaMaxima;
+            this.Calibracao = calibracao;
+            this.Previsao = previsao;
         }
 
         public ParqueEolico(String nome, String siglaCPTEC, String siglaPrevEOL, int numMaquinas, 
@@ -79,6 +107,33 @@ namespace UPE_ONS.Model
         {
             this.Id = id;
             this.FoiCalibrado = foiCalibrado;
+            this.Data = data;
+            this.Tipo = tipo;
+        }
+    }
+
+    public class Previsao
+    {
+        public int Id { get; set; }
+        public int? FoiPrevisto { get; set; }
+        public DateTime? Data { get; set; }
+        public String Tipo { get; set; }
+
+        public Previsao()
+        {
+        }
+
+        public Previsao(int? foiPrevisto, DateTime? data, String tipo)
+        {
+            this.FoiPrevisto = foiPrevisto;
+            this.Data = data;
+            this.Tipo = tipo;
+        }
+
+        public Previsao(int id, int? foiPrevisto, DateTime? data, String tipo)
+        {
+            this.Id = id;
+            this.FoiPrevisto = foiPrevisto;
             this.Data = data;
             this.Tipo = tipo;
         }
