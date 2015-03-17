@@ -35,6 +35,7 @@ namespace UPE_ONS.DAO
                     " ORDER BY vv.ano DESC, vv.mes DESC, vv.dia DESC " +
                     " LIMIT 1;";
                 */
+                DateTime dataAgora = DateTime.Now;
 
                 string query = "SELECT TOP 1 p.id, p.nome, vv.dia, vv.mes, vv.ano, vv.velocidade00, vv.velocidade01, " +
                " vv.velocidade02, vv.velocidade03, vv.velocidade04, vv.velocidade05, vv.velocidade06, vv.velocidade07, vv.velocidade08," +
@@ -49,7 +50,7 @@ namespace UPE_ONS.DAO
                    " AND vv.mes = dv.mes " +
                    " AND vv.ano = dv.ano " +
                    " AND vv.diaPrevisto = " + diaPrevisto +
-                   " AND CONVERT(DATETIME,(CONCAT(vv.ano,'-',vv.mes,'-',vv.dia)),102) <= '" + DateTime.Now + "'" +
+                   " AND CONVERT(DATETIME,(CONCAT(vv.ano,'-',vv.mes,'-',vv.dia)),102) <= '" + String.Format("{0:yyyy-M-d}", dataAgora) + "'" +
                    " ORDER BY vv.ano DESC, vv.mes DESC, vv.dia DESC;";
 
                 command.CommandText = query;
@@ -98,14 +99,25 @@ namespace UPE_ONS.DAO
                     " ORDER BY vv.ano DESC, vv.mes DESC, vv.dia DESC " +
                     " LIMIT 1;";
                 */
+                /*
                 string query = "SELECT TOP 1 p.id, p.nome, p.siglaCPTEC, p.siglaPrevEOL, p.siglaGETOT, vv.dia, vv.mes, vv.ano " +
                    " FROM [NeuroEolica].[dbo].[velocidadevento] vv, [NeuroEolica].[dbo].[direcaovento] dv, [NeuroEolica].[dbo].[parque] p WHERE p.id = " + parque.Id +
                    " AND dv.idParque = " + parque.Id + " AND vv.idParque = " + parque.Id +
                    " AND vv.dia = dv.dia " +
                    " AND vv.mes = dv.mes " +
                    " AND vv.ano = dv.ano " +
-                   " AND CONVERT(DATETIME,(CONCAT(vv.ano,'-',vv.mes,'-',vv.dia)),102) <= '" + DateTime.Now + "'" +
+                   " AND CONVERT(DATETIME,(CONCAT(vv.ano,'-',vv.mes,'-',vv.dia)),101) <= '" + DateTime.Now + "'" +
+                   " ORDER BY vv.ano DESC, vv.mes DESC, vv.dia DESC; ";*/
+                DateTime dataAtual = DateTime.Now;
+                string query = "SELECT TOP 1 p.id, p.nome, p.siglaCPTEC, p.siglaPrevEOL, p.siglaGETOT, vv.dia, vv.mes, vv.ano " +
+                   " FROM [NeuroEolica].[dbo].[velocidadevento] vv, [NeuroEolica].[dbo].[direcaovento] dv, [NeuroEolica].[dbo].[parque] p WHERE p.id = " + parque.Id +
+                   " AND dv.idParque = " + parque.Id + " AND vv.idParque = " + parque.Id +
+                   " AND vv.dia = dv.dia " +
+                   " AND vv.mes = dv.mes " +
+                   " AND vv.ano = dv.ano " +
+                   " AND CONVERT(DATETIME,(CONCAT(vv.ano,'-',vv.mes,'-',vv.dia)),102) <= '" + String.Format("{0:yyyy-M-d}", dataAtual) + "' " +
                    " ORDER BY vv.ano DESC, vv.mes DESC, vv.dia DESC; ";
+                
 
                 command.CommandText = query;
 
