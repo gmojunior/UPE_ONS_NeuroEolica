@@ -212,7 +212,7 @@ namespace UPE_ONS.Controllers
                 this.atualizarCaminhoDoExecutavelDoPrevisor(Path.GetFullPath(PREVISOR_TR_DIRECTORY_NAME));
 
                 //Abrir PI
-                MyPiController controller = new MyPiController(tag, time1, time2);
+                MyPiController controller = new MyPiController(tag, initialDate, currentDateTime);
                 controller.run();
                 ArrayList integralizedPowerList = fileReader.readPotRequestFile(tag,PREVISOR_TR_NUMERO_ENTRADAS);
 
