@@ -333,7 +333,7 @@ namespace UPE_ONS.DAO
                 SqlConnection connection = (SqlConnection)Database.openConnection();
                 SqlCommand command = connection.CreateCommand();
 
-                command.CommandText = "SELECT dv.dia, dv.mes, dv.ano, dv.diaPrevisto, direcao00, direcao01, "+
+                command.CommandText = "SELECT TOP " + limit + " dv.dia, dv.mes, dv.ano, dv.diaPrevisto, direcao00, direcao01, "+
                     "direcao02, direcao03, direcao04, direcao05, direcao06, direcao07, direcao08, " +
                     "direcao09, direcao10, direcao11, direcao12, direcao13, direcao14, direcao15, " +
                     "direcao16, direcao17, direcao18, direcao19, direcao20, direcao21, " +
@@ -346,7 +346,7 @@ namespace UPE_ONS.DAO
                     "FROM direcaovento dv, velocidadevento vv, parque p " +
                     "WHERE p.id = " + idParqueEolico + " AND p.id = dv.idParque AND p.id = vv.idParque AND dv.idParque = vv.idParque AND "+
                     "dv.diaPrevisto = vv.diaPrevisto AND dv.dia = vv.dia AND dv.mes = vv.mes AND  dv.ano = vv.ano  " +
-                    " ORDER BY dv.ano DESC, dv.mes DESC, dv.dia DESC, dv.diaPrevisto SET ROWCOUNT " + limit;
+                    " ORDER BY dv.ano DESC, dv.mes DESC, dv.dia DESC, dv.diaPrevisto";
                 
                 SqlDataReader reader = command.ExecuteReader();
 
