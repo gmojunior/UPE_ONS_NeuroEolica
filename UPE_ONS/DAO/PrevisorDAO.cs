@@ -50,7 +50,7 @@ namespace UPE_ONS.DAO
                    " AND vv.mes = dv.mes " +
                    " AND vv.ano = dv.ano " +
                    " AND vv.diaPrevisto = " + diaPrevisto +
-                   " AND CONVERT(DATETIME,(CONCAT(vv.ano,'-',vv.mes,'-',vv.dia)),102) <= '" + String.Format("{0:yyyy-M-d}", dataAgora) + "'" +
+                   " AND CONVERT(DATETIME,(CONCAT(vv.ano,'-',vv.mes,'-',vv.dia)),102) <= '" + dataAgora + "'" +
                    " ORDER BY vv.ano DESC, vv.mes DESC, vv.dia DESC;";
 
                 command.CommandText = query;
@@ -115,7 +115,7 @@ namespace UPE_ONS.DAO
                    " AND vv.dia = dv.dia " +
                    " AND vv.mes = dv.mes " +
                    " AND vv.ano = dv.ano " +
-                   " AND CONVERT(DATETIME,(CONCAT(vv.ano,'-',vv.mes,'-',vv.dia)),102) <= '" + String.Format("{0:yyyy-M-d}", dataAtual) + "' " +
+                   " AND CONVERT(DATETIME,(CONCAT(vv.ano,'-',vv.mes,'-',vv.dia)),102) <= '" + dataAtual + "' " +
                    " ORDER BY vv.ano DESC, vv.mes DESC, vv.dia DESC; ";
                 
 

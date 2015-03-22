@@ -52,6 +52,10 @@
     <ApplicationIcon>application.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Rubenhak.Common.WPF, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Rubenhak.Common.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -103,6 +107,7 @@
     <Compile Include="Util\IntegerValidationRules.cs" />
     <Compile Include="Util\NeuroEOLParameters.cs" />
     <Compile Include="Util\MyPiFileUtil.cs" />
+    <Compile Include="Util\RequiredValidationRules.cs" />
     <Compile Include="Util\SQL_Util.cs" />
     <Compile Include="Util\StringValidationRules.cs" />
     <Compile Include="Util\Animation.cs" />
@@ -243,6 +248,7 @@
   <ItemGroup>
     <Resource Include="Resources\application.ico" />
     <Resource Include="application.ico" />
+    <Content Include="Libs\Rubenhak.Common.WPF.dll" />
     <Content Include="Libs\Xceed.Wpf.Toolkit.dll" />
     <Resource Include="Resources\close.png" />
   </ItemGroup>

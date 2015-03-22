@@ -150,3 +150,5 @@ C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\UPE_ONS.g.reso
 C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\UPE_ONS.Properties.Resources.resources
 C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\UPE_ONS.Views.GraphForm.resources
 C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\obj\Debug\UPE_ONS.csproj.GenerateResource.Cache
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\bin\Debug\Rubenhak.Common.WPF.dll
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\UPE_ONS\bin\Debug\Rubenhak.Common.WPF.pdb

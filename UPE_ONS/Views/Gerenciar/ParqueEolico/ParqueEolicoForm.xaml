@@ -1,6 +1,7 @@
 ﻿<UserControl x:Class="UPE_ONS.Views.ParqueEolicoForm"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:commonWPF="clr-namespace:Rubenhak.Common.WPF;assembly=Rubenhak.Common.WPF"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:util="clr-namespace:UPE_ONS.Util">
@@ -111,15 +112,8 @@
                         <TextBlock Text="Potência máxima:" VerticalAlignment="Center" Width="125"/>
                         <TextBox HorizontalAlignment="Right" Height="23" Name="txtPotenciaMaxima"
                                  Validation.Error="Validation_Error"
-                                 VerticalAlignment="Center" Width="200">
-                            <TextBox.Text>
-                                <Binding Path="PotenciaMaxima" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
-                                    <Binding.ValidationRules>
-                                        <util:DoubleValidationRules ValidatesOnTargetUpdated="True"/>
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
+                                 VerticalAlignment="Center" Width="200"
+                                 commonWPF:TextBoxMaskBehavior.Mask="Decimal"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0 40 0 0" HorizontalAlignment="Right">
                         <Button Name="btnAction" Content="Texto" Width="75" Margin="10" Command="New"/>

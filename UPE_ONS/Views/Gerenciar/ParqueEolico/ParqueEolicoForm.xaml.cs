@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -44,6 +45,7 @@ namespace UPE_ONS.Views
                 this.txtTitulo.Text = "Alterar Parque Eólico";
 
                 this.parqueEolico = (ParqueEolico)elemento;
+                this.txtPotenciaMaxima.Text = Math.Round(this.parqueEolico.PotenciaMaxima, 2).ToString().Replace(".",",");
             }
             this.DataContext = parqueEolico;
         }
@@ -81,6 +83,11 @@ namespace UPE_ONS.Views
 
         private void CadastrarParqueEolico_Executed(object sender, ExecutedRoutedEventArgs e)
         {
+            if (this.txtPotenciaMaxima.Text == null || this.txtPotenciaMaxima.Text.Equals(""))
+                this.parqueEolico.PotenciaMaxima = 1;
+            else
+                this.parqueEolico.PotenciaMaxima = Double.Parse(this.txtPotenciaMaxima.Text);
+
             if (tipo == EnumParqueEolicoFormType.CADASTRAR)
             {
                 try
