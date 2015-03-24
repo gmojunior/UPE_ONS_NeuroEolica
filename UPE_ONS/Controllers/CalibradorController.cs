@@ -232,7 +232,7 @@ namespace UPE_ONS.Controllers
                 if (isTempoReal)
                 {
                     this.criarCaminhoDeDiscoCalibrador(Path.GetFullPath(CALIBRADOR_TR_DIRECTORY_NAME));
-                    this.criarPastaDeTrabalhoCalibrador(CALIBRADOR_TR_DIRECTORY_NAME + PASTA_TRABALHO, parqueEolico);
+                    this.criarPastaDeTrabalhoCalibrador(CALIBRADOR_TR_DIRECTORY_NAME + PASTA_TRABALHO, parqueEolico,"TR");
                     var process = Process.Start(CALIBRADOR_TR_EXE);
                     process.WaitForExit();
 
@@ -243,7 +243,7 @@ namespace UPE_ONS.Controllers
                 else
                 {
                     this.criarCaminhoDeDiscoCalibrador(Path.GetFullPath(CALIBRADOR_PP_DIRECTORY_NAME));
-                    this.criarPastaDeTrabalhoCalibrador(CALIBRADOR_PP_DIRECTORY_NAME + PASTA_TRABALHO, parqueEolico);
+                    this.criarPastaDeTrabalhoCalibrador(CALIBRADOR_PP_DIRECTORY_NAME + PASTA_TRABALHO, parqueEolico, "PP");
                     var process = Process.Start(CALIBRADOR_PP_EXE);
                     process.WaitForExit();
 
@@ -318,7 +318,7 @@ namespace UPE_ONS.Controllers
             try
             {
                 this.criarCaminhoDeDiscoCalibrador(Path.GetFullPath(CALIBRADOR_VP_DIRECTORY_NAME));
-                this.criarPastaDeTrabalhoCalibrador(CALIBRADOR_VP_DIRECTORY_NAME + PASTA_TRABALHO, parqueEolico);
+                this.criarPastaDeTrabalhoCalibrador(CALIBRADOR_VP_DIRECTORY_NAME + PASTA_TRABALHO, parqueEolico, "VP");
                 var process = Process.Start(CALIBRADOR_VP_EXE);
                 process.WaitForExit();
 
@@ -332,14 +332,37 @@ namespace UPE_ONS.Controllers
             }
         }
 
-        private void criarPastaDeTrabalhoCalibrador(string caminhoCalibrador, ParqueEolico parqueEolico)
+        private void criarPastaDeTrabalhoCalibrador(string caminhoCalibrador, ParqueEolico parqueEolico, string tipoCalibrador)
         {
-            StreamWriter file = new StreamWriter(caminhoCalibrador);
-            file.WriteLine(parqueEolico.SiglaPrevEOL);
-            file.WriteLine(parqueEolico.PotenciaMaxima);
-            file.WriteLine("6");
-            file.WriteLine("5");
-            file.Close();
+
+            if (tipoCalibrador.Equals("PP"))
+            {
+                StreamWriter file = new StreamWriter(caminhoCalibrador);
+                file.WriteLine(parqueEolico.SiglaPrevEOL);
+                file.WriteLine(parqueEolico.PotenciaMaxima);
+                file.WriteLine("6");
+                file.WriteLine("5");
+                file.Close();
+            }
+
+            if (tipoCalibrador.Equals("TR"))
+            {
+                StreamWriter file = new StreamWriter(caminhoCalibrador);
+                file.WriteLine(parqueEolico.SiglaPrevEOL);
+                file.WriteLine(parqueEolico.PotenciaMaxima);
+                file.WriteLine("6");
+                file.WriteLine("5");
+                file.Close();
+            }
+            if (tipoCalibrador.Equals("VP"))
+            {
+                StreamWriter file = new StreamWriter(caminhoCalibrador);
+                file.WriteLine(parqueEolico.SiglaPrevEOL);
+                file.WriteLine(parqueEolico.PotenciaMaxima);
+                file.WriteLine("6");
+                file.WriteLine("5");
+                file.Close();
+            }
         }
 
         private void criarCaminhoDeDiscoCalibrador(string caminho)
