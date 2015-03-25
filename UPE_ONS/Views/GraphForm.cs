@@ -34,6 +34,8 @@ namespace UPE_ONS.Views
         private const string PASTA_ENTRADAS = "/Entradas";
         private const string PASTA_TRABALHO = "/TRABALHO";
 
+        private int contadorGrafico = 0;
+
 
         public GraphForm()
         {
@@ -267,7 +269,7 @@ namespace UPE_ONS.Views
 
                 display.DataSources.Add(new DataSource());
                 display.DataSources[j].Name = "Gráfico de Previsão -" + cb2.Text;
-                display.DataSources[j].OnRenderXAxisLabel += RenderXLabel;
+                display.DataSources[j].OnRenderXAxisLabel += RenderXLabel; //evento que vai ocorrer e chama a função RenderXLabel
                 
 
                 switch (CurExample)
@@ -281,8 +283,8 @@ namespace UPE_ONS.Views
 
                         int max = (int)data2.Max();
 
-                        display.SetGridDistanceX(2);
-                        display.SetDisplayRangeX(-1, 48);
+                        display.SetGridDistanceX(6); //coloca de 2 em 2
+                        display.SetDisplayRangeX(-1, 55);
 
                         display.DataSources[j].Length = data2.Length;
 
@@ -407,6 +409,8 @@ namespace UPE_ONS.Views
                         display.DataSources[j].OnRenderYAxisLabel = RenderYLabel;
                         break;
                 }
+
+                display.DataSources[j].OnRenderXAxisLabel -= RenderXLabel;
             }
         }
 
@@ -718,7 +722,8 @@ namespace UPE_ONS.Views
             {
                 int Value = (int)(s.Samples[idx].x / 200);
                 String Label = "" + Value + "\"";
-                return Label;
+                //return Label;
+                return contadorGrafico++.ToString();
             }
         }
 
