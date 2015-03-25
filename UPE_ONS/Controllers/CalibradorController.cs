@@ -339,8 +339,8 @@ namespace UPE_ONS.Controllers
             {
                 StreamWriter file = new StreamWriter(caminhoCalibrador);
                 file.WriteLine(parqueEolico.SiglaPrevEOL);
-                file.WriteLine(parqueEolico.PotenciaMaxima);
-                file.WriteLine("6");
+                file.WriteLine(parqueEolico.PotenciaMaxima.ToString().Replace(',', '.'));
+                file.WriteLine("8");
                 file.WriteLine("5");
                 file.Close();
             }
@@ -349,16 +349,16 @@ namespace UPE_ONS.Controllers
             {
                 StreamWriter file = new StreamWriter(caminhoCalibrador);
                 file.WriteLine(parqueEolico.SiglaPrevEOL);
-                file.WriteLine(parqueEolico.PotenciaMaxima);
-                file.WriteLine("6");
-                file.WriteLine("5");
+                file.WriteLine(parqueEolico.PotenciaMaxima.ToString().Replace(',','.'));
+                file.WriteLine("20");
+                file.WriteLine("1");
                 file.Close();
             }
             if (tipoCalibrador.Equals("VP"))
             {
                 StreamWriter file = new StreamWriter(caminhoCalibrador);
                 file.WriteLine(parqueEolico.SiglaPrevEOL);
-                file.WriteLine(parqueEolico.PotenciaMaxima);
+                file.WriteLine(parqueEolico.PotenciaMaxima.ToString().Replace(',', '.'));
                 file.WriteLine("6");
                 file.WriteLine("5");
                 file.Close();
