@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("libs/rubenhak.common.wpf.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("libs/xceed.wpf.toolkit.dll")]
 
 
