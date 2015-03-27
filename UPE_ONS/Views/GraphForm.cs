@@ -269,7 +269,6 @@ namespace UPE_ONS.Views
                 display.DataSources[j].Name = "Gráfico de Previsão -" + cb2.Text;
                 display.DataSources[j].OnRenderXAxisLabel += RenderXLabel;
                 
-
                 switch (CurExample)
                 {
                     case "NORMAL":
@@ -281,7 +280,7 @@ namespace UPE_ONS.Views
 
                         int max = (int)data2.Max();
 
-                        display.SetGridDistanceX(2);
+                        display.SetGridDistanceX(6);
                         display.SetDisplayRangeX(-1, 48);
 
                         display.DataSources[j].Length = data2.Length;
@@ -716,8 +715,8 @@ namespace UPE_ONS.Views
             }
             else
             {
-                int Value = (int)(s.Samples[idx].x / 200);
-                String Label = "" + Value + "\"";
+                int Value = (int)(s.Samples[idx].x / 6);
+                String Label = "" + Value + "";
                 return Label;
             }
         }
