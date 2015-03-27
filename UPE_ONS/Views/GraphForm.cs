@@ -282,13 +282,9 @@ namespace UPE_ONS.Views
 
                         int max = (int)data2.Max();
 
-<<<<<<< HEAD
                         display.SetGridDistanceX(6);
                         display.SetDisplayRangeX(-1, 48);
-=======
-                        display.SetGridDistanceX(6); //coloca de 2 em 2
                         display.SetDisplayRangeX(-1, 55);
->>>>>>> 82d210efe5e0675adf014eebd32426e95f0f58e9
 
                         display.DataSources[j].Length = data2.Length;
 
@@ -413,8 +409,6 @@ namespace UPE_ONS.Views
                         display.DataSources[j].OnRenderYAxisLabel = RenderYLabel;
                         break;
                 }
-
-                display.DataSources[j].OnRenderXAxisLabel -= RenderXLabel;
             }
         }
 
@@ -724,16 +718,9 @@ namespace UPE_ONS.Views
             }
             else
             {
-<<<<<<< HEAD
                 int Value = (int)(s.Samples[idx].x / 6)+1;
                 String Label = "" + Value + "";
                 return Label;
-=======
-                int Value = (int)(s.Samples[idx].x / 200);
-                String Label = "" + Value + "\"";
-                //return Label;
-                return contadorGrafico++.ToString();
->>>>>>> 82d210efe5e0675adf014eebd32426e95f0f58e9
             }
         }
 
