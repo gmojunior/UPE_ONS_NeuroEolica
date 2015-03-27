@@ -715,7 +715,7 @@ namespace UPE_ONS.Views
             }
             else
             {
-                int Value = (int)(s.Samples[idx].x / 6);
+                int Value = (int)(s.Samples[idx].x / 6)+1;
                 String Label = "" + Value + "";
                 return Label;
             }
