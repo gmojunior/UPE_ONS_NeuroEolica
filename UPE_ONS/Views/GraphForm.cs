@@ -268,7 +268,7 @@ namespace UPE_ONS.Views
                 
 
                 display.DataSources.Add(new DataSource());
-                display.DataSources[j].Name = "Gráfico de Previsão -" + cb2.Text;
+                display.DataSources[j].Name = "Gráfico de Previsão -" + cb2.Text + " - Potência (MW) x Horas";
                 display.DataSources[j].OnRenderXAxisLabel += RenderXLabel; //evento que vai ocorrer e chama a função RenderXLabel
                 
                 switch (CurExample)
