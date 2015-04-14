@@ -21,13 +21,14 @@ namespace UPE_ONS.Views
 
         private ParqueEolico parqueEolico;
         private EnumParqueEolicoFormType tipo;
+        public String strPotenciaMaxima {get;set;}
 
         public ParqueEolicoForm(EnumParqueEolicoFormType tipo, object elemento)
         {
             this.tipo = tipo;
-
             InitializeComponent();
             InitializeMyComponents(tipo, elemento);
+            this.txtPotenciaMaxima.DataContext = this;
         }
 
         private void InitializeMyComponents(EnumParqueEolicoFormType tipo, object elemento)
@@ -38,6 +39,7 @@ namespace UPE_ONS.Views
                 this.txtTitulo.Text = "Cadastrar Parque Eólico";
 
                 this.parqueEolico = new ParqueEolico();
+                this.strPotenciaMaxima = "0";
             }
             else if (tipo == EnumParqueEolicoFormType.ALTERAR)
             {
@@ -45,7 +47,7 @@ namespace UPE_ONS.Views
                 this.txtTitulo.Text = "Alterar Parque Eólico";
 
                 this.parqueEolico = (ParqueEolico)elemento;
-                this.txtPotenciaMaxima.Text = Math.Round(this.parqueEolico.PotenciaMaxima, 2).ToString().Replace(".",",");
+                this.strPotenciaMaxima = Math.Round(this.parqueEolico.PotenciaMaxima, 2).ToString().Replace(".", ",");
             }
             this.DataContext = parqueEolico;
         }
@@ -83,7 +85,8 @@ namespace UPE_ONS.Views
 
         private void CadastrarParqueEolico_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            if (this.txtPotenciaMaxima.Text == null || this.txtPotenciaMaxima.Text.Equals(""))
+            if (this.txtPotenciaMaxima.Text == null || this.txtPotenciaMaxima.Text.Equals("") ||
+                this.txtPotenciaMaxima.Text.Equals("0"))
                 this.parqueEolico.PotenciaMaxima = 1;
             else
                 this.parqueEolico.PotenciaMaxima = Double.Parse(this.txtPotenciaMaxima.Text);

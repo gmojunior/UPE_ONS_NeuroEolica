@@ -28,3 +28,4 @@ C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\GraphLib\obj\Debug\ClassLibrary1
 C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\GraphLib\obj\Debug\GraphLib.csproj.GenerateResource.Cache
 C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\GraphLib\obj\Debug\GraphLib.dll
 C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\GraphLib\obj\Debug\GraphLib.pdb
+C:\GilsonOliveira\Projeto UPE_ONS\workspace\git\GraphLib\obj\Debug\GraphLib.csprojResolveAssemblyReference.cache

@@ -113,7 +113,13 @@
                         <TextBox HorizontalAlignment="Right" Height="23" Name="txtPotenciaMaxima"
                                  Validation.Error="Validation_Error"
                                  VerticalAlignment="Center" Width="200"
-                                 commonWPF:TextBoxMaskBehavior.Mask="Decimal"/>
+                                 commonWPF:TextBoxMaskBehavior.Mask="Decimal">
+                            <Binding Path="strPotenciaMaxima" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                                <Binding.ValidationRules>
+                                    <util:RequiredValidationRules />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0 40 0 0" HorizontalAlignment="Right">
                         <Button Name="btnAction" Content="Texto" Width="75" Margin="10" Command="New"/>
