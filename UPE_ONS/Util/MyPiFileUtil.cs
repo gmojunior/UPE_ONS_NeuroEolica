@@ -210,7 +210,7 @@ namespace UPE_ONS.Util
 
             String[] tags = tag.Split('.');
             string path = NeuroEOLParameters.PIDrive + "\\" + NeuroEOLParameters.PIDirectory + "\\" + tags[0] + ".txt";
-            
+
             String lineOfText = "";
 
             //Open file in the following PATH
@@ -220,7 +220,7 @@ namespace UPE_ONS.Util
                             FileShare.ReadWrite);
             var file = new StreamReader(filestream, Encoding.UTF8, true, 128);
             int index = 0;
-            Double pot = 0;
+            List<Double> pot = new List<double>();
 
             //For each line read the ones with data
             while ((lineOfText = file.ReadLine()) != null)
@@ -228,19 +228,48 @@ namespace UPE_ONS.Util
                 String[] objects = lineOfText.Split((char[])null, StringSplitOptions.RemoveEmptyEntries);
                 if (objects.Length == NeuroEOLParameters.potResponseFileObjects)
                 {
-                    pot += Convert.ToDouble(objects[6]);
+                    pot.Add(Convert.ToDouble(objects[6]));
                     index++;
-                 
+
                     if (index == limitIndex)
                     {
-                        integralizedPowerList.Add(Math.Round((pot / limitIndex), 2));
+                        //integralizedPowerList.Add(Math.Round((pot / limitIndex), 2));
+                        integralizedPowerList.Add(calculateMediaValidValues(pot));
                         index = 0;
-                        pot = 0;
+                        pot = new List<Double>();
                     }
                 }
             }
 
             return integralizedPowerList;
+        }
+
+        private double calculateMediaValidValues(List<Double> pot)
+        {
+            int validValuesCount = 0;
+            double sumPot = 0;
+            for (int i = 0; i < pot.Count(); i++)
+            {
+                if (pot[i] == -9990000.0)
+                {
+                    continue;
+                }
+                else
+                {
+                    validValuesCount++;
+                    sumPot += pot[i];
+                }
+            }
+
+            if (validValuesCount != 0)
+            {
+                return Math.Round((sumPot / validValuesCount), 2);
+            }
+            else
+            {
+                return 0.001;
+            }
+
         }
 
         public void writeFile(ArrayList data, String tag, String path)
